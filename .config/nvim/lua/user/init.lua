@@ -225,7 +225,7 @@ local config = {
       command = "source <afile> | PackerSync",
     })
     -- Remove esc binding so lazygit will work
-    vim.keymap.del("t", "<esc>")
+    -- vim.keymap.del("t", "<esc>")
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
