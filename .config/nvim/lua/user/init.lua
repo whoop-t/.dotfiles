@@ -47,6 +47,8 @@ local config = {
       hi.LineNr = {}
       hi.SignColumn = {}
       hi.StatusLine = {}
+      hi.NeoTreeNormal = {bg = C.none, ctermbg = C.none}
+      hi.NeoTreeNormalNC = {bg = C.none, ctermbg = C.none}
       return hi
     end,
     plugins = { -- enable or disable extra plugin highlighting
