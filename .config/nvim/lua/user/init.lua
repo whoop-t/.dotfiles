@@ -120,6 +120,11 @@ local config = {
       end
       return config -- return final config table
     end,
+    telescope = {
+      defaults = {
+        file_ignore_patterns = { "node_modules" }
+      }
+    },
     treesitter = {
       ensure_installed = { "lua" },
     },
