@@ -40,13 +40,15 @@ local config = {
     -- Modify the highlight groups
     highlights = function(hi)
       local C = require "default_theme.colors"
-      hi.Normal = {bg = C.none, ctermbg = C.none}
-      hi.CursorColumn = {cterm = {}, ctermbg = C.none, ctermfg = C.none}
-      hi.CursorLine = {cterm = {}, ctermbg = C.none, ctermfg = C.none}
-      hi.CursorLineNr = {cterm = {}, ctermbg = C.none, ctermfg = C.none}
+      hi.Normal = { bg = C.none, ctermbg = C.none }
+      hi.NormalNC = { bg = C.none, ctermbg = C.none }
+      hi.CursorColumn = { cterm = {}, ctermbg = C.none, ctermfg = C.none }
+      hi.CursorLine = { cterm = {}, ctermbg = C.none, ctermfg = C.none }
+      hi.CursorLineNr = { cterm = {}, ctermbg = C.none, ctermfg = C.none }
       hi.LineNr = {}
       hi.SignColumn = {}
       hi.StatusLine = {}
+      -- Below is too make explorer transparent
       hi.NeoTreeNormal = {bg = C.none, ctermbg = C.none}
       hi.NeoTreeNormalNC = {bg = C.none, ctermbg = C.none}
       return hi
@@ -97,15 +99,21 @@ local config = {
     },
     -- All other entries override the setup() call for default plugins
     ["null-ls"] = function(config)
-      -- local null_ls = require "null-ls"
+      -- NEED LINE BELOW FOR NULL-LS TO BE REQUIRED AND WORKING
+      local null_ls = require "null-ls"
       -- Check supported formatters and linters
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
       config.sources = {
         -- Set a formatter
-        -- null_ls.builtins.formatting.rubocop,
+        -- null_ls.builtins.formatting.eslint,
+        null_ls.builtins.formatting.eslint_d,
+        -- null_ls.builtins.formatting.fixjson,
         -- Set a linter
-        -- null_ls.builtins.diagnostics.rubocop,
+        null_ls.builtins.diagnostics.eslint_d,
+        -- null_ls.builtins.diagnostics.jsonlint,
+        -- Set code actions
+        null_ls.builtins.code_actions.eslint_d
       }
       -- set up null-ls's on_attach function
       config.on_attach = function(client)
@@ -127,6 +135,9 @@ local config = {
     },
     treesitter = {
       ensure_installed = { "lua" },
+      indent = {
+        enable = true
+      }
     },
     ["nvim-lsp-installer"] = {
       ensure_installed = { "sumneko_lua" },
@@ -182,7 +193,11 @@ local config = {
     servers = {
       -- "pyright"
     },
-    -- add to the server on_attach function
+    formatting = {
+      format_on_save = false, -- enable or disable automatic formatting on save
+      async = true
+    },
+
     -- on_attach = function(client, bufnr)
     -- end,
 
@@ -217,9 +232,30 @@ local config = {
   -- This function is run last
   -- good place to configure mappings and vim options
   polish = function()
+    -- GO TO DASH WHEN CLOSING LAST BUFFER
+    local function alpha_on_bye(cmd)
+      local bufs = vim.fn.getbufinfo { buflisted = true }
+      vim.cmd(cmd)
+      if require("core.utils").is_available "alpha-nvim" and not bufs[2] then
+        require("alpha").start(true)
+      end
+    end
+
+    vim.keymap.del("n", "<leader>c")
+    if require("core.utils").is_available "bufdelete.nvim" then
+      vim.keymap.set("n", "<leader>c", function()
+        alpha_on_bye "Bdelete!"
+      end, { desc = "Close buffer" })
+    else
+      vim.keymap.set("n", "<leader>c", function()
+        alpha_on_bye "bdelete!"
+      end, { desc = "Close buffer" })
+    end
+    -- GO TO DASH WHEN CLOSING LAST BUFFER
+    --
     -- Set key bindings
     vim.keymap.set("n", "<C-s>", ":w!<CR>")
-    vim.keymap.set({"n", "v"}, "<leader>p", "\"_dP", { desc = "Blackhole Delete and Paste" })
+    vim.keymap.set({ "n", "v" }, "<leader>p", "\"_dP", { desc = "Blackhole Delete and Paste" })
     -- Below with set Leader + d to blackhole delete, but that overrides dashboard
     -- vim.keymap.set({"n", "v"}, "<leader>d", "\"_d", { desc = "Blackhole Delete" })
 
