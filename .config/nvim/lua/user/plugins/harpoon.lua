@@ -5,6 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
   },
+  lazy = false,
   cmd = { "Harpoon" },
   keys = {
     { prefix, desc = "Harpoon" },
