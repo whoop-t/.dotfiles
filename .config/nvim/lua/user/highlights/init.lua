@@ -1,4 +1,5 @@
-return { -- this table overrides highlights in all themes
+return {
+         -- this table overrides highlights in all themes
   -- :Telescope then seach "highlights" will show you all the highlights you can alter, good for finding BG to change
   -- Config for transparent bg
   Normal = { bg = "NONE" },
@@ -21,8 +22,8 @@ return { -- this table overrides highlights in all themes
   TabLineSel = { bg = "NONE" },
   TabLineFill = { bg = "NONE" },
   -- Bottom status bar
-  StatusLine = { bg = "NONE"},
-  StatusLineTerm = { bg = "NONE"},
+  StatusLine = { bg = "NONE" },
+  StatusLineTerm = { bg = "NONE" },
   -- Top Bar
   WinBar = { bg = "NONE" },
   WinBarNC = { bg = "NONE" },
@@ -44,3 +45,4 @@ return { -- this table overrides highlights in all themes
   NotifyTRACEBorder = { bg = "NONE" },
   NotifyBackground = { bg = "#000000" },
 }
+

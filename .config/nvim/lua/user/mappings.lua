@@ -6,30 +6,18 @@
 return {
   -- first key is the mode
   n = {
-    [ "<C-j>" ] = false,
-    [ "<C-k>" ] = false,
-    [ "<C-l>" ] = false,
-    [ "<C-;>" ] = false,
-    ["<leader>b"] = false,
-    ["<leader>bb"] = false,
-    ["<leader>bd"] = false,
-    ["<leader>b\\"] = false,
-    ["<leader>b|"] = false,
-    ["<leader>bC"] = false,
-    ["<leader>bc"] = false,
-    ["<leader>bD"] = false,
-    ["<leader>bl"] = false,
-    ["<leader>bn"] = false,
-    ["<leader>br"] = false,
-    ["<leader>bs"] = false,
+    ["<C-j>"] = false,
+    ["<C-k>"] = false,
+    ["<C-l>"] = false,
+    ["<C-;>"] = false,
     -- second key is the lefthand side of the map
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>p"] = { "\"_dP", desc = "blackhole delete and paste" },
     ["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
     -- Keep cursor in middle when cntrl-d or cntrl-u, less disorienting
-    ["<C-d>"] =  { "<C-d>zz" },
-    ["<C-u>"] =  { "<C-u>zz" },
+    ["<C-d>"] = { "<C-d>zz" },
+    ["<C-u>"] = { "<C-u>zz" },
     -- remap to allow H and L to move buffers(tabs)
     ["L"] = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer"
@@ -38,14 +26,15 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
-    -- Since we only have one buffer viewable, close_all each time and show dashboard
+    -- Open dashboard when last buffer closes
     ["<leader>c"] = {
-        function()
-          require("astronvim.utils.buffer").close_all()
-          require("alpha").start(true)
-        end,
-        desc = "Close buffer",
-      },
+      function()
+        local bufs = vim.fn.getbufinfo { buflisted = true }
+        require("astronvim.utils.buffer").close(0)
+        if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
+      end,
+      desc = "Close buffer",
+    },
   },
   t = {
     -- setting a mapping to false will disable it
