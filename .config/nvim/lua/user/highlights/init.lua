@@ -17,6 +17,9 @@ return { -- this table overrides highlights in all themes
   TelescopePreviewNormal = { bg = "NONE" },
   TelescopeResultsNormal = { bg = "NONE" },
   TelescopeBorder = { bg = "NONE" },
+  -- Tabline
+  TabLineSel = { bg = "NONE" },
+  TabLineFill = { bg = "NONE" },
   -- Bottom status bar
   StatusLine = { bg = "NONE"},
   StatusLineTerm = { bg = "NONE"},

@@ -21,6 +21,8 @@ return {
   colorscheme = "tokyonight-night",
   -- colorscheme = "astrodark",
 
+  heirline = require("user.heirline");
+
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
