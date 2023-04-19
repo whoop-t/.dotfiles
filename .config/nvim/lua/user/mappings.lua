@@ -38,12 +38,11 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
-    -- Open dashboard when last buffer closes
+    -- Since we only have one buffer viewable, close_all each time and show dashboard
     ["<leader>c"] = {
         function()
-          local bufs = vim.fn.getbufinfo { buflisted = true }
-          require("astronvim.utils.buffer").close(0)
-          if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
+          require("astronvim.utils.buffer").close_all()
+          require("alpha").start(true)
         end,
         desc = "Close buffer",
       },
