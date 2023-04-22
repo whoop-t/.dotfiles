@@ -10,11 +10,13 @@ return {
     ["<C-k>"] = false,
     ["<C-l>"] = false,
     ["<C-;>"] = false,
+    ["<leader>o"] = false,
     -- second key is the lefthand side of the map
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>p"] = { "\"_dP", desc = "blackhole delete and paste" },
     ["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
+    ["<leader>e"] = { "<cmd>:Neotree toggle current reveal_force_cwd<cr>", desc = "remove search highlight" },
     -- Keep cursor in middle when cntrl-d or cntrl-u, less disorienting
     ["<C-d>"] = { "<C-d>zz" },
     ["<C-u>"] = { "<C-u>zz" },
@@ -30,8 +32,11 @@ return {
     ["<leader>c"] = {
       function()
         local bufs = vim.fn.getbufinfo { buflisted = true }
-        require("astronvim.utils.buffer").close(0)
-        if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
+        if require("astronvim.utils").is_available "neo-tree.nvim" and not bufs[2]
+        then
+        else
+          require("astronvim.utils.buffer").close(0)
+        end
       end,
       desc = "Close buffer",
     },
