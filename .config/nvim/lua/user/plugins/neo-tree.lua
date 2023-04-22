@@ -12,13 +12,19 @@ return {
         -- { source = "git_status" },
       },
     },
-    window = {
-    },
     filesystem = {
       filtered_items = {
-        visible = true,     -- when true, they will just be displayed differently than normal items
+        visible = true, -- when true, they will just be displayed differently than normal items
         hide_dotfiles = true,
       }
-    }
+    },
+    default_component_configs = {
+      indent = {
+        with_markers = true,
+        indent_marker = "│",
+        last_indent_marker = "└",
+        indent_size = 2,
+      },
+    },
   }
 }
