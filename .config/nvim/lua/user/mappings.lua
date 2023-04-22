@@ -16,7 +16,21 @@ return {
     -- this is useful for naming menus
     ["<leader>p"] = { "\"_dP", desc = "blackhole delete and paste" },
     ["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
-    ["<leader>e"] = { "<cmd>:Neotree toggle current reveal_force_cwd<cr>", desc = "remove search highlight" },
+    -- ["<leader>e"] = { "<cmd>:Neotree toggle current reveal_force_cwd<cr>", desc = "remove search highlight" },
+    -- Below toggles between buffer and neotree buffer
+    -- BUT it will not toggle from neotree if no other buffers open
+    ["<leader>e"] = {
+      function()
+        local bufs = vim.fn.getbufinfo { buflisted = true }
+        if vim.bo.filetype == "neo-tree" and not bufs[1]
+        then
+          -- do nothing
+        else
+          vim.api.nvim_command("Neotree toggle current reveal_force_cwd")
+        end
+      end,
+      desc = "remove search highlight"
+    },
     -- Keep cursor in middle when cntrl-d or cntrl-u, less disorienting
     ["<C-d>"] = { "<C-d>zz" },
     ["<C-u>"] = { "<C-u>zz" },
@@ -28,11 +42,15 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
-    -- Open dashboard when last buffer closes
+    -- Dont allowing closing of last buffer
     ["<leader>c"] = {
       function()
         local bufs = vim.fn.getbufinfo { buflisted = true }
-        if require("astronvim.utils").is_available "neo-tree.nvim" and not bufs[2]
+        if not bufs[2]
+        then
+          -- do nothing, we dont wanna close last buffer
+        elseif vim.bo.filetype == "neo-tree"
+        -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
         then
         else
           require("astronvim.utils.buffer").close(0)
