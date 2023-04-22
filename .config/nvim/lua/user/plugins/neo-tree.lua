@@ -1,7 +1,7 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  opts = function(_, opts)
-    opts.source_selector = {
+  opts = {
+    source_selector = {
       -- having these both false just show normal file path in neo-tree
       winbar = false, -- toggle to show selector on winbar
       statusline = false,
@@ -11,7 +11,14 @@ return {
         -- { source = "buffers" },
         -- { source = "git_status" },
       },
+    },
+    window = {
+    },
+    filesystem = {
+      filtered_items = {
+        visible = true,     -- when true, they will just be displayed differently than normal items
+        hide_dotfiles = true,
+      }
     }
-    return opts
-  end
+  }
 }
