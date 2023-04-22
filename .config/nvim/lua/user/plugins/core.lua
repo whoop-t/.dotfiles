@@ -1,34 +1,35 @@
 return {
   -- customize alpha options
-  {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
-      }
-      local button = require("astronvim.utils").alpha_button
-      opts.section.buttons.val = {
-        button("LDR f f", "  Find File  "),
-        button("LDR f o", "  Recents  "),
-        button("LDR f w", "  Find Word  "),
-        button("LDR S l", "  Last Session  "),
-      }
-
-      return opts
-    end,
-  },
+  -- {
+  --   "goolord/alpha-nvim",
+  --   opts = function(_, opts)
+  --     -- customize the dashboard header
+  --     opts.section.header.val = {
+  --       " █████  ███████ ████████ ██████   ██████",
+  --       "██   ██ ██         ██    ██   ██ ██    ██",
+  --       "███████ ███████    ██    ██████  ██    ██",
+  --       "██   ██      ██    ██    ██   ██ ██    ██",
+  --       "██   ██ ███████    ██    ██   ██  ██████",
+  --       " ",
+  --       "    ███    ██ ██    ██ ██ ███    ███",
+  --       "    ████   ██ ██    ██ ██ ████  ████",
+  --       "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
+  --       "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
+  --       "    ██   ████   ████   ██ ██      ██",
+  --     }
+  --     local button = require("astronvim.utils").alpha_button
+  --     opts.section.buttons.val = {
+  --       button("LDR f f", "  Find File  "),
+  --       button("LDR f o", "  Recents  "),
+  --       button("LDR f w", "  Find Word  "),
+  --       button("LDR S l", "  Last Session  "),
+  --     }
+  --
+  --     return opts
+  --   end,
+  -- },
   -- You can disable default plugins as follows:
+  { "goolord/alpha-nvim", enabled = false },
   -- { "max397574/better-escape.nvim", enabled = false },
   --
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
@@ -83,4 +84,3 @@ return {
   --   end,
   -- },
 }
-
