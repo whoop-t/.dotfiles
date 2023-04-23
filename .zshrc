@@ -119,31 +119,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-SSH_ENV=$HOME/.ssh/environment
-
-# start the ssh-agent
-# this makes github ask for passcode once on terminal start, then remembers for the session
-function start_agent {
-    echo "Initializing new SSH agent..."
-    # spawn ssh-agent
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > ${SSH_ENV}
-    echo succeeded
-    chmod 600 ${SSH_ENV}
-    . ${SSH_ENV} > /dev/null
-    /usr/bin/ssh-add
-}
-
-if [ -f "${SSH_ENV}" ]; then
-     . ${SSH_ENV} > /dev/null
-     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
-
-# Compile all protos
-alias protoc-all='for dir in */; do if [[ "$dir" != *"ui/"* ]]; then (cd "$dir" && npm run protoc-ts); fi; done'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
