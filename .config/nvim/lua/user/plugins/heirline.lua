@@ -61,7 +61,8 @@ return {
             status.component.diagnostics(),
             -- status.component.cmd_info(),
             status.component.fill(),
-            status.component.lsp(),
+            -- lsp causes issue on mac with tokyonight(https://discord.com/channels/939594913560031363/1100223017017163826)
+            -- status.component.lsp(),
             status.component.treesitter(),
             status.component.nav(),
             -- status.component.mode { surround = { separator = "right" } },
