@@ -3,11 +3,8 @@ return {
     opts = function(_, opts)
         local status = require "astronvim.utils.status"
 
-        -- Never build/show tabline
-        opts.tabline = {
-            condition = false
-        }
-
+        opts.winbar = nil
+        opts.tabline = nil
         opts.statusline = {
             -- statusline
             hl = { fg = "fg", bg = "bg" },
