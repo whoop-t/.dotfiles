@@ -10,6 +10,7 @@ return {
       "dockerfile",
       "bash",
       "html",
+      "css",
       "sql"
     },
   },
