@@ -14,7 +14,7 @@ return {
     ["<C-l>"] = false,
     ["<C-;>"] = false,
     ["<leader>o"] = false,
-    ["<leader>p"] = { "\"_dP", desc = "blackhole delete and paste" },
+    ["<leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
     ["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
     -- ["<leader>e"] = { "<cmd>:Neotree toggle current reveal_force_cwd<cr>", desc = "remove search highlight" },
     -- Below toggles between buffer and neotree buffer
@@ -22,21 +22,21 @@ return {
     ["<leader>e"] = {
       function()
         local bufs = vim.fn.getbufinfo { buflisted = true }
-        if vim.bo.filetype == "neo-tree" and not bufs[1]
-        then
+        if vim.bo.filetype == "neo-tree" and not bufs[1] then
           -- do nothing
         else
-          vim.api.nvim_command("Neotree toggle current reveal_force_cwd")
+          vim.api.nvim_command "Neotree toggle current reveal_force_cwd"
         end
       end,
-      desc = "remove search highlight"
+      desc = "remove search highlight",
     },
     -- Keep cursor in middle when cntrl-d or cntrl-u, less disorienting
     ["<C-d>"] = { "<C-d>zz" },
     ["<C-u>"] = { "<C-u>zz" },
     -- remap to allow H and L to move buffers(tabs)
     ["L"] = {
-      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer"
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
     },
     ["H"] = {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
@@ -46,11 +46,11 @@ return {
     ["<leader>c"] = {
       function()
         local bufs = vim.fn.getbufinfo { buflisted = true }
-        if not bufs[2]
-        then
+        if not bufs[2] then
           -- do nothing, we dont wanna close last buffer
-        elseif vim.bo.filetype == "neo-tree"
-        -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
+        elseif
+          vim.bo.filetype == "neo-tree"
+          -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
         then
         else
           require("astronvim.utils.buffer").close(0)
@@ -60,12 +60,17 @@ return {
     },
     -- GitBlame mappings
     ["<leader>gu"] = { "<CMD>GitBlameOpenCommitURL<CR>", desc = "Open Blame Url" },
+    -- Marks
+    ["<leader><leader>j"] = { "'j", desc = "First Mark" },
+    ["<leader><leader>k"] = { "'k", desc = "Second Mark" },
+    ["<leader><leader>l"] = { "'l", desc = "Third Mark" },
+    ["<leader><leader>;"] = { "';", desc = "Fourth Mark" },
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
   v = {
-    ["<leader>p"] = { "\"_dP", desc = "blackhole delete and paste" },
-  }
+    ["<leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
+  },
 }
