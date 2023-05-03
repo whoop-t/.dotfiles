@@ -5,15 +5,15 @@
 -- automatically pick-up stored data by this setting.)
 return {
   -- first key is the mode
+  -- second key is the lefthand side of the map
+  -- tables with the `name` key will be registered with which-key if it's installed
+  -- this is useful for naming menus
   n = {
     ["<C-j>"] = false,
     ["<C-k>"] = false,
     ["<C-l>"] = false,
     ["<C-;>"] = false,
     ["<leader>o"] = false,
-    -- second key is the lefthand side of the map
-    -- tables with the `name` key will be registered with which-key if it's installed
-    -- this is useful for naming menus
     ["<leader>p"] = { "\"_dP", desc = "blackhole delete and paste" },
     ["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
     -- ["<leader>e"] = { "<cmd>:Neotree toggle current reveal_force_cwd<cr>", desc = "remove search highlight" },
@@ -58,6 +58,8 @@ return {
       end,
       desc = "Close buffer",
     },
+    -- GitBlame mappings
+    ["<leader>gu"] = { "<CMD>GitBlameOpenCommitURL<CR>", desc = "Open Blame Url" },
   },
   t = {
     -- setting a mapping to false will disable it
