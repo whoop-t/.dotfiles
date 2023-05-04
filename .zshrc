@@ -126,6 +126,8 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias python=/usr/bin/python3
+# Alias for kitty set tab title
+alias ct='kitty @ set-tab-title'
 
 # load .bash_profile
 if [ -f $HOME/.bash_profile ]; then 
