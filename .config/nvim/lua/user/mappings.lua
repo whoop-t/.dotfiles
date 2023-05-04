@@ -61,10 +61,10 @@ return {
     -- GitBlame mappings
     ["<leader>gu"] = { "<CMD>GitBlameOpenCommitURL<CR>", desc = "Open Blame Url" },
     -- Marks
-    ["<leader><leader>j"] = { "'j", desc = "First Mark" },
-    ["<leader><leader>k"] = { "'k", desc = "Second Mark" },
-    ["<leader><leader>l"] = { "'l", desc = "Third Mark" },
-    ["<leader><leader>;"] = { "';", desc = "Fourth Mark" },
+    ["<leader><leader>j"] = { "g'j", desc = "First Mark" },
+    ["<leader><leader>k"] = { "g'k", desc = "Second Mark" },
+    ["<leader><leader>l"] = { "g'l", desc = "Third Mark" },
+    ["<leader><leader>;"] = { "g';", desc = "Fourth Mark" },
   },
   t = {
     -- setting a mapping to false will disable it
