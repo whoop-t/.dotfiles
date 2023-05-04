@@ -34,14 +34,14 @@ return {
     ["<C-d>"] = { "<C-d>zz" },
     ["<C-u>"] = { "<C-u>zz" },
     -- remap to allow H and L to move buffers(tabs)
-    ["L"] = {
-      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-      desc = "Next buffer",
-    },
-    ["H"] = {
-      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-      desc = "Previous buffer",
-    },
+    -- ["L"] = {
+    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+    --   desc = "Next buffer",
+    -- },
+    -- ["H"] = {
+    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+    --   desc = "Previous buffer",
+    -- },
     -- Dont allowing closing of last buffer
     ["<leader>c"] = {
       function()
@@ -69,8 +69,6 @@ return {
     ["<leader><leader>v"] = { "<CMD>marks jkl;<CR>", desc = "View Marks" },
   },
   t = {
-    -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
   },
   v = {
     ["<leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
