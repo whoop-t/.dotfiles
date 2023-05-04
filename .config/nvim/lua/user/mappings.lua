@@ -65,6 +65,8 @@ return {
     ["<leader><leader>k"] = { "g'k", desc = "Second Mark" },
     ["<leader><leader>l"] = { "g'l", desc = "Third Mark" },
     ["<leader><leader>;"] = { "g';", desc = "Fourth Mark" },
+    ["<leader><leader>d"] = { "<CMD>delm!<CR>", desc = "Delete all marks(buffer)" },
+    ["<leader><leader>v"] = { "<CMD>marks jkl;<CR>", desc = "View Marks" },
   },
   t = {
     -- setting a mapping to false will disable it
