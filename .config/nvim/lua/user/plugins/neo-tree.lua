@@ -42,5 +42,10 @@ return {
         },
       },
     },
+    window = {
+      mappings = {
+        ["q"] = "noop",
+      },
+    },
   },
 }
