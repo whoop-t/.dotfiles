@@ -49,8 +49,8 @@ return {
         if not bufs[2] then
           -- do nothing, we dont wanna close last buffer
         elseif
-          vim.bo.filetype == "neo-tree"
-          -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
+            vim.bo.filetype == "neo-tree"
+        -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
         then
         else
           require("astronvim.utils.buffer").close(0)
@@ -67,9 +67,17 @@ return {
     ["<leader><leader>;"] = { "g';", desc = "Fourth Mark" },
     ["<leader><leader>d"] = { "<CMD>delm!<CR>", desc = "Delete all marks(buffer)" },
     ["<leader><leader>v"] = { "<CMD>marks jkl;<CR>", desc = "View Marks" },
+    -- Map lazydocker to td(requires lazydocker to be installed/in bin)
+    ["<leader>td"] = {
+      function()
+        if vim.fn.executable "lazydocker" == 1 and require("astronvim.utils").is_available "toggleterm.nvim" then
+          require("astronvim.utils").toggle_term_cmd "lazydocker"
+        end
+      end,
+      desc = "ToggleTerm lazydocker",
+    },
   },
-  t = {
-  },
+  t = {},
   v = {
     ["<leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
   },
