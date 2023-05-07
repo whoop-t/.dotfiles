@@ -14,6 +14,8 @@ Kitty doesnt require patched fonts, only symbols is fine
 
 Kinda optional(but awesome for Astronvim):
 
+Install [fzf](https://github.com/junegunn/fzf)
+
 Install [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 Install [lazygit](https://github.com/jesseduffield/lazygit)
