@@ -137,7 +137,7 @@ alias python=/usr/bin/python3
 alias ct='kitty @ set-tab-title'
 
 # Alias fzf dir search and navigate(ignore hidden and git)
-alias f='cd $(find $HOME -type d -not -path "*/\.*" -not -path "*/\.git/*" -print 2> /dev/null | fzf)'
+alias f='cd $(find $HOME/dev -type d -not -path "*/\.*" -not -path "*/\.git/*" -print 2> /dev/null | fzf)'
 
 # load .bash_profile
 if [ -f $HOME/.bash_profile ]; then 
