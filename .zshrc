@@ -143,6 +143,8 @@ alias ct='kitty @ set-tab-title'
 # Alias fzf dir search and navigate
 # . important else it will execute in subshell
 alias f='. $HOME/scripts/fzf_dev.sh'
+# Alias fzf search zsh_history
+alias h='. $HOME/scripts/fzf_history.sh'
 
 # load .bash_profile
 if [ -f $HOME/.bash_profile ]; then 
