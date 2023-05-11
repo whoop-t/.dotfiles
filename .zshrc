@@ -111,6 +111,10 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+
+# vi mode in terminal
+set -o vi
+
 #
 # export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # export DISABLE_SPRING=true
