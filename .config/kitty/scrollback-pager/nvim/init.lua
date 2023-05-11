@@ -12,6 +12,9 @@ vim.opt.ignorecase = true
 vim.opt.scrolloff = 8
 
 vim.cmd("hi LineNr guifg=#3b4261")
+vim.cmd("hi Search guifg=#c0caf5 guibg=#3d59a1")
+vim.cmd("hi CurSearch guifg=#15161e guibg=#ff9e64")
+vim.cmd("hi IncSearch guifg=#15161e guibg=#ff9e64")
 
 vim.api.nvim_set_keymap("n", "q", ":qa!<CR>", { silent = true })
 
