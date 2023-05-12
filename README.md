@@ -20,5 +20,9 @@ Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles` 
 
 In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
+# Linux ONLY
+- Install [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto)
+^^^ Dont hate me for this
+
 # TODO
 Ansible script this brah
