@@ -22,6 +22,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Linux ONLY
 - Install [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto)
+
 ^^^ Dont hate me for this
 
 # TODO
