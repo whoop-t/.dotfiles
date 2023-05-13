@@ -112,12 +112,10 @@ else
   export EDITOR='nvim'
 fi
 
-# vi mode in terminal
-# set -o vi
-
 # vi mode
 bindkey -v
 
+#####
 # Yank to system register (https://unix.stackexchange.com/questions/25765/pasting-from-clipboard-to-vi-enabled-zsh-or-bash-shell)
 function x11-clip-wrap-widgets() {
     local copy_or_paste=$1
@@ -163,6 +161,7 @@ local paste_widgets=(
 # NB: can atm. only wrap native widgets
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets
+#####
 ##### END Yank to system register
 
 #
