@@ -113,7 +113,57 @@ else
 fi
 
 # vi mode in terminal
-set -o vi
+# set -o vi
+
+# vi mode
+bindkey -v
+
+# Yank to system register (https://unix.stackexchange.com/questions/25765/pasting-from-clipboard-to-vi-enabled-zsh-or-bash-shell)
+function x11-clip-wrap-widgets() {
+    local copy_or_paste=$1
+    shift
+
+    local copy_cmd='xclip -in -selection clipboard'
+    local paste_cmd='xclip -out -selection clipboard'
+    if [[ "$(uname)" == "Darwin" ]]; then
+        copy_cmd='pbcopy'
+        paste_cmd='pbpaste'
+    fi
+
+    for widget in "$@"; do
+        local wrapper_func="_x11-clip-wrapped-$widget"
+        if [[ $copy_or_paste == "copy" ]]; then
+            eval "
+            function $wrapper_func() {
+                zle .$widget
+                echo -n \$CUTBUFFER | $copy_cmd
+            }
+            "
+        else
+            eval "
+            function $wrapper_func() {
+                CUTBUFFER=\$($paste_cmd)
+                zle .$widget
+            }
+            "
+        fi
+
+        zle -N $widget $wrapper_func
+    done
+}
+
+
+local copy_widgets=(
+    vi-yank vi-yank-eol vi-delete vi-backward-kill-word vi-change-whole-line
+)
+local paste_widgets=(
+    vi-put-{before,after}
+)
+
+# NB: can atm. only wrap native widgets
+x11-clip-wrap-widgets copy $copy_widgets
+x11-clip-wrap-widgets paste  $paste_widgets
+##### END Yank to system register
 
 #
 # export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
