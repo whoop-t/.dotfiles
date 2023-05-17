@@ -114,6 +114,9 @@ fi
 
 # vi mode
 bindkey -v
+# ctrl-p & ctrl-n to behave like arrow keys
+bindkey '^P' up-line-or-beginning-search
+bindkey '^N' down-line-or-beginning-search
 
 #####
 # Yank to system register (https://unix.stackexchange.com/questions/25765/pasting-from-clipboard-to-vi-enabled-zsh-or-bash-shell)
