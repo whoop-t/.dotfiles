@@ -65,6 +65,7 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    -- Disable any keystroke on search diabling highlight(I like to do it manually)
     vim.on_key(function() end, vim.api.nvim_create_namespace "auto_hlsearch")
   end,
 }
