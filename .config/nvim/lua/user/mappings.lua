@@ -49,8 +49,8 @@ return {
         if not bufs[2] then
           -- do nothing, we dont wanna close last buffer
         elseif
-            vim.bo.filetype == "neo-tree"
-        -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
+          vim.bo.filetype == "neo-tree"
+          -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
         then
         else
           require("astronvim.utils.buffer").close(0)
@@ -60,13 +60,16 @@ return {
     },
     -- GitBlame mappings
     ["<leader>gu"] = { "<CMD>GitBlameOpenCommitURL<CR>", desc = "Open Blame Url" },
-    -- Marks
-    ["<leader><leader>j"] = { "g'j", desc = "First Mark" },
-    ["<leader><leader>k"] = { "g'k", desc = "Second Mark" },
-    ["<leader><leader>l"] = { "g'l", desc = "Third Mark" },
-    ["<leader><leader>;"] = { "g';", desc = "Fourth Mark" },
-    ["<leader><leader>d"] = { "<CMD>delm!<CR>", desc = "Delete all marks(buffer)" },
-    ["<leader><leader>v"] = { "<CMD>marks jkl;<CR>", desc = "View Marks" },
+
+    -- Marks.nvim mappings
+    ["<S-l>"] = {
+      function() require("marks").next() end,
+      desc = "Next Mark",
+    },
+    ["<S-h>"] = {
+      function() require("marks").prev() end,
+      desc = "Previous Mark",
+    },
     -- Map lazydocker to td(requires lazydocker to be installed/in bin)
     ["<leader>td"] = {
       function()
