@@ -3,6 +3,7 @@ return {
   -- :Telescope then seach "highlights" will show you all the highlights you can alter, good for finding BG to change
   -- Config for transparent bg
   NormalFloat = { bg = "NONE" },
+  NormalSB = { bg = "NONE" },
   FloatBorder = { bg = "NONE" },
   NormalNC = { bg = "NONE" },
   CursorColumn = { bg = "NONE" },
