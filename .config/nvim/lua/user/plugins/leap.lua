@@ -8,7 +8,10 @@ return {
       end
       return ret
     end,
-    opts = { labeled_modes = "nx" },
+    opts = {
+      labeled_modes = "nx",
+      multiline = false
+    },
     dependencies = {
       "ggandor/leap.nvim",
       keys = {
