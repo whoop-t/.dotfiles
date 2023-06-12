@@ -21,7 +21,6 @@ return {
       },
       config = function(_, opts)
         local leap = require "leap"
-        -- opts.highlight_unlabeled_phase_one_targets = true
         for k, v in pairs(opts) do
           leap.opts[k] = v
         end
