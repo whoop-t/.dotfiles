@@ -16,7 +16,7 @@ Kitty doesnt require patched fonts, only symbols is fine
 
 
 # Cloning .dotfiles
-Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles` (or clone with https if no pub key setup)
+Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles`
 
 In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
