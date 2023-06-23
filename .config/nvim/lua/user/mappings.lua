@@ -61,15 +61,6 @@ return {
     -- GitBlame mappings
     ["<leader>gu"] = { "<CMD>GitBlameOpenCommitURL<CR>", desc = "Open Blame Url" },
 
-    -- Marks.nvim mappings
-    ["<S-l>"] = {
-      function() require("marks").next() end,
-      desc = "Next Mark",
-    },
-    ["<S-h>"] = {
-      function() require("marks").prev() end,
-      desc = "Previous Mark",
-    },
     -- Map lazydocker to td(requires lazydocker to be installed/in bin)
     ["<leader>td"] = {
       function()
