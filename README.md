@@ -25,5 +25,6 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 ^^^ Dont hate me for this
 
-# TODO
-Ansible script this brah
+# Keyboard
+- Moonlander layout(42 key): [oryx](https://configure.zsa.io/moonlander/layouts/0p0pw/latest/0)
+- [monkeytype](https://monkeytype.com/profile/whoop)
