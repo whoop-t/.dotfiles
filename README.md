@@ -26,5 +26,6 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 ^^^ Dont hate me for this
 
 # Keyboard
-- Moonlander layout(42 key): [oryx](https://configure.zsa.io/moonlander/layouts/0p0pw/latest/0)
+- Main: Corne layout(42 key): [via config](https://github.com/whoop-t/corne_42_key)
+- Secondary: Moonlander layout(42 key): [oryx](https://configure.zsa.io/moonlander/layouts/0p0pw/latest/0)
 - [monkeytype](https://monkeytype.com/profile/whoop)
