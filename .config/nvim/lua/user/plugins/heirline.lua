@@ -2,7 +2,7 @@ return {
     "rebelot/heirline.nvim",
     opts = function(_, opts)
         local status = require "astronvim.utils.status"
-        local harpoon_components = require "harpoon.heirline"
+        -- local harpoon_components = require "harpoon.heirline"
 
         opts.winbar = nil
         opts.tabline = nil
@@ -11,7 +11,7 @@ return {
             hl = { fg = "fg", bg = "bg" },
             status.component.mode(),
             status.component.git_branch(),
-            harpoon_components.index,
+            -- harpoon_components.index, // moved to harpoon2, need to revisit
             status.component.file_info {
                 -- Set relative path name
                 filename = { modify = ":~:." },
