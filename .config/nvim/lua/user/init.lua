@@ -39,12 +39,24 @@ return {
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
-        -- "sumneko_lua",
+      -- "tsserver"
       },
-      timeout_ms = 1000, -- default format timeout
-      -- filter = function(client) -- fully override the default formatting function
-      --   return true
-      -- end
+        -- This is needed to force formatting to use eslint, MAKE SURE PRETTIERD IS REMOVED 
+        -- filter = function(client)
+        --   -- only enable null-ls for javascript files
+        --   if vim.bo.filetype == "javascript" then
+        --     return client.name == "null-ls"
+        --   end
+        --
+        --   -- enable all other clients
+        --   return true
+        -- end,
+        -- timeout_ms = 5000, -- default format timeout
+        -- filter = function(client) -- fully override the default formatting function
+        --   return true
+        -- end
+      },
+      timeout_ms = 5000, -- default format timeout
     },
     -- enable servers that you already have installed without mason
     servers = {
