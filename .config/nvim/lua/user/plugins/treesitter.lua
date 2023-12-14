@@ -12,8 +12,7 @@ return {
       "html",
       "css",
       "sql",
-      "go",
-      "jsdoc"
+      "go"
     },
   },
 }
