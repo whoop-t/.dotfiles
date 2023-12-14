@@ -13,6 +13,7 @@ return {
       "css",
       "sql",
       "go",
+      "jsdoc"
     },
   },
 }
