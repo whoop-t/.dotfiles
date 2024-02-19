@@ -37,3 +37,16 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - Main: Corne layout(42 key): [via config](https://github.com/whoop-t/corne_42_key)
 - Secondary: Moonlander layout(42 key): [oryx](https://configure.zsa.io/moonlander/layouts/0p0pw/latest/0)
 - [monkeytype](https://monkeytype.com/profile/whoop)
+
+# Software I use(work and personal)
+- [DBeaver](https://dbeaver.io/) - Open Source DB Tool
+- [Docker](https://www.docker.com/)
+- [Postman](https://www.postman.com/)
+
+# Coding Music (some stuff I like)
+- [Trappin in Paradaise](https://www.youtube.com/watch?v=1-M6Ceavg6U)
+- [Some Spooky Sh*t](https://www.youtube.com/watch?v=iB62kegfyW8)
+- [Justice Der](https://www.youtube.com/watch?v=mPymRFeTJa4)
+- [Lofi](https://www.youtube.com/watch?v=TwWmfyKInKo)
+- [Spirawave](https://www.youtube.com/watch?v=ALgDxZZLDbA)
+
