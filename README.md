@@ -6,9 +6,8 @@
 - Install [oh-my-zsh](https://ohmyz.sh/#install)
 - Install [Astronvim](https://github.com/AstroNvim/AstroNvim#%EF%B8%8F-installation)
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
-- Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads)
+- Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
-Kitty doesnt require patched fonts, only symbols is fine
 
 ##### Kinda optional:
 
