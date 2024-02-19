@@ -50,5 +50,3 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [Justice Der](https://www.youtube.com/watch?v=mPymRFeTJa4)
 - [Lofi](https://www.youtube.com/watch?v=TwWmfyKInKo)
 - [Spirawave](https://www.youtube.com/watch?v=ALgDxZZLDbA)
-- [lost in paradise (Jujutsu Kaisen but is it okay if it's lofi hiphop?)](https://www.youtube.com/watch?v=FTWjo6lRLqo)
-
