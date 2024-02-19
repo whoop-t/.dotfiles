@@ -46,7 +46,9 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 # Coding Music (some stuff I like)
 - [TRAPPIN IN ＰＡＲＡＤＩＳＥ](https://www.youtube.com/watch?v=1-M6Ceavg6U)
 - [Some Spooky Sh*t](https://www.youtube.com/watch?v=iB62kegfyW8)
+- [Waves - A Chillwave Mix](https://www.youtube.com/watch?v=kwLTw8F8yN8)
 - [Justice Der](https://www.youtube.com/watch?v=mPymRFeTJa4)
 - [Lofi](https://www.youtube.com/watch?v=TwWmfyKInKo)
 - [Spirawave](https://www.youtube.com/watch?v=ALgDxZZLDbA)
+- [lost in paradise (Jujutsu Kaisen but is it okay if it's lofi hiphop?)](https://www.youtube.com/watch?v=FTWjo6lRLqo)
 
