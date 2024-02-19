@@ -1,5 +1,6 @@
 # Prereq
 - Install [Nodejs/Npm](https://nodejs.org/en/download)
+- Install [NVM (Node version manager)](https://github.com/nvm-sh/nvm)
 - Install [Stow](https://formulae.brew.sh/formula/stow)
 - Install [Kitty Terminal](https://sw.kovidgoyal.net/kitty/binary/)
 - Install [oh-my-zsh](https://ohmyz.sh/#install)
