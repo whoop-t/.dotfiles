@@ -44,7 +44,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [Postman](https://www.postman.com/)
 
 # Coding Music (some stuff I like)
-- [Trappin in Paradaise](https://www.youtube.com/watch?v=1-M6Ceavg6U)
+- [TRAPPIN IN ＰＡＲＡＤＩＳＥ](https://www.youtube.com/watch?v=1-M6Ceavg6U)
 - [Some Spooky Sh*t](https://www.youtube.com/watch?v=iB62kegfyW8)
 - [Justice Der](https://www.youtube.com/watch?v=mPymRFeTJa4)
 - [Lofi](https://www.youtube.com/watch?v=TwWmfyKInKo)
