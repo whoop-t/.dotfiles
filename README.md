@@ -30,9 +30,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Linux ONLY
 - [IMWheel(fix mouse on Mac)](https://wiki.archlinux.org/title/IMWheel)
-- [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto)
-
-^^^ Dont hate me for this
+- [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto) -> Dont hate me for this
 
 # Keyboard
 - Main: Corne layout(42 key): [via config](https://github.com/whoop-t/corne_42_key)
