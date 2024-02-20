@@ -3,6 +3,7 @@
 - Install [NVM (Node version manager)](https://github.com/nvm-sh/nvm)
 - Install [Stow](https://formulae.brew.sh/formula/stow)
 - Install [Kitty Terminal](https://sw.kovidgoyal.net/kitty/binary/)
+- Install [zsh(if needed)](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - Install [oh-my-zsh](https://ohmyz.sh/#install)
 - Install [Astronvim](https://github.com/AstroNvim/AstroNvim#%EF%B8%8F-installation)
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
