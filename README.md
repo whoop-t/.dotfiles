@@ -29,8 +29,8 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [NoTunes](https://github.com/tombonez/noTunes)
 
 # Linux ONLY
-- [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto)
 - [IMWheel(fix mouse on Mac)](https://wiki.archlinux.org/title/IMWheel)
+- [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto)
 
 ^^^ Dont hate me for this
 
