@@ -22,12 +22,12 @@ return {
           }
         end,
       },
-      status.component.diagnostics(),
-      status.component.fill(),
-      -- lsp causes issue on mac with tokyonight(https://discord.com/channels/939594913560031363/1100223017017163826)
-      status.component.lsp(),
-      status.component.treesitter(),
-      status.component.nav(),
+      -- status.component.diagnostics(),
+      -- status.component.fill(),
+      -- -- lsp causes issue on mac with tokyonight(https://discord.com/channels/939594913560031363/1100223017017163826)
+      -- status.component.lsp(),
+      -- status.component.treesitter(),
+      -- status.component.nav(),
     }
 
     return opts
