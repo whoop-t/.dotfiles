@@ -12,7 +12,8 @@ return {
       "html",
       "css",
       "sql",
-      "go"
+      "go",
+      "markdown"
     },
   },
 }
