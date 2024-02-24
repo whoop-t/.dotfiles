@@ -9,6 +9,7 @@ return {
     wrap = false, -- sets vim.opt.wrap
     foldcolumn = "0",
     showtabline = 0,
+    scrolloff = 8,
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
