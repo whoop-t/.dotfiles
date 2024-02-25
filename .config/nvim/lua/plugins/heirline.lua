@@ -14,6 +14,7 @@ return {
       status.component.file_info {
         -- Set relative path name
         filename = { modify = ":~:." },
+        filetype = false,
         -- Only show filename when its file, not neotree, telescope, etc
         condition = function()
           return not status.condition.buffer_matches {
