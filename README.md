@@ -10,16 +10,16 @@
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
 
-# Neovim
-My current/default setup is running [Astronvim] v4
-My dotfiles contains a personal custom config that I tinker with. With newer Neovim versions, this can be used separately with NVIM_APPNAME=personal_nvim nvim . 
-
 ##### Kinda optional:
 
 - Install [fzf](https://github.com/junegunn/fzf)
 - Install [ripgrep](https://github.com/BurntSushi/ripgrep)
 - Install [lazygit](https://github.com/jesseduffield/lazygit)
 - Install [lazydocker](https://github.com/jesseduffield/lazydocker)
+
+# Neovim
+My current/default setup is running [Astronvim] v4
+My dotfiles contains a personal custom config that I tinker with. With newer Neovim versions, this can be used separately with NVIM_APPNAME=personal_nvim nvim . 
 
 # Cloning .dotfiles
 Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles`
