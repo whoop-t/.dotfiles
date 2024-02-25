@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require "options"
 require "mappings"
 require "autocmds"
+
 -- Load plugins, lazy will do this automagically if string is in lua/{your dir here}. I use 'plugins'
 require("lazy").setup "plugins"
 vim.cmd.colorscheme "tokyonight"
