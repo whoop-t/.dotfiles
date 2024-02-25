@@ -1,5 +1,6 @@
 {
   "LuaSnip": { "branch": "master", "commit": "f3b3d3446bcbfa62d638b1903ff00a78b2b730a1" },
+  "better-escape.nvim": { "branch": "master", "commit": "7e86edafb8c7e73699e0320f225464a298b96d12" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "friendly-snippets": { "branch": "main", "commit": "dbd45e9ba76d535e4cba88afa1b7aa43bb765336" },
