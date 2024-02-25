@@ -47,16 +47,6 @@ return {
         -- WhichKey preview for commands
         WhichKeyFloat = { bg = "NONE" },
         -- Notify
-        NotifyINFOBody = { bg = "NONE" },
-        NotifyWARNBody = { bg = "NONE" },
-        NotifyERRORBody = { bg = "NONE" },
-        NotifyDEBUGBody = { bg = "NONE" },
-        NotifyTRACEBody = { bg = "NONE" },
-        NotifyINFOBorder = { bg = "NONE" },
-        NotifyWARNBorder = { bg = "NONE" },
-        NotifyERRORBorder = { bg = "NONE" },
-        NotifyDEBUGBorder = { bg = "NONE" },
-        NotifyTRACEBorder = { bg = "NONE" },
         NotifyBackground = { bg = "#000000" },
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
