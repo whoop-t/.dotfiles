@@ -26,4 +26,11 @@ return {
       float_opts = { border = "rounded" },
     }
   end,
+  keys = function()
+    local tt = require "toggleterm.terminal"
+    -- Lazygit toggleterm keymap
+    return {
+      { "<leader>gg", function() tt.Terminal:new({ cmd = "lazygit" }):toggle() end },
+    }
+  end,
 }
