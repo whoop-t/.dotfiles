@@ -191,8 +191,12 @@ x11-clip-wrap-widgets paste  $paste_widgets
 alias python=/usr/bin/python3
 # Alias for kitty set tab title
 alias ct='kitty @ set-tab-title'
-# Alias for nvim
+# Alias for nvim, dir level
 alias n='nvim .'
+# Alias for personal nvim config, dir level
+alias np='NVIM_APPNAME=personal_nvim nvim .'
+# Alias for personal nvim config
+alias nvimp='NVIM_APPNAME=personal_nvim nvim'
 # Alias fzf dir search and navigate
 # . important else it will execute in subshell
 alias f='. $HOME/scripts/fzf_dev.sh'

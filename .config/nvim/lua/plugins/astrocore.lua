@@ -114,7 +114,7 @@ return {
     },
     on_keys = {
       -- first key is the namespace
-      auto_hlsearch = {}, -- clear this on_key, i like clearing the highlight myself
+      auto_hlsearch = false, -- clear this on_key, i like clearing the highlight myself
     },
   },
 }
