@@ -16,19 +16,22 @@ return {
     ["<leader>o"] = false,
     ["<leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
     ["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
-    -- ["<leader>e"] = { "<cmd>:Neotree toggle current reveal_force_cwd<cr>", desc = "remove search highlight" },
-    -- Below toggles between buffer and neotree buffer
-    -- BUT it will not toggle from neotree if no other buffers open
+    -- Toggle Oil.nvim
     ["<leader>e"] = {
       function()
         local bufs = vim.fn.getbufinfo { buflisted = true }
-        if vim.bo.filetype == "neo-tree" and not bufs[1] then
-          -- do nothing
+        if vim.bo.filetype == "oil" and not bufs[1] then
+          -- do nothing if oil is the only buffer open
         else
-          vim.api.nvim_command "Neotree toggle current reveal_force_cwd"
+          local oil = require "oil"
+          if vim.bo.filetype == "oil" then
+            oil.close()
+          else
+            oil.open()
+          end
         end
       end,
-      desc = "remove search highlight",
+      desc = "Toggle Oil",
     },
     -- Keep cursor in middle when cntrl-d or cntrl-u, less disorienting
     ["<C-d>"] = { "<C-d>zz" },
@@ -48,10 +51,6 @@ return {
         local bufs = vim.fn.getbufinfo { buflisted = true }
         if not bufs[2] then
           -- do nothing, we dont wanna close last buffer
-        elseif
-          vim.bo.filetype == "neo-tree"
-          -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
-        then
         else
           require("astronvim.utils.buffer").close(0)
         end

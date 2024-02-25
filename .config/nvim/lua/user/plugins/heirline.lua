@@ -18,7 +18,7 @@ return {
         condition = function()
           return not status.condition.buffer_matches {
             buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
-            filetype = { "aerial", "dapui_.", "neo%-tree", "NvimTree" },
+            filetype = { "aerial", "dapui_.", "neo%-tree", "NvimTree", "oil" },
           }
         end,
       },
