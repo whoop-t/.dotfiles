@@ -18,7 +18,7 @@
 - Install [lazydocker](https://github.com/jesseduffield/lazydocker)
 
 # Neovim
-My current/default setup is running [Astronvim](https://github.com/AstroNvim/AstroNvim#%EF%B8%8F-installation) v4
+My current/default setup is running [Astronvim](https://github.com/AstroNvim/AstroNvim) v4
 My dotfiles contains a personal custom config that I tinker with. With newer Neovim versions, this can be used separately with NVIM_APPNAME=personal_nvim nvim . 
 
 # Cloning .dotfiles
