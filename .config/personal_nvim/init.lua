@@ -19,6 +19,8 @@ require "autocmds"
 
 -- Load plugins, lazy will do this automagically if string is in lua/{your dir here}. I use 'plugins'
 require("lazy").setup "plugins"
+
+-- colorscheme(is there a better place for this?)
 vim.cmd.colorscheme "tokyonight"
 
 -- Highlights(is there a better place to put this)
