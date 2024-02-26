@@ -1,4 +1,7 @@
 return {
+  -- neodev for vim hints and completion and avoiding global "vim" being undifined
+  -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+  { "folke/neodev.nvim", opts = {} },
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
@@ -21,8 +24,6 @@ return {
       end)
     end,
   },
-  -- neodev for vim hints and completion and avoiding global "vim" being undifined
-  { "folke/neodev.nvim", opts = {} },
   { "williamboman/mason.nvim", opts = {} },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -55,10 +56,10 @@ return {
       cmp.setup {
         sources = {
           -- priority will make certain completions show first, we want lsp and luasnips to show first
-          { name = "luasnip", priority = 1000 },
+          { name = "luasnip",  priority = 1000 },
           { name = "nvim_lsp", priority = 750 },
-          { name = "buffer", priority = 500 },
-          { name = "path", priority = 250 },
+          { name = "buffer",   priority = 500 },
+          { name = "path",     priority = 250 },
         },
         mapping = cmp.mapping.preset.insert {
           -- `Enter` key to confirm completion
