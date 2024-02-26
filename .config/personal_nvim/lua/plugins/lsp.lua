@@ -21,6 +21,8 @@ return {
       end)
     end,
   },
+  -- neodev for vim hints and completion and avoiding global "vim" being undifined
+  { "folke/neodev.nvim", opts = {} },
   { "williamboman/mason.nvim", opts = {} },
   {
     "williamboman/mason-lspconfig.nvim",
