@@ -14,40 +14,42 @@ return {
     highlights = {
       init = { -- this table overrides highlights in all themes
         -- :Telescope then seach "highlights" will show you all the highlights you can alter, good for finding BG to change
+        -- **NOTE** below is the old way I would make everthing transparent
+        -- **NOTE** with my tokyonight settings now, i dont need this. Keeping for reference
         -- Config for transparent bg
-        NormalFloat = { bg = "NONE" },
-        NormalSB = { bg = "NONE" },
-        FloatTitle = { bg = "NONE" },
-        FloatBorder = { bg = "NONE" },
-        NormalNC = { bg = "NONE" },
-        CursorColumn = { bg = "NONE" },
-        CursorLine = { bg = "NONE" },
-        CursorLineNr = { bg = "NONE" },
+        -- NormalFloat = { bg = "NONE" },
+        -- NormalSB = { bg = "NONE" },
+        -- FloatTitle = { bg = "NONE" },
+        -- FloatBorder = { bg = "NONE" },
+        -- NormalNC = { bg = "NONE" },
+        -- CursorColumn = { bg = "NONE" },
+        CursorLine = { bg = "NONE" }, -- I use this to disable vim.opt.cursorline as issues with neotree disabling the option on its own
+        -- CursorLineNr = { bg = "NONE" },
         -- NeoTree(explorer)
-        NeoTreeNormal = { bg = "NONE" },
-        NeoTreeNormalNC = { bg = "NONE" },
+        -- NeoTreeNormal = { bg = "NONE" },
+        -- NeoTreeNormalNC = { bg = "NONE" },
         -- Telescope menus
-        TelescopeNormal = { bg = "NONE" },
-        TelescopePromptNormal = { bg = "NONE" },
-        TelescopePreviewNormal = { bg = "NONE" },
-        TelescopeResultsNormal = { bg = "NONE" },
-        TelescopeBorder = { bg = "NONE" },
+        -- TelescopeNormal = { bg = "NONE" },
+        -- TelescopePromptNormal = { bg = "NONE" },
+        -- TelescopePreviewNormal = { bg = "NONE" },
+        -- TelescopeResultsNormal = { bg = "NONE" },
+        -- TelescopeBorder = { bg = "NONE" },
         -- Tabline
-        TabLineSel = { bg = "NONE" },
-        TabLineFill = { bg = "NONE" },
+        -- TabLineSel = { bg = "NONE" },
+        -- TabLineFill = { bg = "NONE" },
         -- Bottom status bar
         StatusLine = { bg = "NONE" },
         StatusLineTerm = { bg = "NONE" },
         -- Top Bar
-        WinBar = { bg = "NONE" },
-        WinBarNC = { bg = "NONE" },
+        -- WinBar = { bg = "NONE" },
+        -- WinBarNC = { bg = "NONE" },
         -- Git Sign Column
-        SignColumn = { bg = "NONE" },
-        FoldColumn = { bg = "NONE" },
+        -- SignColumn = { bg = "NONE" },
+        -- FoldColumn = { bg = "NONE" },
         -- WhichKey preview for commands
-        WhichKeyFloat = { bg = "NONE" },
+        -- WhichKeyFloat = { bg = "NONE" },
         -- Notify
-        NotifyBackground = { bg = "#000000" },
+        -- NotifyBackground = { bg = "#000000" },
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
