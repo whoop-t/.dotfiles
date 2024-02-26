@@ -1,3 +1,6 @@
+-- TODO snippets dont really feel like they are working great?
+-- like for JS files i dont see any
+-- revisit this later
 return {
   -- mason
   {
