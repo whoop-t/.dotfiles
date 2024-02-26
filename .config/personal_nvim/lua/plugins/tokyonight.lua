@@ -9,14 +9,5 @@ return {
 			floats = "transparent",
 		},
 		transparent = true,
-		on_highlights = function(hl)
-			-- set telescope-bg transparent
-			hl.TelescopeNormal = {
-				fg = "#FFFFFF",
-			}
-			hl.TelescopeBorder = {
-				bg = "NONE",
-			}
-		end,
 	},
 }
