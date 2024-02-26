@@ -69,7 +69,7 @@ return {
         { "<leader>fh", builtin.help_tags },
         { "<leader>fk", builtin.keymaps },
         { "<leader>fk", builtin.keymaps },
-        { "<leader>fb", function() builtin.git_branches { use_file_path = true } end },
+        { "<leader>gb", function() builtin.git_branches { use_file_path = true } end },
       }
     end,
   },
