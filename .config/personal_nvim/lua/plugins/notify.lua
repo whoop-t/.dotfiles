@@ -1,6 +1,7 @@
 return {
   "rcarriga/nvim-notify",
-  lazy = true,
+  lazy = false,
+  cmd = "Notify",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
