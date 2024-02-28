@@ -21,9 +21,21 @@ return {
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
     "jay-babu/mason-null-ls.nvim",
-    -- overrides `require("mason-null-ls").setup(...)`
+    -- All none-ls sources are handled through mason-null-ls
     opts = {
       ensure_installed = { "prettierd", "stylua" },
+      automatic_installation = false,
+      handlers = {
+        prettierd = function(source_name, methods)
+          -- Conditional to only use prettier when a .pretterrc is in root
+          local null_ls = require "null-ls"
+          null_ls.register(null_ls.builtins.formatting.prettierd.with {
+            condition = function(utils)
+              return utils.root_has_file(".prettierrc", ".prettierrc.js", ".prettierrc.json", ".prettierrc.yaml")
+            end,
+          })
+        end,
+      },
     },
   },
   {
