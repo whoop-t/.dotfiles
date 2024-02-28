@@ -22,6 +22,7 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     -- All none-ls sources are handled through mason-null-ls
+    -- eslint is set up natively in astrolsp
     opts = {
       ensure_installed = { "prettierd", "stylua" },
       automatic_installation = false,
@@ -31,7 +32,15 @@ return {
           local null_ls = require "null-ls"
           null_ls.register(null_ls.builtins.formatting.prettierd.with {
             condition = function(utils)
-              return utils.root_has_file(".prettierrc", ".prettierrc.js", ".prettierrc.json", ".prettierrc.yaml")
+              return utils.root_has_file(
+                ".prettierrc",
+                ".prettierrc.js",
+                ".prettierrc.cjs",
+                ".prettierrc.json",
+                ".prettierrc.yaml",
+                ".prettierrc.yml",
+                ".prettierrc.toml"
+              )
             end,
           })
         end,

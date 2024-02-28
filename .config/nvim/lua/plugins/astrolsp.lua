@@ -36,30 +36,21 @@ return {
       disabled = { -- disable formatting capabilities for the listed language servers
         -- "tsserver"
       },
-      -- This is needed to force formatting to use eslint, MAKE SURE PRETTIERD IS REMOVED
-      -- filter = function(client)
-      --   -- only enable null-ls for javascript files
-      --   if vim.bo.filetype == "javascript" then
-      --     return client.name == "null-ls"
-      --   end
-      --
-      --   -- enable all other clients
-      --   return true
-      -- end,
-      -- timeout_ms = 5000, -- default format timeout
-      -- filter = function(client) -- fully override the default formatting function
-      --   return true
-      -- end
       timeout_ms = 5000, -- default format timeout
     },
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      "eslint",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      -- eslint = {
+      --   settings = {
+      --     formatting = true
+      --   }
+      -- }
     },
     -- customize how language servers are attached
     handlers = {
@@ -69,6 +60,26 @@ return {
       -- the key is the server that is being setup with `lspconfig`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
       -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+
+      eslint = function(_, opts)
+        -- Check if we have a .eslintrc, dont attach if we dont
+        local files = {
+          ".eslintrc",
+          ".eslintrc.json",
+          ".eslintrc.js",
+          ".eslintrc.yml",
+          ".eslintrc.yaml",
+        }
+        local current_dir = vim.fn.getcwd()
+
+        for _, file in ipairs(files) do
+          local file_path = current_dir .. "/" .. file
+
+          if vim.fn.filereadable(file_path) == 1 then
+            require("lspconfig").eslint.setup(opts)
+          end
+        end
+      end,
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
@@ -105,11 +116,13 @@ return {
         --   desc = "Declaration of current symbol",
         --   cond = "textDocument/declaration",
         -- },
-        -- ["<Leader>uY"] = {
-        --   function() require("astrolsp.toggles").buffer_semantic_tokens() end,
-        --   desc = "Toggle LSP semantic highlight (buffer)",
-        --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
-        -- },
+        -- Specific key for formatting with Eslint
+        -- only make if eslint is attached
+        ["<Leader>le"] = {
+          function() vim.cmd.EslintFixAll() end,
+          desc = "Format with Eslint",
+          cond = function(client) return vim.fn.exists ":EslintFixAll" > 0 end,
+        },
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
