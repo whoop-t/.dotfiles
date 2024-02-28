@@ -61,6 +61,8 @@ return {
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
       -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
 
+      -- Must have npm i -g vscode-langservers-extracted installed
+      -- Must also have eslint installed local in project
       eslint = function(_, opts)
         -- Check if we have a .eslintrc, dont attach if we dont
         local files = {
