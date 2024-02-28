@@ -22,13 +22,15 @@ return {
             filetype = { "aerial", "dapui_.", "neo%-tree", "NvimTree" },
           }
         end,
+        
       },
-      -- status.component.diagnostics(),
+      status.component.diagnostics(),
       -- status.component.fill(),
-      -- -- lsp causes issue on mac with tokyonight(https://discord.com/channels/939594913560031363/1100223017017163826)
-      -- status.component.lsp(),
-      -- status.component.treesitter(),
       -- status.component.nav(),
+      status.component.fill(),
+      -- status.component.treesitter(),
+      -- lsp causes issue on mac with tokyonight(https://discord.com/channels/939594913560031363/1100223017017163826)
+      status.component.lsp { padding = { right = 1 } },
     }
 
     return opts
