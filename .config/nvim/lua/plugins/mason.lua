@@ -13,7 +13,8 @@ return {
         "html",
         "cssls",
         "sqlls",
-        "gopls"
+        "gopls",
+        "yamlls",
       },
     },
   },
