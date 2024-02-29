@@ -78,6 +78,14 @@ return {
           local file_path = current_dir .. "/" .. file
 
           if vim.fn.filereadable(file_path) == 1 then
+            -- Check if vscode-eslint-language-server is installed
+            local is_eslint_server_installed = vim.fn.executable "vscode-eslint-language-server" == 1
+
+            if not is_eslint_server_installed then
+              -- Install vscode-eslint-language-server with npm if not installed
+              vim.fn.system "npm i -g vscode-langservers-extracted"
+              require('notify')('vscode-langservers-extracted installed')
+            end
             require("lspconfig").eslint.setup(opts)
           end
         end
