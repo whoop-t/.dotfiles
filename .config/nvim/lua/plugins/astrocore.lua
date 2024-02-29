@@ -49,6 +49,7 @@ return {
         ["<Leader>o"] = false,
         ["<Leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
         ["<Leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
+        ["<Leader>n"] = { '<cmd>let @+ = fnamemodify(expand("%:h:h"), ":t") . "/" . expand("%:t")<cr>', desc = "remove search highlight" },
         -- ["<leader>e"] = { "<cmd>:Neotree toggle current reveal_force_cwd<cr>", desc = "remove search highlight" },
         -- Below toggles between buffer and neotree buffer
         -- BUT it will not toggle from neotree if no other buffers open
