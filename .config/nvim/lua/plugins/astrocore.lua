@@ -50,7 +50,6 @@ return {
         ["<Leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
         ["<Leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
         ["<Leader>n"] = { '<cmd>let @+ = fnamemodify(expand("%:h:h"), ":t") . "/" . expand("%:t")<cr>', desc = "remove search highlight" },
-        -- ["<leader>e"] = { "<cmd>:Neotree toggle current reveal_force_cwd<cr>", desc = "remove search highlight" },
         -- Below toggles between buffer and neotree buffer
         -- BUT it will not toggle from neotree if no other buffers open
         ["<Leader>e"] = {
@@ -67,15 +66,6 @@ return {
         -- Keep cursor in middle when cntrl-d or cntrl-u, less disorienting
         ["<C-d>"] = { "<C-d>zz" },
         ["<C-u>"] = { "<C-u>zz" },
-        -- remap to allow H and L to move buffers(tabs)
-        -- ["L"] = {
-        --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-        --   desc = "Next buffer",
-        -- },
-        -- ["H"] = {
-        --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-        --   desc = "Previous buffer",
-        -- },
         -- Dont allowing closing of last buffer
         ["<Leader>c"] = {
           function()
@@ -103,6 +93,14 @@ return {
             end
           end,
           desc = "ToggleTerm lazydocker",
+        },
+        -- Overwrtie telescope find all files to ignore .gitignore
+        ["<Leader>fF"] = {
+          function() require("telescope.builtin").find_files {
+            hidden = true,
+            file_ignore_patterns = { ".git/*" }
+          } end,
+          desc = "Find all files(ignore .gitignore)",
         },
       },
       t = {},
