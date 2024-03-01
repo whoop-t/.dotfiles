@@ -49,7 +49,10 @@ return {
         ["<Leader>o"] = false,
         ["<Leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
         ["<Leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
-        ["<Leader>n"] = { '<cmd>let @+ = fnamemodify(expand("%:h:h"), ":t") . "/" . expand("%:t")<cr>', desc = "remove search highlight" },
+        ["<Leader>n"] = {
+          '<cmd>let @+ = fnamemodify(expand("%:h:h"), ":t") . "/" . expand("%:t")<cr>',
+          desc = "remove search highlight",
+        },
         -- Below toggles between buffer and neotree buffer
         -- BUT it will not toggle from neotree if no other buffers open
         ["<Leader>e"] = {
@@ -94,13 +97,25 @@ return {
           end,
           desc = "ToggleTerm lazydocker",
         },
-        -- Overwrtie telescope find all files to ignore .gitignore
+        -- Overwrtie telescope find all files to ignore .gitignore and .git
         ["<Leader>fF"] = {
-          function() require("telescope.builtin").find_files {
-            hidden = true,
-            file_ignore_patterns = { ".git/*" }
-          } end,
-          desc = "Find all files(ignore .gitignore)",
+          function()
+            require("telescope.builtin").find_files {
+              hidden = true,
+              file_ignore_patterns = { ".git/*" },
+            }
+          end,
+          desc = "Find all files(ignore .gitignore and .git)",
+        },
+        -- Overwrtie telescope find all words to ignore .gitignore and .git
+        ["<Leader>fW"] = {
+          function()
+            require("telescope.builtin").live_grep {
+              additional_args = function(args) return vim.list_extend(args, { "--hidden" }) end,
+              file_ignore_patterns = { ".git/*" },
+            }
+          end,
+          desc = "Find words in all files(ignore .gitignore and .git)",
         },
       },
       t = {},
