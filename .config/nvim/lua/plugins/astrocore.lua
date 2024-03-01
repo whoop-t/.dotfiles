@@ -98,9 +98,7 @@ return {
           desc = "ToggleTerm lazydocker",
         },
         -- Overwrtie telescope find all files to ignore .gitignore and .git
-        ["<Leader>fF"] = false,
-        ["<Leader>fW"] = false,
-        ["<Leader>ff"] = {
+        ["<Leader>fF"] = {
           function()
             require("telescope.builtin").find_files {
               hidden = true,
@@ -111,7 +109,7 @@ return {
           desc = "Find all files(ignore node_modules/.git)",
         },
         -- Overwrtie telescope find all words to ignore .gitignore and .git
-        ["<Leader>fw"] = {
+        ["<Leader>fW"] = {
           function()
             require("telescope.builtin").live_grep {
               additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
