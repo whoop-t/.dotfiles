@@ -102,20 +102,21 @@ return {
           function()
             require("telescope.builtin").find_files {
               hidden = true,
-              file_ignore_patterns = { ".git/*" },
+              no_ignore = true,
+              file_ignore_patterns = { ".git/*" , "node_modules/*"},
             }
           end,
-          desc = "Find all files(ignore .gitignore and .git)",
+          desc = "Find all files(ignore node_modules/.git)",
         },
         -- Overwrtie telescope find all words to ignore .gitignore and .git
         ["<Leader>fW"] = {
           function()
             require("telescope.builtin").live_grep {
-              additional_args = function(args) return vim.list_extend(args, { "--hidden" }) end,
-              file_ignore_patterns = { ".git/*" },
+              additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+              file_ignore_patterns = { ".git/*" , "node_modules/*"},
             }
           end,
-          desc = "Find words in all files(ignore .gitignore and .git)",
+          desc = "Find words in all files(ignore node_modules/.git)",
         },
       },
       t = {},
