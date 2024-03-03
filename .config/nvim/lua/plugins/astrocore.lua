@@ -47,11 +47,12 @@ return {
         ["<C-l>"] = false,
         ["<C-;>"] = false,
         ["<Leader>o"] = false,
+        ["<Leader>c"] = false,
         ["<Leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
         ["<Leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
         ["<Leader>n"] = {
           '<cmd>let @+ = fnamemodify(expand("%:h:h"), ":t") . "/" . expand("%:t")<cr>',
-          desc = "remove search highlight",
+          desc = "copy current buffer file name",
         },
         -- Below toggles between buffer and neotree buffer
         -- BUT it will not toggle from neotree if no other buffers open
@@ -70,21 +71,22 @@ return {
         ["<C-d>"] = { "<C-d>zz" },
         ["<C-u>"] = { "<C-u>zz" },
         -- Dont allowing closing of last buffer
-        ["<Leader>c"] = {
-          function()
-            local bufs = vim.fn.getbufinfo { buflisted = true }
-            if not bufs[2] then
-            -- do nothing, we dont wanna close last buffer
-            elseif
-              vim.bo.filetype == "neo-tree"
-              -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
-            then
-            else
-              require("astrocore.buffer").close(0)
-            end
-          end,
-          desc = "Close buffer",
-        },
+        -- DO I STILL NEED THIS?? using cloak now with c bindings
+        -- ["<Leader>c"] = {
+        --   function()
+        --     local bufs = vim.fn.getbufinfo { buflisted = true }
+        --     if not bufs[2] then
+        --     -- do nothing, we dont wanna close last buffer
+        --     elseif
+        --       vim.bo.filetype == "neo-tree"
+        --       -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
+        --     then
+        --     else
+        --       require("astrocore.buffer").close(0)
+        --     end
+        --   end,
+        --   desc = "Close buffer",
+        -- },
         -- GitBlame mappings
         ["<Leader>gu"] = { "<CMD>GitBlameOpenCommitURL<CR>", desc = "Open Blame Url" },
 
