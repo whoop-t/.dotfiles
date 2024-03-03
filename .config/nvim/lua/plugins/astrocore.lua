@@ -93,8 +93,8 @@ return {
         -- Map lazydocker to td(requires lazydocker to be installed/in bin)
         ["<Leader>td"] = {
           function()
-            if vim.fn.executable "lazydocker" == 1 and require("astronvim.utils").is_available "toggleterm.nvim" then
-              require("astronvim.utils").toggle_term_cmd "lazydocker"
+            if vim.fn.executable "lazydocker" == 1 and require("astrocore").is_available "toggleterm.nvim" then
+              require("astrocore").toggle_term_cmd "lazydocker"
             end
           end,
           desc = "ToggleTerm lazydocker",
