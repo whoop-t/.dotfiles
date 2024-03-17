@@ -114,6 +114,9 @@ fi
 
 # vi mode
 bindkey -v
+# fix small delay when entering vi mode
+# https://www.reddit.com/r/vim/comments/60jl7h/zsh_vimode_no_delay_entering_normal_mode/
+KEYTIMEOUT=1
 # ctrl-p & ctrl-n to behave like arrow keys
 bindkey '^P' up-line-or-beginning-search
 bindkey '^N' down-line-or-beginning-search
