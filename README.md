@@ -41,7 +41,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - Secondary(dont use anymore): Moonlander layout(42 key): [oryx](https://configure.zsa.io/moonlander/layouts/0p0pw/latest/0)
 - [monkeytype](https://monkeytype.com/profile/whoop)
 
-# Software I use(work and personal)
+# Software I use (work and personal)
 - [DBeaver](https://dbeaver.io/) - Open Source DB Tool
 - [Docker](https://www.docker.com/)
 - [Postman](https://www.postman.com/)
