@@ -24,7 +24,7 @@ return {
     -- All none-ls sources are handled through mason-null-ls
     -- eslint is set up natively in astrolsp
     opts = {
-      ensure_installed = { "prettierd", "stylua" },
+      ensure_installed = { "prettierd", "stylua", "biome" },
       automatic_installation = false,
       handlers = {
         prettierd = function(source_name, methods)
@@ -40,6 +40,17 @@ return {
                 ".prettierrc.yaml",
                 ".prettierrc.yml",
                 ".prettierrc.toml"
+              )
+            end,
+          })
+        end,
+        biome = function(source_name, methods)
+          -- Conditional to only use biome when a biome.json is in root
+          local null_ls = require "null-ls"
+          null_ls.register(null_ls.builtins.formatting.biome.with {
+            condition = function(utils)
+              return utils.root_has_file(
+                "biome.json"
               )
             end,
           })
