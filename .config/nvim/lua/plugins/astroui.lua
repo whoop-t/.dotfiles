@@ -24,7 +24,7 @@ return {
         -- NormalNC = { bg = "NONE" },
         -- CursorColumn = { bg = "NONE" },
         CursorLine = { bg = "NONE" }, -- I use this to disable vim.opt.cursorline as issues with neotree disabling the option on its own
-        -- CursorLineNr = { bg = "NONE" },
+        CursorLineNr = { fg = "#c0c4d8", bg = "NONE" },
         -- NeoTree(explorer)
         -- NeoTreeNormal = { bg = "NONE" },
         -- NeoTreeNormalNC = { bg = "NONE" },
