@@ -101,7 +101,7 @@ return {
             require("telescope.builtin").find_files {
               hidden = true,
               no_ignore = true,
-              file_ignore_patterns = { ".git/*" , "node_modules/*"},
+              file_ignore_patterns = { ".git/*" , "node_modules/*", ".vscode/*"},
             }
           end,
           desc = "Find all files(ignore node_modules/.git)",
@@ -111,7 +111,7 @@ return {
           function()
             require("telescope.builtin").live_grep {
               additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
-              file_ignore_patterns = { ".git/*" , "node_modules/*"},
+              file_ignore_patterns = { ".git/*" , "node_modules/*", ".vscode/*"},
             }
           end,
           desc = "Find words in all files(ignore node_modules/.git)",
