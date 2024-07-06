@@ -65,6 +65,7 @@ return {
       -- Must also have eslint installed local in project
       eslint = function(_, opts)
         -- Check if we have a .eslintrc, dont attach if we dont
+        -- This will also override the <Leader>lf to call eslint
         local files = {
           ".eslintrc",
           ".eslintrc.json",
@@ -84,8 +85,17 @@ return {
             if not is_eslint_server_installed then
               -- Install vscode-eslint-language-server with npm if not installed
               vim.fn.system "npm i -g vscode-langservers-extracted"
-              require('notify')('vscode-langservers-extracted installed')
+              require "notify" "vscode-langservers-extracted installed"
             end
+
+            local on_attach = opts.on_attach
+            opts.on_attach = function(bufnr)
+              if on_attach then on_attach(bufnr) end
+              -- remove the normal format, replace with eslint
+              -- https://discord.com/channels/939594913560031363/1258785250629128213/1259088291031158906
+              vim.keymap.set({ "n", "v" }, "<Leader>lf", function() vim.cmd.EslintFixAll() end)
+            end
+
             require("lspconfig").eslint.setup(opts)
           end
         end
@@ -126,13 +136,6 @@ return {
         --   desc = "Declaration of current symbol",
         --   cond = "textDocument/declaration",
         -- },
-        -- Specific key for formatting with Eslint
-        -- only make if eslint is attached
-        ["<Leader>le"] = {
-          function() vim.cmd.EslintFixAll() end,
-          desc = "Format with Eslint",
-          cond = function(client) return vim.fn.exists ":EslintFixAll" > 0 end,
-        },
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
