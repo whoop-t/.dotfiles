@@ -2,6 +2,14 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
+    defaults = {
+      mappings = {
+        i = {
+          ["<C-n>"] = "cycle_history_next",
+          ["<C-p>"] = "cycle_history_prev",
+        },
+      },
+    },
     pickers = {
       find_files = {
         follow = true,
