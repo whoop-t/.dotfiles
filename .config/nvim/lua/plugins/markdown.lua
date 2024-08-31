@@ -4,5 +4,8 @@ return {
   opts = {
     file_types = { "markdown" },
     render_modes = { "n", "v", "V", "i", "c" }, -- render markdown in all modes
+    code = {
+      sign = false,
+    },
   },
 }
