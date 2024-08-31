@@ -6,12 +6,13 @@ return {
     opts.winbar = nil
     opts.tabline = nil
     opts.statusline = {
-      -- statusline
-      hl = { fg = "fg", bg = "bg" },
       status.component.mode(),
-      status.component.git_branch(),
-      -- harpoon_components.index, // moved to harpoon2, need to revisit
+      status.component.git_branch {
+        -- Fix induvidual components not having transparent bg
+        surround = { color = "NONE" },
+      },
       status.component.file_info {
+        surround = { color = "NONE" },
         -- Set relative path name
         filename = { modify = ":~:." },
         filetype = false,
@@ -22,15 +23,17 @@ return {
             filetype = { "aerial", "dapui_.", "neo%-tree", "NvimTree" },
           }
         end,
-        
       },
-      status.component.diagnostics(),
+      status.component.diagnostics {
+        surround = { color = "NONE" },
+      },
       -- status.component.fill(),
       -- status.component.nav(),
       status.component.fill(),
-      -- status.component.treesitter(),
-      -- lsp causes issue on mac with tokyonight(https://discord.com/channels/939594913560031363/1100223017017163826)
-      status.component.lsp { padding = { right = 1 } },
+      status.component.lsp {
+        padding = { right = 1 },
+        surround = { color = "NONE" },
+      },
     }
 
     return opts

@@ -13,7 +13,7 @@ return {
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
-        -- :Telescope then seach "highlights" will show you all the highlights you can alter, good for finding BG to change
+        -- :Telescope highlights will show you all the highlights you can alter, good for finding BG to change
         -- **NOTE** below is the old way I would make everthing transparent
         -- **NOTE** with my tokyonight settings now, i dont need this. Keeping for reference
         -- Config for transparent bg
@@ -39,7 +39,7 @@ return {
         -- TabLineFill = { bg = "NONE" },
         -- Bottom status bar
         StatusLine = { bg = "NONE" },
-        StatusLineTerm = { bg = "NONE" },
+        -- StatusLineTerm = { bg = "NONE" },
         -- Top Bar
         -- WinBar = { bg = "NONE" },
         -- WinBarNC = { bg = "NONE" },
