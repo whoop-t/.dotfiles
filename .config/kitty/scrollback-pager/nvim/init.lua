@@ -17,6 +17,8 @@ vim.cmd("hi LineNr guifg=#3b4261")
 vim.cmd("hi Search guifg=#c0caf5 guibg=#3d59a1")
 vim.cmd("hi CurSearch guifg=#15161e guibg=#ff9e64")
 vim.cmd("hi IncSearch guifg=#15161e guibg=#ff9e64")
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi NormalFloat guibg=NONE ctermbg=NONE")
 
 vim.api.nvim_set_keymap("n", "q", ":qa!<CR>", { silent = true })
 
