@@ -13,7 +13,8 @@ return {
       "css",
       "sql",
       "go",
-      "markdown"
+      "markdown",
+      "norg"
     },
   },
 }
