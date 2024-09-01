@@ -44,6 +44,7 @@ return {
       n = {
         ["<Leader>o"] = false,
         ["<Leader>c"] = false,
+        ["<Leader>n"] = false,
         ["<Leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
         ["<Leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
         ["<Leader>cf"] = {
