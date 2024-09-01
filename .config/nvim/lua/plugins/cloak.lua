@@ -30,13 +30,26 @@ return {
       },
     }
 
-    vim.keymap.set("n", "<leader>ce", function()
-      require("cloak").enable()
-      require("notify")("Cloak enabled")
-    end)
-    vim.keymap.set("n", "<leader>cd", function()
-      require("cloak").disable()
-      require("notify")("Cloak disabled")
-    end)
+    local wk = require "which-key"
+    wk.add {
+      {
+        "<leader>ce",
+        function()
+          require("cloak").enable()
+          require "notify" "Cloak enabled"
+        end,
+        desc = "Cloak enable",
+        mode = "n",
+      },
+      {
+        "<leader>cd",
+        function()
+          require("cloak").disable()
+          require "notify" "Cloak disabled"
+        end,
+        desc = "Cloak disable",
+        mode = "n",
+      },
+    }
   end,
 }

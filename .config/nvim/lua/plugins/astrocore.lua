@@ -46,9 +46,9 @@ return {
         ["<Leader>c"] = false,
         ["<Leader>p"] = { '"_dP', desc = "blackhole delete and paste" },
         ["<Leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
-        ["<Leader>n"] = {
+        ["<Leader>cf"] = {
           '<cmd>let @+ = fnamemodify(expand("%:h:h"), ":t") . "/" . expand("%:t")<cr>',
-          desc = "copy current buffer file name",
+          desc = "Copy current buffer file name",
         },
         ["<Leader>m"] = { "<CMD>RenderMarkdown toggle<CR>", desc = "Toggle markdown.nvim" },
         -- Below toggles between buffer and neotree buffer
