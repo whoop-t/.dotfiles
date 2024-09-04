@@ -52,7 +52,6 @@ return {
           '<cmd>let @+ = fnamemodify(expand("%:h:h"), ":t") . "/" . expand("%:t")<cr>',
           desc = "Copy current buffer file name",
         },
-        ["<Leader>m"] = { "<CMD>RenderMarkdown toggle<CR>", desc = "Toggle markdown.nvim" },
         -- Below toggles between buffer and neotree buffer
         -- BUT it will not toggle from neotree if no other buffers open
         ["<Leader>e"] = {
