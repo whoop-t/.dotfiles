@@ -7,8 +7,11 @@ return {
       render_modes = { "n", "v", "V", "i", "c" }, -- render markdown in all modes
       code = {
         sign = false,
+        style = 'normal',
+        width = 'block'
       },
     }
+    -- Only allow keybindings in markdown file
     vim.api.nvim_create_autocmd("Filetype", {
       pattern = "markdown",
       callback = function()
