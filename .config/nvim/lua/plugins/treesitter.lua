@@ -14,7 +14,6 @@ return {
       "sql",
       "go",
       "markdown",
-      "norg"
     },
   },
 }

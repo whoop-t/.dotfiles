@@ -1,8 +1,5 @@
 return { -- override nvim-cmp plugin
   "hrsh7th/nvim-cmp",
-  dependencies = {
-    "nvim-neorg/neorg", -- add cmp source as dependency of cmp
-  },
   -- override the options table that is used in the `require("cmp").setup()` call
   opts = function(_, opts)
     -- opts parameter is the default options table
@@ -14,7 +11,6 @@ return { -- override nvim-cmp plugin
       { name = "luasnip", priority = 750 },
       { name = "buffer", priority = 500 },
       { name = "path", priority = 250 },
-      { name = "neorg" }, -- Add neoorg as cmp source
     }
   end,
 }
