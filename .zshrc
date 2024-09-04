@@ -5,11 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# load .bash_profile
-if [ -f $HOME/.bash_profile ]; then 
-    . $HOME/.bash_profile;
-fi
-
 # node version manager
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -150,3 +145,8 @@ alias nvimp='NVIM_APPNAME=personal_nvim nvim'
 alias f='. $HOME/scripts/fzf_dev.sh'
 # Alias fzf search zsh_history
 alias h='. $HOME/scripts/fzf_history.sh'
+
+# load .bash_profile
+if [ -f $HOME/.bash_profile ]; then 
+    . $HOME/.bash_profile;
+fi
