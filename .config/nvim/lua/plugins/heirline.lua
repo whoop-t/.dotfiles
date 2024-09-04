@@ -7,12 +7,8 @@ return {
     opts.tabline = nil
     opts.statusline = {
       status.component.mode(),
-      status.component.git_branch {
-        -- Fix induvidual components not having transparent bg
-        surround = { color = "NONE" },
-      },
+      status.component.git_branch(),
       status.component.file_info {
-        surround = { color = "NONE" },
         -- Set relative path name
         filename = { modify = ":~:." },
         filetype = false,
@@ -24,9 +20,7 @@ return {
           }
         end,
       },
-      status.component.diagnostics {
-        surround = { color = "NONE" },
-      },
+      status.component.diagnostics(),
       -- status.component.fill(),
       -- status.component.nav(),
       status.component.fill(),
