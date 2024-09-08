@@ -67,23 +67,6 @@ return {
         -- Keep cursor in middle when cntrl-d or cntrl-u, less disorienting
         ["<C-d>"] = { "<C-d>zz" },
         ["<C-u>"] = { "<C-u>zz" },
-        -- Dont allowing closing of last buffer
-        -- DO I STILL NEED THIS?? using cloak now with c bindings
-        -- ["<Leader>c"] = {
-        --   function()
-        --     local bufs = vim.fn.getbufinfo { buflisted = true }
-        --     if not bufs[2] then
-        --     -- do nothing, we dont wanna close last buffer
-        --     elseif
-        --       vim.bo.filetype == "neo-tree"
-        --       -- if buffer is neotree, do nothing, we dont wanna close neotree with leader c
-        --     then
-        --     else
-        --       require("astrocore.buffer").close(0)
-        --     end
-        --   end,
-        --   desc = "Close buffer",
-        -- },
         -- GitBlame mappings
         ["<Leader>gu"] = { "<CMD>GitBlameOpenCommitURL<CR>", desc = "Open Blame Url" },
 
@@ -96,7 +79,7 @@ return {
           end,
           desc = "ToggleTerm lazydocker",
         },
-        -- Overwrtie telescope find all files to ignore .gitignore and .git
+        -- Overwrite telescope find all files to ignore dirs
         ["<Leader>fF"] = {
           function()
             require("telescope.builtin").find_files {
@@ -107,7 +90,7 @@ return {
           end,
           desc = "Find all files(ignore node_modules/.git)",
         },
-        -- Overwrtie telescope find all words to ignore .gitignore and .git
+        -- Overwrite telescope find all words to ignore to ignore dirs
         ["<Leader>fW"] = {
           function()
             require("telescope.builtin").live_grep {
