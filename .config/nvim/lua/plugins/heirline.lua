@@ -26,7 +26,6 @@ return {
       status.component.fill(),
       status.component.lsp {
         padding = { right = 1 },
-        surround = { color = "NONE" },
       },
     }
 
