@@ -44,6 +44,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [DBeaver](https://dbeaver.io/) - Open Source DB Tool
 - [Docker](https://www.docker.com/)
 - [Postman](https://www.postman.com/)
+- [k9s](https://github.com/derailed/k9s) - must also symlink k9 configs from dotfiles
 
 # Coding Music (some stuff I like)
 - [TRAPPIN IN ＰＡＲＡＤＩＳＥ](https://www.youtube.com/watch?v=1-M6Ceavg6U)
