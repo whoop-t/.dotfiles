@@ -1,0 +1,108 @@
+# -----------------------------------------------------------------------------
+# K9s Tokyonight Theme
+# Based on the Tokyonight.nvim color scheme:
+# https://github.com/folke/tokyonight.nvim 
+# -----------------------------------------------------------------------------
+
+# Styles
+foreground: &foreground "#c0caf5"
+current_line: &current_line "#292e42"
+selection: &selection "#292e42"
+comment: &comment "#565f89"
+cyan: &cyan "#7dcfff"
+green: &green "#9ece6a"
+green1: &green1 "#73daca"
+orange: &orange "#ff9e64"
+magenta: &magenta "#ff007c"
+blue: &blue "#7aa2f7"
+red: &red "#f7768e"
+
+# Skins
+k9s:
+  body:
+    fgColor: *foreground
+    bgColor: default
+    logoColor: *blue
+  prompt:
+    fgColor: *foreground
+    bgColor: default
+    suggestColor: *cyan
+  help:
+    fgColor: *foreground
+    bgColor: default
+    keyColor: *green1
+    numKeyColor: *green1
+    sectionColor: default
+  info:
+    fgColor: *comment
+    sectionColor: default
+  dialog:
+    fgColor: *foreground
+    bgColor: default
+    buttonFgColor: *foreground
+    buttonBgColor: *magenta
+    buttonFocusFgColor: white
+    buttonFocusBgColor: *cyan
+    labelFgColor: default
+    fieldFgColor: default
+  frame:
+    border:
+      fgColor: *selection
+      focusColor: *current_line
+    menu:
+      fgColor: default
+      keyColor: *green1
+      numKeyColor: *green1
+    crumbs:
+      fgColor: *foreground
+      bgColor: default
+      activeColor: *current_line
+    status:
+      newColor: *green
+      modifyColor: *orange
+      addColor: *green
+      errorColor: *red
+      highlightColor: *blue
+      killColor: *comment
+      completedColor: *comment
+    title:
+      fgColor: *foreground
+      bgColor: default
+      highlightColor: *selection
+      counterColor: default
+      filterColor: *magenta
+  views:
+    charts:
+      bgColor: default
+      defaultDialColors:
+        - *blue
+        - *red
+      defaultChartColors:
+        - *blue
+        - *red
+    table:
+      fgColor: *foreground
+      bgColor: default
+      cursorBgColor: *blue
+      cursorFgColor: *foreground
+      header:
+        fgColor: default
+        bgColor: default
+    xray:
+      fgColor: *foreground
+      bgColor: default
+      cursorColor: *current_line
+      graphicColor: *blue
+    yaml:
+      keyColor: *green1
+      colonColor: default
+      valueColor: default
+    logs:
+      fgColor: *foreground
+      bgColor: default
+      indicator:
+        fgColor: *foreground
+        bgColor: default
+        toggleOnColor: default
+        toggleOffColor: default
+

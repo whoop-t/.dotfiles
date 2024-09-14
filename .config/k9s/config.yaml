@@ -13,7 +13,7 @@ k9s:
     reactive: false
     noIcons: false
     defaultsToFullScreen: false
-    skin: transparent
+    skin: tokyonight
   skipLatestRevCheck: false
   disablePodCounting: false
   shellPod:
