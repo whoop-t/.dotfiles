@@ -5,6 +5,7 @@
 # -----------------------------------------------------------------------------
 
 # Styles
+black: &black "#000000"
 foreground: &foreground "#c0caf5"
 current_line: &current_line "#292e42"
 selection: &selection "#292e42"
@@ -58,7 +59,7 @@ k9s:
       bgColor: default
       activeColor: *current_line
     status:
-      newColor: *green
+      newColor: *blue
       modifyColor: *orange
       addColor: *green
       errorColor: *red
@@ -84,9 +85,9 @@ k9s:
       fgColor: *foreground
       bgColor: default
       cursorBgColor: *blue
-      cursorFgColor: *foreground
+      cursorFgColor: *black
       header:
-        fgColor: default
+        fgColor: *foreground
         bgColor: default
     xray:
       fgColor: *foreground
@@ -105,4 +106,3 @@ k9s:
         bgColor: default
         toggleOnColor: default
         toggleOffColor: default
-
