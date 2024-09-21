@@ -32,7 +32,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [NoTunes](https://github.com/tombonez/noTunes)
 
 # Linux ONLY
-- [IMWheel(fix mouse on Mac)](https://wiki.archlinux.org/title/IMWheel)
+- [IMWheel(fix mouse on Linux)](https://wiki.archlinux.org/title/IMWheel)
 - [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto) -> Dont hate me for this
 
 # Keyboard
