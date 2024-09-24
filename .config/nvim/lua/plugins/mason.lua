@@ -15,6 +15,7 @@ return {
         "sqlls",
         "gopls",
         "yamlls",
+        "pyright"
       },
     },
   },
