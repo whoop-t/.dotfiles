@@ -30,10 +30,12 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [LinearMouse (mouse issues fix on mac)](https://linearmouse.app/)
 - [Clipy](https://github.com/Clipy/Clipy)
 - [NoTunes](https://github.com/tombonez/noTunes)
+- [BetterDisplay](https://github.com/waydabber/BetterDisplay) -- 27" 1440p scaled to 82% (2096x1179)
 
 # Linux ONLY
 - [IMWheel(fix mouse on linux)](https://wiki.archlinux.org/title/IMWheel)
 - [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto) -> Dont hate me for this
+- 27" 1440p scaled to 125% (popos display settings)
 
 # Keyboard
 - Main: Corne layout(42 key): [via config](https://github.com/whoop-t/corne_42_key)
