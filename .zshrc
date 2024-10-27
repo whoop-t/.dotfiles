@@ -175,6 +175,8 @@ alias nvimp='NVIM_APPNAME=personal_nvim nvim'
 # Alias fzf dir search and navigate
 # . important else it will execute in subshell
 alias f='. $HOME/scripts/fzf_dev.sh'
+# Open kitty tab in selected dir from search
+alias ft='. $HOME/scripts/fzf_dev_tab.sh'
 
 # load .bash_profile
 if [ -f $HOME/.bash_profile ]; then 
