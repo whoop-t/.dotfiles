@@ -158,6 +158,11 @@ x11-clip-wrap-widgets paste  $paste_widgets
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# enable fzf keybindings 
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+# enable fuzzy auto-completion
+source /usr/share/doc/fzf/examples/completion.zsh
+
 alias python=/usr/bin/python3
 # Alias for kitty set tab title
 alias ct='kitty @ set-tab-title'
@@ -170,8 +175,6 @@ alias nvimp='NVIM_APPNAME=personal_nvim nvim'
 # Alias fzf dir search and navigate
 # . important else it will execute in subshell
 alias f='. $HOME/scripts/fzf_dev.sh'
-# Alias fzf search zsh_history
-alias h='. $HOME/scripts/fzf_history.sh'
 
 # load .bash_profile
 if [ -f $HOME/.bash_profile ]; then 
