@@ -158,10 +158,8 @@ x11-clip-wrap-widgets paste  $paste_widgets
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# enable fzf keybindings 
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-# enable fuzzy auto-completion
-source /usr/share/doc/fzf/examples/completion.zsh
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 alias python=/usr/bin/python3
 # Alias for kitty set tab title
