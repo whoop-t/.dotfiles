@@ -48,7 +48,7 @@ return {
         ["<Leader>n"] = false,
         ["<Leader>h"] = { "<cmd>nohlsearch<cr>", desc = "remove search highlight" },
         ["<Leader>cf"] = {
-          '<cmd>let @+ = fnamemodify(expand("%:h:h"), ":t") . "/" . expand("%:t")<cr>',
+          '<cmd>let @+ = fnamemodify(expand("%:p"), ":.")<cr>',
           desc = "Copy current buffer file name",
         },
         -- Below toggles between buffer and neotree buffer
