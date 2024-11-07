@@ -40,7 +40,8 @@ return {
                 ".prettierrc.json",
                 ".prettierrc.yaml",
                 ".prettierrc.yml",
-                ".prettierrc.toml"
+                ".prettierrc.toml",
+                "prettier.config.cjs"
               )
             end,
           })
