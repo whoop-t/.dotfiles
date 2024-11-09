@@ -15,7 +15,8 @@ return {
         "sqlls",
         "gopls",
         "yamlls",
-        "pyright"
+        "pyright",
+        "emmet_language_server"
       },
     },
   },

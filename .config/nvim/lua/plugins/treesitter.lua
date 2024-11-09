@@ -11,6 +11,7 @@ return {
       "bash",
       "html",
       "css",
+      "scss",
       "sql",
       "go",
       "markdown",
