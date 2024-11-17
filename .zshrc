@@ -172,9 +172,13 @@ alias np='NVIM_APPNAME=personal_nvim nvim .'
 alias nvimp='NVIM_APPNAME=personal_nvim nvim'
 # Alias fzf dir search and navigate
 # . important else it will execute in subshell
-alias f='. $HOME/scripts/fzf_dev.sh'
+alias f='. fzf_dev.sh'
 # Open kitty tab in selected dir from search
-alias ft='. $HOME/scripts/fzf_dev_tab.sh'
+alias ft='. fzf_dev_tab.sh'
+# tmux sessionizer with fzf
+alias fx='. tmux-sessionizer.sh'
+#tmux attach
+alias ta='tmux attach'
 
 # load .bash_profile
 if [ -f $HOME/.bash_profile ]; then 
