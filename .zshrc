@@ -15,6 +15,9 @@ if [ -d "/usr/local/go/bin" ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
 
+# Make sure .local/bin is added in path, scripts live here
+export PATH="$HOME/.local/bin:$PATH"
+
 # Stop insecure messages
 ZSH_DISABLE_COMPFIX="true"
 
