@@ -177,9 +177,11 @@ alias nvimp='NVIM_APPNAME=personal_nvim nvim'
 # . important else it will execute in subshell
 alias f='. fzf_dev.sh'
 # Open kitty tab in selected dir from search
-alias ft='. fzf_dev_tab.sh'
+# alias ft='. fzf_dev_tab.sh'
 # tmux sessionizer with fzf
-alias fx='. tmux-sessionizer.sh'
+# alias fx='. tmux-sessionizer.sh'
+bindkey -s '^f' "tmux-sessionizer.sh\n"
+
 #tmux attach
 alias ta='tmux attach'
 

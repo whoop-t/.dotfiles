@@ -33,10 +33,4 @@ if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
 fi
 
-if [[ -z $TMUX ]]; then
-    # If not already in TMUX, attach to the session
-    tmux attach-session -t $selected_name
-else
-    # Switch to the session
-    tmux switch-client -t $selected_name
-fi
+tmux switch-client -t $selected_name
