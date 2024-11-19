@@ -1,6 +1,6 @@
 # Prereq
 - Install [Nodejs/Npm](https://nodejs.org/en/download)
-- Install [NVM (Node version manager)](https://github.com/nvm-sh/nvm)
+- Install [fnm (Node version manager)](https://github.com/Schniz/fnm)
 - Install [Stow](https://formulae.brew.sh/formula/stow)
 - Install [Kitty Terminal](https://sw.kovidgoyal.net/kitty/binary/) (best kitty [icon](https://github.com/DinkDonk/kitty-icon))
 - Install [Tmux](https://github.com/tmux/tmux/wiki)
