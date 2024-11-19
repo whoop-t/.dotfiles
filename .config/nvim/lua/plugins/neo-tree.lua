@@ -55,6 +55,7 @@ return {
     window = {
       mappings = {
         ["q"] = "noop",
+        ["<C-f>"] = function() vim.cmd "silent !tmux neww tmux-sessionizer.sh" end,
       },
     },
   },
