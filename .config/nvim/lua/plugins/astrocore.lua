@@ -43,6 +43,8 @@ return {
       -- tables with the `name` key will be registered with which-key if it's installed
       -- this is useful for naming menus
       n = {
+         -- Enable tmux-sessionizer inside neovim
+        ["<C-f>"] = { "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>" },
         ["<Leader>o"] = false,
         ["<Leader>c"] = false,
         ["<Leader>n"] = false,
