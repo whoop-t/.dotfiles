@@ -167,6 +167,8 @@ alias python=/usr/bin/python3
 alias ct='kitty @ set-tab-title'
 # Alias for nvim, dir level
 alias n='nvim .'
+# Alias for lazygit tui
+alias lg='lazygit'
 # Alias for personal nvim config, dir level
 alias np='NVIM_APPNAME=personal_nvim nvim .'
 # Alias for personal nvim config
