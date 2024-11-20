@@ -9,9 +9,9 @@
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
+- [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
 
 # Terminal tools needed:
-
 - Install [fzf](https://github.com/junegunn/fzf)
 - Install [ripgrep](https://github.com/BurntSushi/ripgrep)
 - Install [lazygit](https://github.com/jesseduffield/lazygit)
