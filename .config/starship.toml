@@ -1,8 +1,26 @@
 add_newline = false
 
 # A minimal left prompt
-format = """$directory$fill$cmd_duration$status$git_branch
+format = """$os$directory$fill$cmd_duration$status$nodejs$git_branch
 $character"""
+
+[nodejs]
+format = "[$symbol($version )](bold green)"
+# Only show in node projects
+detect_extensions = []
+detect_files = ['package.json', '.node-version', '.nvmrc']
+
+# [os]
+# format = '[$symbol](bold #a9b1d6) '   
+# disabled = false
+#
+# [os.symbols]
+# Windows = ' '
+# Arch = '󰣇'
+# Ubuntu = ''
+# Pop = ''
+# Macos = '󰀵'
+# Unknown = '󰠥'
 
 [fill]
 symbol = " "
