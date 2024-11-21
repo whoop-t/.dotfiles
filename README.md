@@ -6,6 +6,7 @@
 - Install [Tmux](https://github.com/tmux/tmux/wiki)
 - Install [zsh(if needed)](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - Install [oh-my-zsh](https://ohmyz.sh/#install)
+- Install [Starship](https://starship.rs/)
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
