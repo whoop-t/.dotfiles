@@ -1,0 +1,33 @@
+add_newline = false
+
+# A minimal left prompt
+format = """$directory$fill$cmd_duration$status$git_branch
+$character"""
+
+[fill]
+symbol = " "
+
+[character]
+success_symbol = "[❯](bold #9ece6a)"  # Use the desired color here
+error_symbol = "[❯](bold #db4b4b)"   # Use the desired color here
+vimcmd_symbol = "[❮](bold #9ece6a)"  # Replace with your desired color
+
+[git_branch]
+format = '[$branch]($style) '
+style = 'bold #9ece6a'
+
+[directory]
+style = "#7aa2f7"
+truncation_symbol = ""
+
+[cmd_duration]
+min_time = 5_000
+style = "#ff9e64"
+format = '[$duration]($style) '
+
+[line_break]
+disabled = false
+
+[status]
+disabled = false
+symbol = '✘ '
