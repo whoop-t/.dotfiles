@@ -1,14 +1,10 @@
 add_newline = false
 
+command_timeout = 3000
+
 # A minimal left prompt
 format = """$os$directory$fill$cmd_duration$status$nodejs$git_branch
 $character"""
-
-[nodejs]
-format = "[$symbol($version )](bold green)"
-# Only show in node projects
-detect_extensions = []
-detect_files = ['package.json', '.node-version', '.nvmrc']
 
 # [os]
 # format = '[$symbol](bold #a9b1d6) '   
@@ -25,13 +21,20 @@ detect_files = ['package.json', '.node-version', '.nvmrc']
 [fill]
 symbol = " "
 
+[nodejs]
+format = "[$symbol($version )](bold green)"
+# Only show in node projects
+detect_extensions = []
+detect_files = ['package.json', '.node-version', '.nvmrc']
+
 [character]
 success_symbol = "[❯](bold #9ece6a)"  # Use the desired color here
 error_symbol = "[❯](bold #db4b4b)"   # Use the desired color here
 vimcmd_symbol = "[❮](bold #9ece6a)"  # Replace with your desired color
 
 [git_branch]
-format = '[$branch]($style) '
+format = '[$symbol$branch]($style) '
+symbol = ''
 style = 'bold #9ece6a'
 
 [directory]
@@ -39,7 +42,7 @@ style = "#7aa2f7"
 truncation_symbol = ""
 
 [cmd_duration]
-min_time = 5_000
+min_time = 30_000
 style = "#ff9e64"
 format = '[$duration]($style) '
 
