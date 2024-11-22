@@ -3,7 +3,7 @@ add_newline = false
 command_timeout = 3000
 
 # A minimal left prompt
-format = """$os$directory$fill$cmd_duration$status$nodejs$git_branch
+format = """$os$directory$git_branch$fill $cmd_duration$status$nodejs
 $character"""
 
 # [os]
@@ -19,7 +19,8 @@ $character"""
 # Unknown = '󰠥'
 
 [fill]
-symbol = " "
+symbol = "─"
+style = "#27a1b9"
 
 [nodejs]
 format = "[$symbol($version )](bold green)"
