@@ -41,6 +41,7 @@ style = 'bold #9ece6a'
 [directory]
 style = "#7aa2f7"
 truncation_symbol = ""
+truncation_length = 5
 
 [cmd_duration]
 min_time = 30_000
