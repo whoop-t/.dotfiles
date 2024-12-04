@@ -5,5 +5,4 @@ return {
   { "stevearc/aerial.nvim", enabled = false },
   { "AstroNvim/astrotheme", enabled = false },
   { "nvim-autopairs", enabled = false },
-  { "max397574/better-escape.nvim", enabled = false },
 }
