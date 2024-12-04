@@ -4,7 +4,7 @@ vim.opt.number = true
 vim.opt.mouse = "a"
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.virtualedit = "all"
-vim.opt.scrollback = 1000000
+vim.opt.scrollback = 100000
 vim.opt.termguicolors = true
 vim.opt.laststatus = 0
 vim.opt.background = "dark"
