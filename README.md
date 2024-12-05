@@ -38,6 +38,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [IMWheel(fix mouse on linux)](https://wiki.archlinux.org/title/IMWheel)
 - [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto) -> Dont hate me for this
   Install with [Old Method](https://github.com/rbreaves/kinto?tab=readme-ov-file#old-install-method) 
+  Use Alt as the second key
 - 27" 1440p scaled to 125% (popos display settings)
 
 # Keyboard
