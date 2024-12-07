@@ -132,6 +132,7 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
     }
+    // THESE ARE BINDINGS THAT WORK IN LOCKED
     shared_among "normal" "locked" {
         // bind "Alt left" { MoveFocusOrTab "left"; }
         // bind "Alt down" { MoveFocus "down"; }
