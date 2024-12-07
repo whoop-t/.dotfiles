@@ -1,0 +1,56 @@
+// Reference: https://github.com/dj95/zjstatus/discussions/44
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                color_purp "#bb9af7"
+                color_font "#1a1b26"
+                color_inactive_tab_font "#565f89"
+                
+                format_left   "{tabs}"
+                format_right  "{mode} {session} #[fg=$purp,bg=$purp]"
+                format_space  "#[bg=$bg]"
+                format_hide_on_overlength "true"
+                format_precedence "crl"
+
+                border_enabled  "false"
+                border_char     "─"
+                border_format   "#[fg=#6C7086]{char}"
+                border_position "top"
+
+                hide_frame_for_single_pane "true"
+                hide_frame_except_for_search     "false"
+                hide_frame_except_for_fullscreen "false"
+
+                mode_normal        "#[bg=$purp,fg=$font,bold] NORMAL "
+                mode_locked        "#[bg=$purp,fg=$font,bold] LOCKED "
+                mode_resize        "#[bg=$purp,fg=$font,bold] RESIZE "
+                mode_pane          "#[bg=$purp,fg=$font,bold] PANE "
+                mode_tab           "#[bg=$purp,fg=$font,bold] TAB "
+                mode_scroll        "#[bg=$purp,fg=$font,bold] SCROLL "
+                mode_enter_search  "#[bg=$purp,fg=$font,bold] ENTER-SEARCH "
+                mode_search        "#[bg=$purp,fg=$font,bold] SEARCH "
+                mode_rename_tab    "#[bg=$purp,fg=$font,bold] RENAME-TAB "
+                mode_rename_pane   "#[bg=$purp,fg=$font,bold] RENAME-PANE "
+                mode_session       "#[bg=$purp,fg=$font,bold] SESSION "
+                mode_move          "#[bg=$purp,fg=$font,bold] MOVE "
+                mode_prompt        "#[bg=$purp,fg=$font,bold] PROMPT "
+                mode_tmux          "#[bg=$purp,fg=$font,bold] TMUX "
+
+                // formatting for inactive tabs
+                tab_normal              "#[fg=$inactive_tab_font,bold] {name} "
+                tab_normal_fullscreen   "#[fg=$inactive_tab_font,bold] {name} "
+                tab_normal_sync         "#[fg=$inactive_tab_font,bold] {name} "
+
+                // formatting for the current active tab
+                tab_active              "#[bg=$purp,fg=$font,bold] {name} "
+                tab_active_fullscreen   "#[bg=$purp,fg=$font,bold] {name} "
+                tab_active_sync         "#[bg=$purp,fg=$font,bold] {name} "
+
+                // separator between the tabs
+                tab_separator          " "
+            }
+        }
+        children
+    }
+}
