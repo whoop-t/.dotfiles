@@ -216,12 +216,15 @@ keybinds clear-defaults=true {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
 }
+
+// Not really used much since zjstatus overrides this with layout
 themes {
     tokyonight_night {
         fg 192 202 245
         bg 41 46 66
         red 247 118 142
-        green 158 206 106
+        // Green is actually magenta, this is just to change session manager color
+        green 187 154 247 
         yellow 224 175 104
         blue 122 162 247
         magenta 187 154 247
