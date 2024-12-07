@@ -19,8 +19,6 @@ layout {
                 border_position "top"
 
                 hide_frame_for_single_pane "true"
-                hide_frame_except_for_search     "false"
-                hide_frame_except_for_fullscreen "false"
 
                 mode_normal        "#[bg=$purp,fg=$font,bold] NORMAL "
                 mode_locked        "#[bg=$purp,fg=$font,bold] LOCKED "
