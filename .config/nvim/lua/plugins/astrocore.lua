@@ -44,7 +44,10 @@ return {
       -- this is useful for naming menus
       n = {
          -- Enable tmux-sessionizer inside neovim
-        ["<C-f>"] = { "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>" },
+        -- ["<C-f>"] = { "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>" },
+         -- HACKY zelli-sessionizer inside neovim
+         -- doesnt work great
+        -- ["<C-f>"] = { "<cmd>silent !zellij run -i -- zellij-sessionizer.sh<CR>" },
         ["<Leader>o"] = false,
         ["<Leader>c"] = false,
         ["<Leader>n"] = false,
