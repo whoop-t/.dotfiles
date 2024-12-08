@@ -28,5 +28,11 @@ if [[ -z $ZELLIJ ]]; then
 	zellij attach $selected_name -c
 	exit 0
 else
-  echo "detach from session first" && exit 1
+  # Below works, but will only create in background
+  # better to just get used to detachting and then running
+	# cd $selected
+	# zellij attach $selected_name -c -b
+  # echo "session created" && exit 0
+
+  echo "detach from session first" && exit 0
 fi
