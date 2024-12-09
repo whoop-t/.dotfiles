@@ -16,15 +16,16 @@ return {
         "gopls",
         "yamlls",
         "pyright",
-        "emmet_language_server"
+        "emmet_language_server",
       },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
     "jay-babu/mason-null-ls.nvim",
-    -- All none-ls sources are handled through mason-null-ls
-    -- eslint is set up natively in astrolsp
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
     opts = {
       ensure_installed = { "prettierd", "stylua", "biome" },
       automatic_installation = false,
@@ -47,15 +48,26 @@ return {
             end,
           })
         end,
+        eslint = function(source_name, methods)
+          -- Conditional to only use eslint when a .eslint is in root
+          local null_ls = require "null-ls"
+          null_ls.register(require("none-ls.formatting.eslint").with {
+            condition = function(utils)
+              return utils.root_has_file(
+                ".eslintrc",
+                ".eslintrc.json",
+                ".eslintrc.js",
+                ".eslintrc.yml",
+                ".eslintrc.yaml"
+              )
+            end,
+          })
+        end,
         biome = function(source_name, methods)
           -- Conditional to only use biome when a biome.json is in root
           local null_ls = require "null-ls"
           null_ls.register(null_ls.builtins.formatting.biome.with {
-            condition = function(utils)
-              return utils.root_has_file(
-                "biome.json"
-              )
-            end,
+            condition = function(utils) return utils.root_has_file "biome.json" end,
           })
         end,
       },
