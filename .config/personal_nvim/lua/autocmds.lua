@@ -60,3 +60,17 @@ autocmd("TextYankPost", {
   pattern = "*",
   callback = function() vim.highlight.on_yank() end,
 })
+
+-- Autocommand to disable statuscolumn in specific filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "neo%-tree", "help", "man", "qf", "lazy", "aerial", "dapui_.", "NvimTree" },
+  callback = function() vim.opt_local.statuscolumn = "" end,
+})
+-- Alternative method for Neo-tree windows since above didnt work for neotree
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.filetype == "neo-tree" then
+      vim.opt_local.statuscolumn = ""
+    end
+  end,
+})
