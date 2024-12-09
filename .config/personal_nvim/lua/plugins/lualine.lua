@@ -22,7 +22,7 @@ return {
               "dashboard",
               "aerial",
               "dapui_.",
-              "neo%-tree",
+              "neo-tree",
               "NvimTree",
               "terminal",
               "prompt",
