@@ -88,7 +88,7 @@ return {
       {
         "<leader>e",
         function()
-          local bufs = vim.fn.getbufinfo { buflisted = true }
+          local bufs = vim.fn.getbufinfo { buflisted = 1 }
           if vim.bo.filetype == "neo-tree" and not bufs[1] then
             -- do nothing
           else

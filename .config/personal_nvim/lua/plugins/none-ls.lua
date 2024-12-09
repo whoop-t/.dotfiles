@@ -9,8 +9,20 @@ return {
         -- JS
         null_ls.builtins.formatting.prettierd.with {
           condition = function(utils)
-            return utils.root_has_file(".prettierrc", ".prettierrc.js", ".prettierrc.json", ".prettierrc.yaml")
+            return utils.root_has_file(
+              ".prettierrc",
+              ".prettierrc.js",
+              ".prettierrc.cjs",
+              ".prettierrc.json",
+              ".prettierrc.yaml",
+              ".prettierrc.yml",
+              ".prettierrc.toml",
+              "prettier.config.cjs"
+            )
           end,
+        },
+        null_ls.builtins.formatting.biome.with {
+          condition = function(utils) return utils.root_has_file "biome.json" end,
         },
       },
     }

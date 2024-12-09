@@ -46,6 +46,13 @@ return {
             },
             n = { q = actions.close },
           },
+          pickers = {
+            find_files = {
+              follow = true,
+              hidden = true,
+              file_ignore_patterns = { ".git/*", "node_modules/*", ".vscode/*" },
+            },
+          },
         },
       }
     end,
@@ -64,12 +71,14 @@ return {
           end,
         },
         { "<leader>f/", builtin.current_buffer_fuzzy_find },
+        { "<leader>fo", builtin.oldfiles },
         { "<leader>fc", builtin.grep_string },
         { "<leader>fC", builtin.commands },
+        { "<leader>fT", "<Cmd>TodoTelescope<CR>" },
         { "<leader>fh", builtin.help_tags },
         { "<leader>fk", builtin.keymaps },
-        { "<leader>fk", builtin.keymaps },
         { "<leader>gb", function() builtin.git_branches { use_file_path = true } end },
+        { "<leader>lD", builtin.diagnostics },
       }
     end,
   },
