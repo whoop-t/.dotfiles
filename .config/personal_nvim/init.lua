@@ -22,3 +22,8 @@ require("lazy").setup "plugins"
 
 -- colorscheme(is there a better place for this?)
 vim.cmd.colorscheme "tokyonight"
+
+-- line number color custom
+vim.cmd [[
+  highlight CursorLineNr guifg=#c0c4d8 gui=bold
+]]
