@@ -60,18 +60,34 @@ return {
 
           lualine_x = {},
           lualine_y = {},
+
           lualine_z = {
             {
               function()
-                local buf_clients = vim.lsp.get_active_clients { bufnr = vim.api.nvim_get_current_buf() }
-                if next(buf_clients) == nil then return "" end
+                local buf_clients = vim.lsp.get_clients { bufnr = vim.api.nvim_get_current_buf() }
+                if not buf_clients or vim.tbl_isempty(buf_clients) then return "" end
+
                 local client_names = {}
+
+                -- Check for standard LSP clients
                 for _, client in pairs(buf_clients) do
-                  table.insert(client_names, client.name)
+                  if client.name ~= "null-ls" then table.insert(client_names, client.name) end
                 end
+
+                -- Check for null-ls sources (formatters)
+                local null_ls = require "null-ls"
+                local sources = null_ls.get_sources()
+                local ft = vim.bo.filetype
+
+                for _, source in ipairs(sources) do
+                  if source.filetypes[ft] and source.methods[null_ls.methods.FORMATTING] then
+                    table.insert(client_names, source.name)
+                  end
+                end
+
                 return " " .. table.concat(client_names, ", ")
               end,
-              icon = "", -- Gear icon (optional)
+              icon = "", -- Gear icon
             },
           },
         },

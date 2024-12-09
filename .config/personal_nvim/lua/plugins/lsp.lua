@@ -28,7 +28,20 @@ return {
       local lsp_zero = require "lsp-zero"
       lsp_zero.extend_lspconfig()
       require("mason-lspconfig").setup {
-        ensure_installed = {},
+        automatic_installation = true,
+        ensure_installed = {
+          "lua_ls",
+          "ts_ls",
+          "jsonls",
+          "bashls",
+          "html",
+          "cssls",
+          "sqlls",
+          "gopls",
+          "yamlls",
+          "pyright",
+          "emmet_language_server",
+        },
         handlers = {
           lsp_zero.default_setup,
         },
@@ -53,10 +66,10 @@ return {
       cmp.setup {
         sources = {
           -- priority will make certain completions show first, we want lsp and luasnips to show first
-          { name = "luasnip",  priority = 1000 },
+          { name = "luasnip", priority = 1000 },
           { name = "nvim_lsp", priority = 750 },
-          { name = "buffer",   priority = 500 },
-          { name = "path",     priority = 250 },
+          { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
         },
         mapping = cmp.mapping.preset.insert {
           -- `Enter` key to confirm completion
