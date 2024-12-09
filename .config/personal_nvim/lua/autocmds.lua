@@ -66,7 +66,7 @@ local statuscolumn_group = augroup("disablestatusline", { clear = true })
 autocmd("FileType", {
   desc = "Hide statusline",
   group = statuscolumn_group,
-  pattern = { "neo%-tree", "help", "man", "qf", "lazy", "aerial", "dapui_.", "NvimTree" },
+  pattern = { "help", "man", "qf", "lazy", "aerial", "dapui_.", "NvimTree" },
   callback = function() vim.opt_local.statuscolumn = "" end,
 })
 

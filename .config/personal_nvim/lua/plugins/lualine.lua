@@ -7,6 +7,7 @@ return {
       return {
         options = {
           icons_enabled = true,
+          -- transparent theme
           theme = {
             normal = { a = { bg = "none" }, b = { bg = "none" }, c = { bg = "none" } },
             insert = { a = { bg = "none" }, b = { bg = "none" }, c = { bg = "none" } },
@@ -29,6 +30,7 @@ return {
               "nofile",
               "help",
               "quickfix",
+              "checkhealth",
             },
           },
         },
@@ -62,6 +64,7 @@ return {
           lualine_y = {},
 
           lualine_z = {
+            -- Show lsp and formatter status
             {
               function()
                 local buf_clients = vim.lsp.get_clients { bufnr = vim.api.nvim_get_current_buf() }
