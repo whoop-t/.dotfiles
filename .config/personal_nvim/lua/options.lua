@@ -3,7 +3,7 @@ vim.opt.clipboard = "unnamedplus" -- Connection to the system clipboard
 vim.opt.cmdheight = 0 -- Hide command line unless needed
 vim.opt.completeopt = { "menu", "menuone", "noselect" } -- Options for insert mode completion
 vim.opt.copyindent = true -- Copy the previous indentation on autoindenting
-vim.opt.cursorline = false -- Highlight the text line of the cursor
+vim.opt.cursorline = true -- Highlight the text line of the cursor
 vim.opt.expandtab = true -- Enable the use of space in tab
 vim.opt.fileencoding = "utf-8" -- File content encoding for the buffer
 vim.opt.fillchars = { eob = " " } -- Disable `~` on nonexistent lines
