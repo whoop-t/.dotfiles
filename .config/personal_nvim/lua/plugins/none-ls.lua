@@ -1,5 +1,8 @@
 return {
   "nvimtools/none-ls.nvim",
+  dependencies = {
+    "nvimtools/none-ls-extras.nvim",
+  },
   config = function()
     local null_ls = require "null-ls"
     null_ls.setup {
@@ -23,6 +26,25 @@ return {
         },
         null_ls.builtins.formatting.biome.with {
           condition = function(utils) return utils.root_has_file "biome.json" end,
+        },
+
+        -- eslint
+        require("none-ls.diagnostics.eslint").with {
+          condition = function(utils)
+            return utils.root_has_file(".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.yml", ".eslintrc.yaml")
+          end,
+        },
+
+        require("none-ls.formatting.eslint").with {
+          condition = function(utils)
+            return utils.root_has_file(".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.yml", ".eslintrc.yaml")
+          end,
+        },
+
+        require("none-ls.code_actions.eslint").with {
+          condition = function(utils)
+            return utils.root_has_file(".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.yml", ".eslintrc.yaml")
+          end,
         },
       },
     }
