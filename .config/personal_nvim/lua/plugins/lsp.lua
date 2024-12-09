@@ -1,7 +1,4 @@
 return {
-  -- neodev for vim hints and completion and avoiding global "vim" being undifined
-  -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-  { "folke/neodev.nvim", opts = {} },
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
@@ -12,12 +9,12 @@ return {
       lsp_zero.on_attach(function(_, bufnr)
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
-        local opts = { buffer = bufnr }
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
         vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
         vim.keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end, opts)
         lsp_zero.default_keymaps { buffer = bufnr } -- this will add lsp-zero defaults, but not override ones above
