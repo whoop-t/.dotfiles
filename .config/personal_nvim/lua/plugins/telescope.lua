@@ -59,7 +59,17 @@ return {
     keys = function()
       local builtin = require "telescope.builtin"
       return {
-        { "<leader>ff", builtin.find_files },
+        {
+          "<leader>ff",
+          function()
+            builtin.find_files {
+              follow = true,
+              hidden = true,
+              file_ignore_patterns = { ".git/*", "node_modules/*", ".vscode/*" },
+            }
+          end,
+          desc = "Find Files (including hidden)",
+        },
         { "<leader>fF", function() builtin.find_files { hidden = true, no_ignore = true } end },
         { "<leader>fw", builtin.live_grep },
         {
