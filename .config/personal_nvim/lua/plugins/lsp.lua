@@ -1,3 +1,17 @@
+local ensure_installed = {
+  "lua_ls",
+  "ts_ls",
+  "jsonls",
+  "bashls",
+  "html",
+  "cssls",
+  "sqlls",
+  "gopls",
+  "yamlls",
+  "pyright",
+  "emmet_language_server",
+}
+
 return {
   {
     "williamboman/mason.nvim",
@@ -6,19 +20,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = {
-        "lua_ls",
-        "ts_ls",
-        "jsonls",
-        "bashls",
-        "html",
-        "cssls",
-        "sqlls",
-        "gopls",
-        "yamlls",
-        "pyright",
-        "emmet_language_server",
-      },
+      ensure_installed = ensure_installed,
     },
   },
   {
@@ -37,15 +39,12 @@ return {
         border = "rounded",
       })
 
-      lspconfig.ts_ls.setup {
-        capabilities = capabilities,
-      }
-      lspconfig.html.setup {
-        capabilities = capabilities,
-      }
-      lspconfig.lua_ls.setup {
-        capabilities = capabilities,
-      }
+      -- Setup up all language servers that are installed
+      for _, value in ipairs(ensure_installed) do
+        lspconfig[value].setup {
+          capabilities = capabilities,
+        }
+      end
 
       -- key bindings
       vim.api.nvim_create_autocmd("LspAttach", {
