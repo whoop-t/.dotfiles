@@ -50,7 +50,7 @@ return {
             find_files = {
               follow = true,
               hidden = true,
-              file_ignore_patterns = { ".git/*", "node_modules/*", ".vscode/*" },
+              file_ignore_patterns = { "^.git/*", "^node_modules/*", "^.vscode/*" },
             },
           },
         },
@@ -65,7 +65,7 @@ return {
             builtin.find_files {
               follow = true,
               hidden = true,
-              file_ignore_patterns = { ".git/*", "node_modules/*", ".vscode/*" },
+              file_ignore_patterns = { "^.git/*", "^node_modules/*", "^.vscode/*" },
             }
           end,
           desc = "Find Files (including hidden)",
