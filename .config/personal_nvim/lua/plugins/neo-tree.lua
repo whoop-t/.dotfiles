@@ -8,6 +8,9 @@ return {
   },
   cmd = "Neotree",
   opts = function()
+    local diagnostics = require "diagnostics"
+    -- Set modified highlight color
+    vim.api.nvim_set_hl(0, "NeoTreeModified", { fg = "#c0caf5" })
     -- get autocommand to open neotree on load working
     return {
       source_selector = {
@@ -31,6 +34,18 @@ return {
         },
       },
       default_component_configs = {
+        diagnostics = {
+          symbols = {
+            hint = diagnostics.signs.Hint,
+            info = diagnostics.signs.Info,
+            warn = diagnostics.signs.Warn,
+            error = diagnostics.signs.Error,
+          },
+        },
+        modified = {
+          symbol = diagnostics.signs.Modified,
+          highlight = "NeoTreeModified",
+        },
         indent = {
           with_markers = true,
           indent_marker = "│",

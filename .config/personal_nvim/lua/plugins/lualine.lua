@@ -4,6 +4,8 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
 
     opts = function()
+      local diagnostics = require "diagnostics"
+
       return {
         options = {
           icons_enabled = true,
@@ -41,13 +43,13 @@ return {
               "branch",
               color = { fg = "#bb9af7", gui = "bold" },
             },
-            { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
+            { "filetype",   icon_only = true, separator = "", padding = { right = 0, left = 1 } },
             {
               "filename",
               path = 1, -- Show relative path
               symbols = {
-                modified = "●", -- Indicator for modified file
-                readonly = "", -- Indicator for readonly file
+                modified = diagnostics.signs.Modified, -- Indicator for modified file
+                readonly = diagnostics.signs.Readonly, -- Indicator for readonly file
                 unnamed = "[No Name]",
               },
               padding = { right = 0, left = 0 },
