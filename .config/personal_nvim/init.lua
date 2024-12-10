@@ -1,3 +1,5 @@
+-- REMOVE ALL for NVIM_APPNAME=personal_nvim
+-- rm -rf ~/.config/personal_nvim ~/.local/state/personal_nvim ~/.local/share/personal_nvim ~/.cache/personal_nvim
 -- Set up lazy.nvim
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
