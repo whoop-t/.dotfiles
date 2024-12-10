@@ -43,7 +43,7 @@ return {
               "branch",
               color = { fg = "#bb9af7", gui = "bold" },
             },
-            { "filetype",   icon_only = true, separator = "", padding = { right = 0, left = 1 } },
+            { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
             {
               "filename",
               path = 1, -- Show relative path
@@ -76,18 +76,13 @@ return {
 
                 -- Check for standard LSP clients
                 for _, client in pairs(buf_clients) do
-                  if client.name ~= "null-ls" then table.insert(client_names, client.name) end
+                  table.insert(client_names, client.name)
                 end
 
-                -- Check for null-ls sources (formatters)
-                local null_ls = require "null-ls"
-                local sources = null_ls.get_sources()
-                local ft = vim.bo.filetype
-
-                for _, source in ipairs(sources) do
-                  if source.filetypes[ft] and source.methods[null_ls.methods.FORMATTING] then
-                    table.insert(client_names, source.name)
-                  end
+                -- Check for conform nvim linters
+                local formatters = require("conform").list_formatters()
+                for _, formatter in ipairs(formatters) do
+                  if formatter.available then table.insert(client_names, formatter.name) end
                 end
 
                 return " " .. table.concat(client_names, ", ")
