@@ -47,7 +47,7 @@ local function formatter_for_js()
   end
 
   -- Fallback formatter
-  return { "eslint" }
+  return { "prettierd" }
 end
 
 local js_formatter = formatter_for_js()
