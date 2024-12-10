@@ -72,20 +72,30 @@ return {
                 local buf_clients = vim.lsp.get_clients { bufnr = vim.api.nvim_get_current_buf() }
                 if not buf_clients or vim.tbl_isempty(buf_clients) then return "" end
 
+                -- Use a Set so there are no dupes
                 local client_names = {}
 
                 -- Check for standard LSP clients
                 for _, client in pairs(buf_clients) do
-                  table.insert(client_names, client.name)
+                  client_names[client.name] = client.name
                 end
 
                 -- Check for conform nvim linters
                 local formatters = require("conform").list_formatters()
                 for _, formatter in ipairs(formatters) do
-                  if formatter.available then table.insert(client_names, formatter.name) end
+                  if formatter.available then client_names[formatter.name] = formatter.name end
                 end
 
-                return " " .. table.concat(client_names, ", ")
+                local text = " "
+
+                for _, value in pairs(client_names) do
+                  text = text .. value .. ", "
+                end
+
+                -- Remove the trailing comma and space
+                text = text:sub(1, -3)
+
+                return text
               end,
               icon = "", -- Gear icon
             },
