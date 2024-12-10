@@ -25,6 +25,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require "lspconfig"
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       require("lspconfig.ui.windows").default_options.border = "rounded"
 
       -- Set border for shift+k
@@ -36,9 +37,15 @@ return {
         border = "rounded",
       })
 
-      -- lsp setups
-      lspconfig.lua_ls.setup {}
-      lspconfig.ts_ls.setup {}
+      lspconfig.ts_ls.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.html.setup {
+        capabilities = capabilities,
+      }
+      lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+      }
 
       -- key bindings
       vim.api.nvim_create_autocmd("LspAttach", {
