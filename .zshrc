@@ -155,9 +155,9 @@ alias n='nvim .'
 # Alias for lazygit tui
 alias lg='lazygit'
 # Alias for personal nvim config, dir level
-alias np='NVIM_APPNAME=personal_nvim nvim .'
+alias astro='NVIM_APPNAME=astro_nvim nvim .'
 # Alias for personal nvim config
-alias nvimp='NVIM_APPNAME=personal_nvim nvim'
+alias astronvim='NVIM_APPNAME=astro_nvim nvim'
 # Alias fzf dir search and navigate
 # . important else it will execute in subshell
 alias f='. fzf_dev.sh'
