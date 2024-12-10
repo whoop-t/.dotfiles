@@ -43,7 +43,7 @@ local function formatter_for_js()
   end
 
   -- Fallback formatter
-  return { "prettierd" }
+  return { "eslint" } -- This is just since at work this is currently the main formatter 12/2024
 end
 
 local js_formatter = formatter_for_js()
