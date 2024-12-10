@@ -41,9 +41,20 @@ return {
 
       -- Setup up all language servers that are installed
       for _, value in ipairs(ensure_installed) do
-        lspconfig[value].setup {
-          capabilities = capabilities,
-        }
+        if value == "ts_ls" then
+          lspconfig[value].setup {
+            on_attach = function(client, _)
+              -- Disable formatting capability for tsserver
+              -- This conflicts with other formatters
+              client.server_capabilities.documentFormattingProvider = false
+              client.server_capabilities.documentRangeFormattingProvider = false
+            end,
+          }
+        else
+          lspconfig[value].setup {
+            capabilities = capabilities,
+          }
+        end
       end
 
       -- lint/formatters
