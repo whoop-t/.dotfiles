@@ -23,6 +23,10 @@ local prettier_configs = {
 
 local biome_configs = { "biome.json" }
 
+-- NOTE: This doesnt work in monorepos
+-- The lsps(eslint|biome) attach and format correctly due to interal logic from lsp-config
+-- If you want more robust logic to attach the correct formatter in a monorepo based on current file in buffer
+-- you will need to research that more
 local function formatter_for_js()
   -- Get all files in the current directory
   local root_files = vim.fn.readdir(vim.fn.getcwd())
@@ -43,10 +47,12 @@ local function formatter_for_js()
   end
 
   -- Fallback formatter
-  return { "eslint" } -- This is just since at work this is currently the main formatter 12/2024
+  return { "eslint" }
 end
 
 local js_formatter = formatter_for_js()
+-- This is to test which formatter was selected on nvim open
+-- print(js_formatter[1])
 
 -- This is just for testing that the above method works correclty for finding the file
 -- uncomment and then you can use :TestFormatter as a command to test
