@@ -31,19 +31,49 @@ return {
         -- eslint
         require("none-ls.diagnostics.eslint").with {
           condition = function(utils)
-            return utils.root_has_file(".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.yml", ".eslintrc.yaml")
+            return utils.root_has_file(
+              ".eslintrc",
+              ".eslintrc.json",
+              ".eslintrc.js",
+              ".eslintrc.yml",
+              ".eslintrc.yaml",
+              "eslint.config.js",
+              "eslint.config.mjs",
+              "eslint.config.cjs",
+              "eslint.config.ts"
+            )
           end,
         },
 
         require("none-ls.formatting.eslint").with {
           condition = function(utils)
-            return utils.root_has_file(".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.yml", ".eslintrc.yaml")
+            return utils.root_has_file(
+              ".eslintrc",
+              ".eslintrc.json",
+              ".eslintrc.js",
+              ".eslintrc.yml",
+              ".eslintrc.yaml",
+              "eslint.config.js",
+              "eslint.config.mjs",
+              "eslint.config.cjs",
+              "eslint.config.ts"
+            )
           end,
         },
 
         require("none-ls.code_actions.eslint").with {
           condition = function(utils)
-            return utils.root_has_file(".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.yml", ".eslintrc.yaml")
+            return utils.root_has_file(
+              ".eslintrc",
+              ".eslintrc.json",
+              ".eslintrc.js",
+              ".eslintrc.yml",
+              ".eslintrc.yaml",
+              "eslint.config.js",
+              "eslint.config.mjs",
+              "eslint.config.cjs",
+              "eslint.config.ts"
+            )
           end,
         },
       },
