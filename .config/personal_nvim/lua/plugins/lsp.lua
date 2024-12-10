@@ -38,6 +38,10 @@ return {
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
       })
+      -- Set border for diag help <leader>ld
+      vim.diagnostic.config {
+        float = { border = "rounded" },
+      }
 
       -- Setup up all language servers that are installed
       for _, value in ipairs(ensure_installed) do
@@ -60,6 +64,7 @@ return {
           vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
           vim.keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts)
           vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end, opts)
+          vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float)
         end,
       })
     end,

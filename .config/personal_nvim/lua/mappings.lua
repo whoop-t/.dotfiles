@@ -16,5 +16,3 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- tmux sessionizer in nvim
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
--- hover open issues in file
-vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float)
