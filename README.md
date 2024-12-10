@@ -19,8 +19,9 @@
 - Install [lazydocker](https://github.com/jesseduffield/lazydocker)
 
 # Neovim
-My current/default setup is running [Astronvim](https://github.com/AstroNvim/AstroNvim) v4\
-My dotfiles contains a personal custom config that I tinker with. With newer Neovim versions, this can be used separately with NVIM_APPNAME=personal_nvim nvim . 
+My dotfiles contains a custom config that I currently daily drive
+
+My old setup for years was running [Astronvim](https://github.com/AstroNvim/AstroNvim). You can still run the Astro config with NVIM_APPNAME=astro_nvim nvim(see :h nvim_appname for multi config info)
 
 # Cloning .dotfiles
 Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles`
@@ -37,8 +38,8 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 # Linux ONLY
 - [IMWheel(fix mouse on linux)](https://wiki.archlinux.org/title/IMWheel)
 - [Kinto(mac keyboard bindings on linux)](https://github.com/rbreaves/kinto) -> Dont hate me for this
-  Install with [Old Method](https://github.com/rbreaves/kinto?tab=readme-ov-file#old-install-method) 
-  Use Alt as the second key
+  - Install with [Old Method](https://github.com/rbreaves/kinto?tab=readme-ov-file#old-install-method) 
+  - Use Alt as the second key
 - 27" 1440p scaled to 125% (popos display settings)
 
 # Keyboard
