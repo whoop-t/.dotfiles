@@ -10,15 +10,7 @@ return {
       },
     }
 
-    local wk = require "which-key"
-    wk.add {
-      {
-        "<leader>a",
-        function() harpoon:list():add() end,
-        desc = "Harpoon add",
-        mode = "n",
-      },
-    }
+    vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
     vim.keymap.set(
       "n",
       "<C-e>",

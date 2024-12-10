@@ -16,7 +16,7 @@ return {
         {
           -- Match any file starting with '.env'.
           -- This can be a table to match multiple file patterns.
-          file_pattern = { ".env*", ".npmrc*", "local*.cjs", "credentials*" },
+          file_pattern = { ".env*", ".npmrc*", "local.cjs*", "credentials*" },
           -- Match an equals sign and any character after it.
           -- This can also be a table of patterns to cloak,
           -- example: cloak_pattern = { ':.+', '-.+' } for yaml files.
@@ -30,26 +30,13 @@ return {
       },
     }
 
-    local wk = require "which-key"
-    wk.add {
-      {
-        "<leader>ce",
-        function()
-          require("cloak").enable()
-          require "notify" "Cloak enabled"
-        end,
-        desc = "Cloak enable",
-        mode = "n",
-      },
-      {
-        "<leader>cd",
-        function()
-          require("cloak").disable()
-          require "notify" "Cloak disabled"
-        end,
-        desc = "Cloak disable",
-        mode = "n",
-      },
-    }
+    vim.keymap.set("n", "<leader>ce", function()
+      require("cloak").enable()
+      require "notify" "Cloak enabled"
+    end)
+    vim.keymap.set("n", "<leader>cd", function()
+      require("cloak").disable()
+      require "notify" "Cloak disabled"
+    end)
   end,
 }

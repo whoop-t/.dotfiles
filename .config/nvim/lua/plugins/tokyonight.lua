@@ -1,13 +1,13 @@
 return {
-  "folke/tokyonight.nvim",
-  priority = 1000,
-  plugins = { markdown = true },
-  opts = {
-    style = 'night',
+	"folke/tokyonight.nvim",
+	lazy = false,
+	priority = 1000,
+	opts = {
+		style = "night",
 		styles = {
 			sidebars = "transparent",
 			floats = "transparent",
 		},
-    transparent = true
-  }
+		transparent = true,
+	},
 }

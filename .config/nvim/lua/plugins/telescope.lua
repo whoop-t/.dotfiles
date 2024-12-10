@@ -1,44 +1,95 @@
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
-local Path = require "plenary.path" -- We use plenary for file path manipulations
-
-local open_in_new_kitty_tab = function(prompt_bufnr)
-  local selected_entry = action_state.get_selected_entry()
-  local file_path = selected_entry.path or selected_entry.filename
-
-  -- Close the Telescope prompt
-  actions.close(prompt_bufnr)
-
-  -- Get the directory of the selected file
-  local file_dir = Path:new(file_path):parent():absolute()
-
-  -- Launch a new Kitty tab with the directory set to the file's directory
-  -- os.execute("kitty @ launch --type=tab --cwd=" .. file_dir .. ' nvim .')
-  os.execute("kitty @ launch --type=tab --cwd=" .. file_dir)
-end
-
 return {
-  "nvim-telescope/telescope.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {
-    defaults = {
-      mappings = {
-        i = {
-          ["<C-n>"] = "cycle_history_next",
-          ["<C-p>"] = "cycle_history_prev",
-          ["<C-t>"] = open_in_new_kitty_tab, -- Map Ctrl+t to open in new Kitty tab
+  -- UI for actions like code actions
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      -- This is your opts table
+      require("telescope").setup {
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+              -- even more opts
+            },
+          },
         },
-        n = {
-          ["<C-t>"] = open_in_new_kitty_tab, -- Normal mode mapping for new Kitty tab
+      }
+      require("telescope").load_extension "ui-select"
+    end,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.8",
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
+    },
+    cmd = "Telescope",
+    opts = function()
+      local actions = require "telescope.actions"
+      return {
+        defaults = {
+          git_worktrees = vim.g.git_worktrees,
+          path_display = { "truncate" },
+          sorting_strategy = "ascending",
+          layout_config = {
+            horizontal = { prompt_position = "top", preview_width = 0.55 },
+            vertical = { mirror = false },
+            width = 0.87,
+            height = 0.80,
+            preview_cutoff = 120,
+          },
+          mappings = {
+            i = {
+              ["<C-n>"] = actions.cycle_history_next,
+              ["<C-p>"] = actions.cycle_history_prev,
+              ["<C-j>"] = actions.move_selection_next,
+              ["<C-k>"] = actions.move_selection_previous,
+            },
+            n = { q = actions.close },
+          },
+          pickers = {
+            find_files = {
+              follow = true,
+              hidden = true,
+              file_ignore_patterns = { ".git/*", "node_modules/*", ".vscode/*" },
+            },
+          },
         },
-      },
-    },
-    pickers = {
-      find_files = {
-        follow = true,
-        hidden = true,
-        file_ignore_patterns = { ".git/*", "node_modules/*", ".vscode/*" },
-      },
-    },
+      }
+    end,
+    keys = function()
+      local builtin = require "telescope.builtin"
+      return {
+        {
+          "<leader>ff",
+          function()
+            builtin.find_files {
+              follow = true,
+              hidden = true,
+              file_ignore_patterns = { ".git/*", "node_modules/*", ".vscode/*" },
+            }
+          end,
+          desc = "Find Files (including hidden)",
+        },
+        { "<leader>fF", function() builtin.find_files { hidden = true, no_ignore = true } end },
+        { "<leader>fw", builtin.live_grep },
+        {
+          "<leader>fW",
+          function()
+            builtin.live_grep {
+              additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+            }
+          end,
+        },
+        { "<leader>f/", builtin.current_buffer_fuzzy_find },
+        { "<leader>fo", builtin.oldfiles },
+        { "<leader>fc", builtin.grep_string },
+        { "<leader>fC", builtin.commands },
+        { "<leader>fT", "<Cmd>TodoTelescope<CR>" },
+        { "<leader>fh", builtin.help_tags },
+        { "<leader>fk", builtin.keymaps },
+        { "<leader>gb", function() builtin.git_branches { use_file_path = true } end },
+        { "<leader>lD", builtin.diagnostics },
+      }
+    end,
   },
 }
