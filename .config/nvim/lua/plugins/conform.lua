@@ -48,7 +48,7 @@ local function formatter_for_js()
   end
 
   -- Fallback formatter
-  return { "prettierd" }
+  return { "eslint_d" } -- Work repos use eslint to format most things 12/2024
 end
 
 local js_formatter = formatter_for_js()
