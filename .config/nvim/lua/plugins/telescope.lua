@@ -25,6 +25,9 @@ return {
     cmd = "Telescope",
     opts = function()
       local actions = require "telescope.actions"
+
+      require("telescope").load_extension "fzf"
+
       return {
         defaults = {
           git_worktrees = vim.g.git_worktrees,
@@ -36,6 +39,9 @@ return {
             width = 0.87,
             height = 0.80,
             preview_cutoff = 120,
+          },
+          extensions = {
+            fzf = {},
           },
           mappings = {
             i = {
