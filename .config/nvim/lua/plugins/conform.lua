@@ -42,8 +42,9 @@ local function formatter_for_js()
   end
 
   -- ESLint check
+  -- conform only has eslint_d
   for _, config in ipairs(eslint_configs) do
-    if vim.tbl_contains(root_files, config) then return { "eslint" } end
+    if vim.tbl_contains(root_files, config) then return { "eslint_d" } end
   end
 
   -- Fallback formatter
