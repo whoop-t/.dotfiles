@@ -26,8 +26,6 @@ return {
             vim.keymap.set(mode, l, r, opts)
           end
 
-          map("n", "<leader>gl", function() gitsigns.blame_line() end)
-          map("n", "<leader>gL", function() gitsigns.blame_line { full = true } end)
           map("n", "<leader>gl", function() gitsigns.blame_line() end, { desc = "View Git blame" })
           map("n", "<leader>gL", function() gitsigns.blame_line { full = true } end, { desc = "View full Git blame" })
           map("n", "<leader>gp", function() gitsigns.preview_hunk_inline() end, { desc = "Preview Git hunk" })

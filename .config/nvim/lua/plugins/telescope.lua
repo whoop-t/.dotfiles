@@ -94,6 +94,10 @@ return {
         { "<leader>fk", builtin.keymaps },
         { "<leader>gb", function() builtin.git_branches { use_file_path = true } end },
         { "<leader>lD", builtin.diagnostics },
+        { "<leader>lr", builtin.lsp_references },
+        { "<leader>li", builtin.lsp_implementations },
+        { "<leader>lt", builtin.lsp_type_definitions },
+        { "gd", builtin.lsp_definitions },
       }
     end,
   },
