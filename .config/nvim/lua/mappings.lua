@@ -19,6 +19,9 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
 -- Center text when moving with C-d and C-u
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- Easier page jumping
+vim.keymap.set("n", "<C-j>", "<C-d>zz")
+vim.keymap.set("n", "<C-k>", "<C-u>zz")
 -- tmux sessionizer in nvim
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
 -- copy current file name
