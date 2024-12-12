@@ -30,6 +30,7 @@ return {
 
       return {
         defaults = {
+          file_ignore_patterns = { "^%.git[/\\]", "[/\\]%.git[/\\]", "^node_modules/*", "^.vscode/*" },
           git_worktrees = vim.g.git_worktrees,
           path_display = { "truncate" },
           sorting_strategy = "ascending",
@@ -56,7 +57,6 @@ return {
             find_files = {
               follow = true,
               hidden = true,
-              file_ignore_patterns = { "^.git/*", "^node_modules/*", "^.vscode/*" },
             },
           },
         },
@@ -71,7 +71,6 @@ return {
             builtin.find_files {
               follow = true,
               hidden = true,
-              file_ignore_patterns = { "^.git/*", "^node_modules/*", "^.vscode/*" },
             }
           end,
           desc = "Find Files (including hidden)",
