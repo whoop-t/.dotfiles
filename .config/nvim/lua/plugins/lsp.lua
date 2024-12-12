@@ -58,8 +58,7 @@ return {
       end
 
       -- lint/formatters
-      -- eslint
-      -- install globally to avoid issues in monorepos and missing configs
+      -- try installing globally to avoid issues in monorepos and missing configs
       -- npm install -g vscode-langservers-extracted
       lspconfig.eslint.setup {}
       lspconfig.biome.setup {}
