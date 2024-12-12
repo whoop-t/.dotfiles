@@ -26,11 +26,24 @@ return {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
-
+        
         mapping = cmp.mapping.preset.insert {
           ["<C-s>"] = cmp.mapping.complete(),
           ["<C-w>"] = cmp.mapping.abort(),
-          ["<C-e>"] = cmp.mapping.confirm { select = true },
+          ["<CR>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              if cmp.get_active_entry() then
+                -- Confirm the selected item if there is an active entry
+                cmp.confirm { select = false }
+              else
+                -- If no entry is selected, insert a new line
+                fallback()
+              end
+            else
+              -- Default behavior: insert a new line
+              fallback()
+            end
+          end, { "i", "s" }), -- Apply in insert and select modes
           ["<Tab>"] = cmp.mapping(function(fallback)
             if vim.api.nvim_get_mode().mode ~= "c" and luasnip.expand_or_locally_jumpable() then
               luasnip.expand_or_jump()
