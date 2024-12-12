@@ -89,7 +89,7 @@ return {
         { "<leader>fo", builtin.oldfiles },
         { "<leader>fc", builtin.grep_string },
         { "<leader>fC", builtin.commands },
-        { "<leader>fT", "<Cmd>TodoTelescope<CR>" },
+        { "<leader>ft", "<Cmd>TodoTelescope<CR>" },
         { "<leader>fh", builtin.help_tags },
         { "<leader>fk", builtin.keymaps },
         { "<leader>gb", function() builtin.git_branches { use_file_path = true } end },
