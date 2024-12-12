@@ -24,7 +24,7 @@ vim.opt.relativenumber = true -- Show relative numberline
 vim.opt.shiftwidth = 2 -- Number of spaces inserted for indentation
 vim.opt.showmode = false -- Disable showing modes in command line
 vim.opt.showtabline = 0 -- Always display tabline
-vim.opt.signcolumn = "auto" -- Always show the sign column
+vim.opt.signcolumn = "yes" -- Always show the sign column
 vim.opt.statuscolumn = "%=%{v:relnum == 0 ? v:lnum : v:relnum} %s" -- custom line number and sign column arrangement
 vim.opt.smartcase = true -- Case sensitive searching
 vim.opt.splitbelow = true -- Splitting a new window below the current one
