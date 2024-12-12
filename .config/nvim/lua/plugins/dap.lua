@@ -7,7 +7,8 @@ local signs = {
   Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
   Breakpoint = " ",
   BreakpointCondition = " ",
-  BreakpointRejected = { " ", "DiagnosticError" },
+  -- BreakpointRejected = { " ", "DiagnosticError" },
+  BreakpointRejected = " ", -- HACK since breakpoints keep showing rejected even tho they work fine
   LogPoint = ".>",
 }
 
@@ -47,6 +48,7 @@ return {
       vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step Into" })
       vim.keymap.set("n", "<leader>do", dap.step_out, { desc = "Step Out" })
       vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+      vim.keymap.set("n", "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = "Set Breakpoint Condition" })
       vim.keymap.set("n", "<leader>dt", dap.terminate, { desc = "Terminate" })
       vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
 
@@ -78,12 +80,13 @@ return {
           sourceMaps = true,
           skipFiles = { "<node_internals>/**" },
         },
+        -- Start debugger and proccess via npm script
+        -- This can hang and need multiple terminate calls to kill the node process
         {
           type = "pwa-node",
           request = "launch",
           name = "Launch with npm script",
           runtimeExecutable = "npm",
-          -- runtimeArgs = { "start" },
           runtimeArgs = function()
             -- Prompt the user for arguments
             local args = vim.fn.input "Enter npm script arguments (e.g., start): "
@@ -91,6 +94,18 @@ return {
           end,
           cwd = vim.fn.getcwd(),
           console = "integratedTerminal",
+          sourceMaps = true,
+          skipFiles = { "<node_internals>/**" },
+        },
+        -- Attach to already running process
+        -- NOTE need --inspect flag on your node process
+        -- this also filters for just processes with --inspect, much less that getting all
+        {
+          type = "pwa-node",
+          request = "attach",
+          name = "Attach to Running Node Process",
+          processId = function() require("dap.utils").pick_process { filter = "--inspect" } end,
+          cwd = vim.fn.getcwd(),
           sourceMaps = true,
           skipFiles = { "<node_internals>/**" },
         },
