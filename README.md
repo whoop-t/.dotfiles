@@ -29,7 +29,7 @@ Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles`
 In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Mac ONLY
-- [Alfred](https://www.alfredapp.com/)
+- [Raycast](https://www.raycast.com/)
 - [LinearMouse (mouse issues fix on mac)](https://linearmouse.app/)
 - [Clipy](https://github.com/Clipy/Clipy)
 - [NoTunes](https://github.com/tombonez/noTunes)
