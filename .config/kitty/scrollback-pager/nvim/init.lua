@@ -10,6 +10,7 @@ vim.opt.laststatus = 0
 vim.opt.background = "dark"
 vim.opt.ignorecase = true
 vim.opt.scrolloff = 8
+vim.opt.swapfile = false
 
 vim.cmd("hi Visual guibg=#283457")
 vim.cmd("hi Cursor guifg=#1a1b26 guibg=#c0caf5")
