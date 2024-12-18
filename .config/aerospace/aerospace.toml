@@ -34,7 +34,7 @@ default-root-container-orientation = 'auto'
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
-automatically-unhide-macos-hidden-apps = true
+automatically-unhide-macos-hidden-apps = false
 
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -94,5 +94,5 @@ alt-shift-a = 'move-node-to-workspace 4'
 alt-shift-semicolon = 'mode service'
 
 # Disable annoying and useless "hide application" shortcut
-cmd-h = [] # Disable "hide application"
-cmd-alt-h = [] # Disable "hide others"
+# cmd-h = [] # Disable "hide application"
+# cmd-alt-h = [] # Disable "hide others"
