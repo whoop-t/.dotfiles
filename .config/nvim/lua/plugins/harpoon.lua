@@ -24,9 +24,9 @@ return {
     )
     -- Kitty hack, these are bound to alt, but kitty is binding ctrl + KEY to send this as well
     -- see kitty.conf
-    vim.keymap.set("n", "<M-u>", function() harpoon:list():select(1) end)
-    vim.keymap.set("n", "<M-i>", function() harpoon:list():select(2) end)
-    vim.keymap.set("n", "<M-o>", function() harpoon:list():select(3) end)
+    vim.keymap.set("n", "<C-j>", function() harpoon:list():select(1) end)
+    vim.keymap.set("n", "<C-k>", function() harpoon:list():select(2) end)
+    vim.keymap.set("n", "<C-l>", function() harpoon:list():select(3) end)
     vim.keymap.set("n", "<M-p>", function() harpoon:list():select(4) end)
   end,
   dependencies = { "nvim-lua/plenary.nvim" },
