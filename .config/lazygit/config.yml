@@ -26,4 +26,4 @@ gui:
     defaultFgColor:
       - "#c0caf5"
 git:
-  disableForcePushing: false
+  disableForcePushing: true
