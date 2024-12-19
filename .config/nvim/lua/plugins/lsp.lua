@@ -25,9 +25,13 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    -- Remove if you want to go back to nvim-cmp
+    dependencies = { "saghen/blink.cmp" },
     config = function()
       local lspconfig = require "lspconfig"
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      -- If you want to go back to nvim-cmp
+      --   local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
       require("lspconfig.ui.windows").default_options.border = "rounded"
 
       -- Set border for shift+k
