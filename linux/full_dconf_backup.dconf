@@ -11,7 +11,7 @@ window-maximized=false
 window-width=910
 
 [org/gnome/control-center]
-last-panel='keyboard'
+last-panel='desktop-appearance'
 
 [org/gnome/desktop/app-folders/folders/Pop-Office]
 apps=['libreoffice-calc.desktop', 'libreoffice-draw.desktop', 'libreoffice-impress.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop']
@@ -45,15 +45,23 @@ xkb-options=@as []
 [org/gnome/desktop/interface]
 color-scheme='prefer-dark'
 enable-animations=false
+gtk-theme='Pop-dark'
+show-battery-percentage=true
 
 [org/gnome/desktop/notifications]
-application-children=['com-github-donadigo-eddy', 'gnome-control-center']
+application-children=['com-github-donadigo-eddy', 'gnome-control-center', 'floorp']
 
 [org/gnome/desktop/notifications/application/com-github-donadigo-eddy]
 application-id='com.github.donadigo.eddy.desktop'
 
+[org/gnome/desktop/notifications/application/floorp]
+application-id='floorp.desktop'
+
 [org/gnome/desktop/notifications/application/gnome-control-center]
 application-id='gnome-control-center.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
 
 [org/gnome/desktop/peripherals/keyboard]
 delay=uint32 200
@@ -69,6 +77,8 @@ natural-scroll=true
 two-finger-scrolling-enabled=true
 
 [org/gnome/desktop/wm/keybindings]
+cycle-windows=['<Alt>Escape', '<Primary><Shift><Alt><Super>c']
+cycle-windows-backward=['<Shift><Alt>Escape', '<Primary><Alt><Super>c']
 move-to-workspace-1=['<Shift><Super>Home', '<Shift><Alt>f']
 move-to-workspace-2=['<Shift><Alt>d']
 move-to-workspace-3=['<Shift><Alt>s']
@@ -121,6 +131,9 @@ root='file:///'
 tree-view=true
 virtual-root='file:///home/tommy/.cache/.fr-Ei3ACw'
 
+[org/gnome/gedit/preferences/editor]
+scheme='pop-dark'
+
 [org/gnome/gedit/preferences/ui]
 show-tabs-mode='auto'
 
@@ -154,7 +167,7 @@ sleep-inactive-battery-timeout=1800
 sleep-inactive-battery-type='suspend'
 
 [org/gnome/shell]
-favorite-apps=['google-chrome.desktop', 'kitty.desktop']
+favorite-apps=['kitty.desktop', 'floorp.desktop', 'discord.desktop']
 welcome-dialog-last-shown-version='42.5'
 
 [org/gnome/shell/extensions/dash-to-dock]
