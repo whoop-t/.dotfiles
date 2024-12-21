@@ -1,14 +1,14 @@
 # Prereq
-- Install [Nodejs/Npm](https://nodejs.org/en/download)
-- Install [fnm (Node version manager)](https://github.com/Schniz/fnm)
-- Install [Stow](https://formulae.brew.sh/formula/stow)
 - Install [Kitty Terminal](https://sw.kovidgoyal.net/kitty/binary/) (best kitty [icon](https://github.com/DinkDonk/kitty-icon))
-- Install [Tmux](https://github.com/tmux/tmux/wiki)
+- Install [Stow](https://formulae.brew.sh/formula/stow)
 - Install [zsh(if needed)](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - Install [oh-my-zsh](https://ohmyz.sh/#install)
 - Install [Starship](https://starship.rs/)
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
+- Install [Tmux](https://github.com/tmux/tmux/wiki)
+- Install [fnm (Node version manager)](https://github.com/Schniz/fnm)
+- Install [Nodejs/Npm](https://nodejs.org/en/download)
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
 - [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
 
