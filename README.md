@@ -48,6 +48,10 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 > [!NOTE]
 > Might not need IMWheel anymore
 - Using PopOS built in workspaces `hyper + f|d|s|a` like with Aerospace on MacOS above
+- Disable animations for workspaces
+```bash
+gsettings set org.gnome.desktop.interface enable-animations false
+```
 - 27" 1440p scaled to 125% (popos display settings)
 
 # Keyboard
