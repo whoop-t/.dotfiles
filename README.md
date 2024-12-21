@@ -4,6 +4,7 @@
 - Install [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - Install [oh-my-zsh](https://ohmyz.sh/#install)
 - Install zsh-autosuggestions and zsh-syntax-highlighting
+
     Just clone the repos to .oh-my-zsh/custom/plugins
     - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
     - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
@@ -44,6 +45,8 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Linux ONLY
 - [IMWheel(fix mouse on linux)](https://wiki.archlinux.org/title/IMWheel)
+> [!NOTE]
+> Might not need IMWheel anymore
 - Using PopOS built in workspaces `hyper + f|d|s|a` like with Aerospace on MacOS above
 - 27" 1440p scaled to 125% (popos display settings)
 
