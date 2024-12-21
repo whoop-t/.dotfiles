@@ -74,24 +74,27 @@ alt-t = 'layout tiles horizontal'
 alt-f = 'layout accordion horizontal'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-ctrl-shift-alt-cmd-f = 'workspace 1'
-ctrl-shift-alt-cmd-d = 'workspace 2'
-ctrl-shift-alt-cmd-s = 'workspace 3'
-ctrl-shift-alt-cmd-a = 'workspace 4'
-# alt-5 = 'workspace 5'
-# alt-6 = 'workspace 6'
-# alt-7 = 'workspace 7'
-# alt-8 = 'workspace 8'
-# alt-9 = 'workspace 9'
+# Current work setup with each app I keep in each workspace
+# This way I always have 1 keypress to get to my most used apps
+# On my personal PopOs laptop, I have the same workspaces but dont use most
+ctrl-shift-alt-cmd-f = 'workspace 1' # terminal
+ctrl-shift-alt-cmd-d = 'workspace 2' # browser(work)
+ctrl-shift-alt-cmd-s = 'workspace 3' # chat(slack/discord/etc)
+ctrl-shift-alt-cmd-a = 'workspace 4' # db tool
+ctrl-shift-alt-cmd-r = 'workspace 5' # postman
+ctrl-shift-alt-cmd-e = 'workspace 6' # browser(personal)
+ctrl-shift-alt-cmd-w = 'workspace 7' # sunfyre(work app)
+ctrl-shift-alt-cmd-q = 'workspace 8' # misc(finder/vpn/docker)
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-f = 'move-node-to-workspace 1'
 alt-shift-d = 'move-node-to-workspace 2'
 alt-shift-s = 'move-node-to-workspace 3'
 alt-shift-a = 'move-node-to-workspace 4'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+alt-shift-r = 'move-node-to-workspace 5'
+alt-shift-e = 'move-node-to-workspace 6'
+alt-shift-w = 'move-node-to-workspace 7'
+alt-shift-q = 'move-node-to-workspace 8'
 
 # Disable annoying and useless "hide application" shortcut
 # cmd-h = [] # Disable "hide application"
