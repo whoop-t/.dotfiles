@@ -15,14 +15,14 @@
 - Install [Tmux](https://github.com/tmux/tmux/wiki)
 - Install [fnm (Node version manager)](https://github.com/Schniz/fnm/releases)
 - Install [Nodejs/Npm (use fnm)](https://nodejs.org/en/download)
+- Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
+- Install [ripgrep](https://github.com/BurntSushi/ripgrep)
+- Install [lazygit](https://github.com/jesseduffield/lazygit)
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
 - [Synthwave Wallpaper](https://www.wallpaperflare.com/synthwave-background-music-sunrise-abstract-sunset-pink-wallpaper-bgxcp/download/4096x2304)
 - [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
 
-# Terminal tools needed:
-- Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
-- Install [ripgrep](https://github.com/BurntSushi/ripgrep)
-- Install [lazygit](https://github.com/jesseduffield/lazygit)
+# Misc(not really used in my workflow yet)
 - Install [lazydocker](https://github.com/jesseduffield/lazydocker)
 
 # Neovim
@@ -48,13 +48,14 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 > [!NOTE]
 > Might not need IMWheel anymore
 - Using PopOS built in workspaces `hyper + f|d|s|a` like with Aerospace on MacOS above
-- Disable animations for workspaces
+- Disable animations for workspaces (this should alreay be set in popos backup)
 ```bash
 gsettings set org.gnome.desktop.interface enable-animations false
 ```
 - 27" 1440p scaled to 125% (popos display settings)
 
 # Keyboard
+- [Pics](https://tommym.dev/keyboards)
 - Main: Corne layout(42 key): [via config](https://github.com/whoop-t/corne_42_key)
 - Secondary(dont use anymore): Moonlander layout(42 key): [oryx](https://configure.zsa.io/moonlander/layouts/0p0pw/latest/0)
 - [monkeytype](https://monkeytype.com/profile/whoop)
