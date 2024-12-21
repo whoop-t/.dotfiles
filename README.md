@@ -1,19 +1,25 @@
 # Prereq
 - Install [Kitty Terminal](https://sw.kovidgoyal.net/kitty/binary/) (best kitty [icon](https://github.com/DinkDonk/kitty-icon))
 - Install [Stow](https://formulae.brew.sh/formula/stow)
-- Install [zsh(if needed)](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+- Install [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - Install [oh-my-zsh](https://ohmyz.sh/#install)
+- Install zsh-autosuggestions and zsh-syntax-highlighting
+    Just clone the repos to .oh-my-zsh/custom/plugins
+    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - Install [Starship](https://starship.rs/)
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
+- Install [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 - Install [Tmux](https://github.com/tmux/tmux/wiki)
-- Install [fnm (Node version manager)](https://github.com/Schniz/fnm)
-- Install [Nodejs/Npm](https://nodejs.org/en/download)
+- Install [fnm (Node version manager)](https://github.com/Schniz/fnm/releases)
+- Install [Nodejs/Npm (use fnm)](https://nodejs.org/en/download)
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
+- [Synthwave Wallpaper](https://www.wallpaperflare.com/synthwave-background-music-sunrise-abstract-sunset-pink-wallpaper-bgxcp/download/4096x2304)
 - [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
 
 # Terminal tools needed:
-- Install [fzf](https://github.com/junegunn/fzf)
+- Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
 - Install [ripgrep](https://github.com/BurntSushi/ripgrep)
 - Install [lazygit](https://github.com/jesseduffield/lazygit)
 - Install [lazydocker](https://github.com/jesseduffield/lazydocker)
