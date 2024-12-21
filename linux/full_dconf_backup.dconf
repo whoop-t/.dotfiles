@@ -1,0 +1,182 @@
+[com/github/donadigo/eddy]
+mime-types=['application/vnd.debian.binary-package', 'application/x-deb']
+window-x=0
+window-y=32
+
+[io/elementary/appcenter/settings]
+cached-drivers=@as []
+last-refresh-time=int64 1734754741
+window-height=640
+window-maximized=false
+window-width=910
+
+[org/gnome/control-center]
+last-panel='keyboard'
+
+[org/gnome/desktop/app-folders/folders/Pop-Office]
+apps=['libreoffice-calc.desktop', 'libreoffice-draw.desktop', 'libreoffice-impress.desktop', 'libreoffice-math.desktop', 'libreoffice-startcenter.desktop', 'libreoffice-writer.desktop']
+name='Office'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/Pop-System]
+apps=['gnome-language-selector.desktop', 'gnome-session-properties.desktop', 'gnome-system-monitor.desktop', 'im-config.desktop', 'nm-connection-editor.desktop', 'nvidia-settings.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.PowerStats.desktop', 'org.gnome.seahorse.Application.desktop', 'software-properties-gnome.desktop', 'system76-driver.desktop', 'system76-firmware.desktop']
+name='System'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/Pop-Utility]
+apps=['com.github.donadigo.eddy.desktop', 'com.system76.Popsicle.desktop', 'gucharmap.desktop', 'info.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.Extensions.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.Totem.desktop', 'pop-cosmic-applications.desktop', 'pop-cosmic-launcher.desktop', 'pop-cosmic-workspaces.desktop', 'simple-scan.desktop', 'yelp.desktop']
+name='Utilities'
+translate=true
+
+[org/gnome/desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/tommy/Pictures/Wallpapers/synth-wp.jpg'
+picture-uri-dark='file:///home/tommy/Pictures/Wallpapers/synth-wp.jpg'
+primary-color='#000000'
+secondary-color='#000000'
+
+[org/gnome/desktop/input-sources]
+current=uint32 0
+per-window=false
+sources=[('xkb', 'us')]
+xkb-options=@as []
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+enable-animations=false
+
+[org/gnome/desktop/notifications]
+application-children=['com-github-donadigo-eddy', 'gnome-control-center']
+
+[org/gnome/desktop/notifications/application/com-github-donadigo-eddy]
+application-id='com.github.donadigo.eddy.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-control-center]
+application-id='gnome-control-center.desktop'
+
+[org/gnome/desktop/peripherals/keyboard]
+delay=uint32 200
+
+[org/gnome/desktop/peripherals/mouse]
+accel-profile='flat'
+natural-scroll=false
+speed=0.14705882352941169
+
+[org/gnome/desktop/peripherals/touchpad]
+click-method='areas'
+natural-scroll=true
+two-finger-scrolling-enabled=true
+
+[org/gnome/desktop/wm/keybindings]
+move-to-workspace-1=['<Shift><Super>Home', '<Shift><Alt>f']
+move-to-workspace-2=['<Shift><Alt>d']
+move-to-workspace-3=['<Shift><Alt>s']
+move-to-workspace-4=['<Shift><Alt>a']
+switch-input-source=@as []
+switch-input-source-backward=@as []
+switch-to-workspace-1=['<Super>Home', '<Primary><Shift><Alt><Super>f']
+switch-to-workspace-2=['<Primary><Shift><Alt><Super>d']
+switch-to-workspace-3=['<Primary><Shift><Alt><Super>s']
+switch-to-workspace-4=['<Primary><Shift><Alt><Super>a']
+toggle-fullscreen=@as []
+toggle-maximized=['<Super>m', '<Primary><Shift><Alt><Super>b']
+
+[org/gnome/desktop/wm/preferences]
+num-workspaces=8
+
+[org/gnome/eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
+
+[org/gnome/evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[org/gnome/file-roller/listing]
+list-mode='as-folder'
+name-column-width=250
+show-path=false
+sort-method='name'
+sort-type='ascending'
+
+[org/gnome/file-roller/ui]
+sidebar-width=200
+window-height=480
+window-width=600
+
+[org/gnome/gedit/plugins]
+active-plugins=['docinfo', 'openlinks', 'sort', 'spell', 'modelines', 'filebrowser']
+
+[org/gnome/gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/tommy/.cache/.fr-Ei3ACw'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(900, 700)
+state=87168
+
+[org/gnome/mutter]
+dynamic-workspaces=false
+experimental-features=['x11-randr-fractional-scaling']
+workspaces-only-on-primary=true
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 550)
+maximized=false
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=@as []
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-timeout=1800
+sleep-inactive-ac-type='suspend'
+sleep-inactive-battery-timeout=1800
+sleep-inactive-battery-type='suspend'
+
+[org/gnome/shell]
+favorite-apps=['google-chrome.desktop', 'kitty.desktop']
+welcome-dialog-last-shown-version='42.5'
+
+[org/gnome/shell/extensions/dash-to-dock]
+dash-max-icon-size=60
+dock-fixed=false
+extend-height=false
+intellihide=false
+manualhide=false
+
+[org/gnome/shell/extensions/pop-cosmic]
+clock-alignment='RIGHT'
+overlay-key-action='WORKSPACES'
+show-applications-button=false
+show-workspaces-button=false
+
+[org/gnome/shell/extensions/pop-shell]
+activate-launcher=['<Super>slash', '<Super>space']
+
+[org/gnome/shell/keybindings]
+show-screenshot-ui=['Print', '<Alt>s']
+
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=162
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-size=(805, 374)
