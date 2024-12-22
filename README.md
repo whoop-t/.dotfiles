@@ -1,4 +1,5 @@
 # Prereq
+- Install [Firefox](https://www.mozilla.org/en-US/firefox/)
 - Install [Kitty Terminal](https://sw.kovidgoyal.net/kitty/binary/) (best kitty [icon](https://github.com/DinkDonk/kitty-icon))
 - Install [Stow](https://formulae.brew.sh/formula/stow)
 - Install [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
@@ -21,11 +22,6 @@
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
 - [Synthwave Wallpaper](https://www.wallpaperflare.com/synthwave-background-music-sunrise-abstract-sunset-pink-wallpaper-bgxcp/download/4096x2304)
 - [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
-
-# Browser
-I recently moved to using [Floorp](https://floorp.app/en) over Chrome due to manifest v3 killing ad blockers
-
-There is a `floorp.desktop` in my `.local/share/applications` to allow linux to register the application
 
 # Misc(not really used in my workflow yet)
 - Install [lazydocker](https://github.com/jesseduffield/lazydocker)
