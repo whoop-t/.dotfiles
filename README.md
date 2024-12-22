@@ -1,5 +1,5 @@
 # Prereq
-- Install [Firefox](https://www.mozilla.org/en-US/firefox/)
+- Install [Floorp (firefox based browser)](https://floorp.app/en)
 - Install [Kitty Terminal](https://sw.kovidgoyal.net/kitty/binary/) (best kitty [icon](https://github.com/DinkDonk/kitty-icon))
 - Install [Stow](https://formulae.brew.sh/formula/stow)
 - Install [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)

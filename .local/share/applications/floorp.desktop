@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Floorp
-Exec=/opt/floorp/floorp
-Comment=Firefox based browser
-Icon=/opt/floorp/browser/chrome/icons/default/default128.png
-Type=Application
-Categories=Network;WebBrowser;
-
