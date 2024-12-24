@@ -43,10 +43,10 @@ return {
               "branch",
               color = { fg = "#bb9af7", gui = "bold" },
             },
-            { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
+            { "filetype",   icon_only = true, separator = "", padding = { right = 0, left = 1 } },
             {
               "filename",
-              path = 1, -- Show relative path
+              path = 1,                                -- Show relative path
               symbols = {
                 modified = diagnostics.signs.Modified, -- Indicator for modified file
                 readonly = diagnostics.signs.Readonly, -- Indicator for readonly file
@@ -61,10 +61,8 @@ return {
             { "diagnostics" },
           },
           lualine_c = {},
-
           lualine_x = {},
           lualine_y = {},
-
           lualine_z = {
             -- Show lsp and formatter status
             {
@@ -102,7 +100,7 @@ return {
           },
         },
         inactive_sections = {
-          lualine_a = { "filename" },
+          lualine_a = {},
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
