@@ -55,6 +55,10 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# Disable use of ! and !! for commands
+# This can interfere when ! is used in other commands, just disabling as I dont use ! or !!
+setopt NO_HIST_EXPAND
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
