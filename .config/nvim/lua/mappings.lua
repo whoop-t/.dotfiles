@@ -28,3 +28,17 @@ vim.keymap.set(
   '<cmd>let @+ = fnamemodify(expand("%:p"), ":.")<cr>',
   { desc = "Copy current file path" }
 )
+-- toggle spell
+vim.keymap.set(
+  "n",
+  "<leader>st",
+  '<cmd>set spell!<cr>',
+  { desc = "Toggle spell" }
+)
+-- spell suggest
+vim.keymap.set(
+  "n",
+  "<leader>ss",
+  'z=',
+  { desc = "Spell suggest" }
+)
