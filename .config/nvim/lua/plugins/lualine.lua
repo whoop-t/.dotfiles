@@ -43,10 +43,10 @@ return {
               "branch",
               color = { fg = "#bb9af7", gui = "bold" },
             },
-            { "filetype",   icon_only = true, separator = "", padding = { right = 0, left = 1 } },
+            { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
             {
               "filename",
-              path = 1,                                -- Show relative path
+              path = 1, -- Show relative path
               symbols = {
                 modified = diagnostics.signs.Modified, -- Indicator for modified file
                 readonly = diagnostics.signs.Readonly, -- Indicator for readonly file
@@ -68,7 +68,13 @@ return {
             {
               function()
                 local buf_clients = vim.lsp.get_clients { bufnr = vim.api.nvim_get_current_buf() }
-                if not buf_clients or vim.tbl_isempty(buf_clients) then return "" end
+                local formatters = require("conform").list_formatters()
+
+                if
+                  (not buf_clients or vim.tbl_isempty(buf_clients)) and (not formatters or vim.tbl_isempty(formatters))
+                then
+                  return ""
+                end
 
                 -- Use a Set so there are no dupes
                 local client_names = {}
@@ -79,7 +85,6 @@ return {
                 end
 
                 -- Check for conform nvim linters
-                local formatters = require("conform").list_formatters()
                 for _, formatter in ipairs(formatters) do
                   if formatter.available then client_names[formatter.name] = formatter.name end
                 end
