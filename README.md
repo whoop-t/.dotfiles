@@ -53,7 +53,6 @@ gsettings set org.gnome.desktop.interface enable-animations false
 - 27" 1440p scaled to 125% (popos display settings)
 
 # Keyboard
-- [Pics](https://tommym.dev/keyboards)
 - Main: Corne layout(42 key): [via config](https://github.com/whoop-t/corne_42_key)
 - Secondary(dont use anymore): Moonlander layout(42 key): [oryx](https://configure.zsa.io/moonlander/layouts/0p0pw/latest/0)
 - [monkeytype](https://monkeytype.com/profile/whoop)
