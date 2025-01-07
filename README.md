@@ -45,9 +45,6 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [BetterDisplay](https://github.com/waydabber/BetterDisplay) -- 27" 1440p scaled to 78% (1984x1116)
 
 # Linux ONLY
-- [IMWheel(fix mouse on linux)](https://wiki.archlinux.org/title/IMWheel)
-> [!NOTE]
-> Might not need IMWheel anymore
 - Using PopOS built in workspaces `hyper + f|d|s|a` like with Aerospace on MacOS above
 - Disable animations for workspaces (this should alreay be set in popos backup)
 ```bash
