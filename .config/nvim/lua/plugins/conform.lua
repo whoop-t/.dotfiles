@@ -89,6 +89,7 @@ return {
       graphql = { "prettierd" },
       lua = { "stylua" },
       python = { "isort", "black" },
+      go = { "gofmt" }
     },
     default_format_opts = {
       lsp_format = "fallback",
