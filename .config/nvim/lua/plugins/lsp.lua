@@ -63,9 +63,15 @@ return {
       end
 
       -- lint/formatters
-      -- try installing globally to avoid issues in monorepos and missing configs
-      -- npm install -g vscode-langservers-extracted
-      lspconfig.eslint.setup {}
+      -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#eslint
+      -- NOTE: need to install npm install -g vscode-langservers-extracted (eslint globally) for lsp to work
+      -- eslint also needs to be installed locally in js/ts project
+      -- this is ONLY for eslint projects
+      lspconfig.eslint.setup {
+        settings = {
+          format = false,
+        },
+      }
       lspconfig.biome.setup {}
 
       -- key bindings

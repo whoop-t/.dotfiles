@@ -43,12 +43,15 @@ local function formatter_for_js()
 
   -- ESLint check
   -- conform only has eslint_d
+  -- NOTE: install with Mason
+  -- NOTE: using eslint lsp, formatting is turned off for eslint to use eslint_d 
+  -- see lsp.lua for more info
   for _, config in ipairs(eslint_configs) do
     if vim.tbl_contains(root_files, config) then return { "eslint_d" } end
   end
 
   -- Fallback formatter
-  return { "eslint_d" } -- Work repos use eslint to format most things 12/2024
+  return { "prettierd" }
 end
 
 local js_formatter = formatter_for_js()
@@ -89,7 +92,7 @@ return {
       graphql = { "prettierd" },
       lua = { "stylua" },
       python = { "isort", "black" },
-      go = { "gofmt" }
+      go = { "gofmt" },
     },
     default_format_opts = {
       lsp_format = "fallback",
