@@ -91,6 +91,7 @@ return {
 
                 local text = " "
 
+                table.sort(client_names) -- sort alphabetically so they dont end up in different locations each time
                 for _, value in pairs(client_names) do
                   text = text .. value .. ", "
                 end
@@ -116,3 +117,4 @@ return {
     end,
   },
 }
+
