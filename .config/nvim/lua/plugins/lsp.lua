@@ -31,7 +31,7 @@ return {
       local lspconfig = require "lspconfig"
       -- If you want to go back to nvim-cmp
       --   local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
       require("lspconfig.ui.windows").default_options.border = "rounded"
 
       -- Set border for shift+k
@@ -47,6 +47,7 @@ return {
       for _, value in ipairs(ensure_installed) do
         if value == "ts_ls" then
           lspconfig[value].setup {
+            capabilities = capabilities,
             on_attach = function(client, _)
               -- Disable formatting capability for tsserver
               -- This conflicts with other formatters
