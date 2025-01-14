@@ -46,6 +46,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Linux ONLY
 - Using PopOS built in workspaces `hyper + f|d|s|a` like with Aerospace on MacOS above
+- Load config in `/linux`. This contains linux/popos keybindings, etc. See README in `/linux` for more details
 - Disable animations for workspaces (this should alreay be set in popos backup)
 ```bash
 gsettings set org.gnome.desktop.interface enable-animations false
