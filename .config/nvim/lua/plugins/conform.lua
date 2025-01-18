@@ -86,6 +86,7 @@ return {
       jsonc = { "prettierd" },
       svelte = { "prettierd" },
       css = { "prettierd" },
+      scss = { "prettierd" },
       html = { "prettierd" },
       yaml = { "prettierd" },
       markdown = { "prettierd" },
