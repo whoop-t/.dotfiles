@@ -55,6 +55,11 @@ return {
               client.server_capabilities.documentRangeFormattingProvider = false
             end,
           }
+        elseif value == "emmet_language_server" then
+          lspconfig[value].setup {
+            capabilities = capabilities,
+            filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "javascript" },
+          }
         else
           lspconfig[value].setup {
             capabilities = capabilities,
