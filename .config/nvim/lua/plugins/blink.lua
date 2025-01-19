@@ -3,7 +3,14 @@ return {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
     dependencies = {
-      "rafamadriz/friendly-snippets",
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load() -- Load friendly-snippets
+        end,
+      },
     },
     -- use a release tag to download pre-built binaries
     version = "v0.*",
@@ -14,8 +21,31 @@ return {
         use_nvim_cmp_as_default = true,
         nerd_font_variant = "mono",
       },
+      snippets = {
+        preset = "luasnip",
+      },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
+        providers = {
+          -- Below customizes the order/priority of recommendations
+          -- https://cmp.saghen.dev/configuration/reference.html#providers
+          lsp = {
+            min_keyword_length = 2, -- Number of characters to trigger provider
+            score_offset = 90, -- Boost/penalize the score of the items
+          },
+          path = {
+            min_keyword_length = 0,
+          },
+          snippets = {
+            min_keyword_length = 2,
+            score_offset = 100, -- Boost/penalize the score of the items
+            max_items = 5,
+          },
+          buffer = {
+            min_keyword_length = 4,
+            max_items = 5,
+          },
+        },
       },
       completion = {
         documentation = {
