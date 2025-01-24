@@ -30,7 +30,7 @@ return {
           -- Below customizes the order/priority of recommendations
           -- https://cmp.saghen.dev/configuration/reference.html#providers
           lsp = {
-            min_keyword_length = 2, -- Number of characters to trigger provider
+            min_keyword_length = 0, -- Number of characters to trigger provider
             score_offset = 90, -- Boost/penalize the score of the items
           },
           path = {
