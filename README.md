@@ -38,6 +38,8 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Mac ONLY
 - Preferences -> Apperance: Dark, Accent Color: Purple
+- System Settings -> Keyboard, Set Key Repeat to "Fast" and Delay until repeat to "Short"
+- System Settings -> Control Center, Set Automatically hide and show menu bar to "Always"
 - [Raycast](https://www.raycast.com/)
     - Disabled Spotlight search in keyboard shortcuts
 - [Aerospace](https://github.com/nikitabobko/AeroSpace)
