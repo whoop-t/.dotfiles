@@ -37,7 +37,7 @@ Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles`
 In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Mac ONLY
-- Apperance: Dark, Accent Color: Purple
+- Preferences -> Apperance: Dark, Accent Color: Purple
 - [Raycast](https://www.raycast.com/)
     - Disabled Spotlight search in keyboard shortcuts
 - [Aerospace](https://github.com/nikitabobko/AeroSpace)
