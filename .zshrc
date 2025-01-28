@@ -1,6 +1,3 @@
-# fnm node version manager
-eval "$(fnm env --use-on-cd --shell zsh)"
-
 # Add golang to path if it is installed
 if [ -d "/usr/local/go/bin" ]; then
     export PATH=$PATH:/usr/local/go/bin
@@ -207,3 +204,6 @@ fi
 
 # starship prompt
 eval "$(starship init zsh)"
+
+# fnm node version manager
+eval "$(fnm env --use-on-cd --shell zsh)"
