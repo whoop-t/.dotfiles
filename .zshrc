@@ -171,7 +171,7 @@ alias f='. fzf_dev.sh'
 #tmux attach
 alias ta='tmux attach'
 # tmux sessionizer with fzf
-bindkey -s '^f' "tmux-sessionizer.sh\n"
+bindkey -s '^f' "~/.config/bin/tmux-sessionizer.sh\n"
 # # TMUX END
 # zelli sessionizer with fzf
 # bindkey -s '^f' "zellij-sessionizer.sh\n"
