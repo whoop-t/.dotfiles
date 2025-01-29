@@ -20,7 +20,7 @@ vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- tmux sessionizer in nvim
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.config/bin/tmux-sessionizer.sh<CR>")
 -- copy current file name
 vim.keymap.set(
   "n",

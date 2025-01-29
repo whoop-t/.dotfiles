@@ -93,7 +93,7 @@ return {
       window = {
         mappings = {
           ["q"] = "noop",
-          ["<C-f>"] = function() vim.cmd "silent !tmux neww tmux-sessionizer.sh" end,
+          ["<C-f>"] = function() vim.fn.system("tmux neww ~/.config/bin/tmux-sessionizer.sh") end,
         },
       },
     }
