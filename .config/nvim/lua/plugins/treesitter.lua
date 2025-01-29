@@ -18,6 +18,7 @@ return {
         "sql",
         "go",
         "markdown",
+        "graphql",
       },
       ignore_install = {},
       auto_install = false,
