@@ -19,6 +19,7 @@ return {
         "go",
         "markdown",
         "graphql",
+        "proto",
       },
       ignore_install = {},
       auto_install = false,
