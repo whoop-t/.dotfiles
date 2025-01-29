@@ -65,6 +65,7 @@ gsettings set org.gnome.desktop.interface enable-animations false
 
 # Software I use (work and personal)
 - [DBeaver](https://dbeaver.io/) - Open Source DB Tool
+    - vim plugin(http://vrapper.sourceforge.net/update-site/stable), install in help -> install new software
 - [Docker](https://www.docker.com/)
 - [Postman](https://www.postman.com/)
 - [k9s](https://github.com/derailed/k9s)
