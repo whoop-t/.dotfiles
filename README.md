@@ -43,6 +43,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - System Settings -> Control Center -> Soundm Set to "Always show in menu bar"
 - [Raycast](https://www.raycast.com/)
     - Disabled Spotlight search in keyboard shortcuts
+    - Import config from `.dotfiles/mac/Raycast.rayconfig`
 - [Aerospace](https://github.com/nikitabobko/AeroSpace)
 - [LinearMouse (mouse issues fix on mac)](https://linearmouse.app/)
 - [Clipy](https://github.com/Clipy/Clipy)
