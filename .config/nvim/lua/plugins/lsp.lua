@@ -10,10 +10,11 @@ local ensure_installed = {
   "yamlls",
   "pyright",
   "emmet_language_server",
+  "angularls"
 }
 
+-- NOTES
 -- For Angular
--- Add "angularls" to ensure_installed above
 -- Install npm install --save-dev @angular/language-service in the angular project
 
 return {
