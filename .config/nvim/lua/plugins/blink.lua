@@ -39,11 +39,11 @@ return {
           snippets = {
             min_keyword_length = 2,
             score_offset = 100, -- Boost/penalize the score of the items
-            max_items = 5,
+            max_items = 3,
           },
           buffer = {
             min_keyword_length = 4,
-            max_items = 5,
+            max_items = 3,
           },
         },
       },
