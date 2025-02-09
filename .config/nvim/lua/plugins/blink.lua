@@ -8,6 +8,10 @@ return {
         version = "v2.*",
         dependencies = { "rafamadriz/friendly-snippets" },
         config = function()
+          -- Add framework snippets
+          -- https://github.com/rafamadriz/friendly-snippets?tab=readme-ov-file#add-snippets-from-a-framework-to-a-filetype
+          require("luasnip").filetype_extend("html", { "angular" })
+
           require("luasnip.loaders.from_vscode").lazy_load() -- Load friendly-snippets
         end,
       },
