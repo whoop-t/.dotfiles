@@ -5,5 +5,14 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  config = function() vim.notify = require "notify" end,
+  config = function()
+    local notify = require "notify"
+
+    notify.setup {
+      merge_duplicates = true,
+      timeout = 2000,
+    }
+
+    vim.notify = notify
+  end,
 }
