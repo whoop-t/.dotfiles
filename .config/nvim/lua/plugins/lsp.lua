@@ -13,10 +13,6 @@ local ensure_installed = {
   "angularls"
 }
 
--- NOTES
--- For Angular
--- Install npm install --save-dev @angular/language-service in the angular project
-
 return {
   {
     "williamboman/mason.nvim",
