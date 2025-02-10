@@ -20,7 +20,8 @@ return {
         "markdown",
         "graphql",
         "proto",
-        "angular"
+        "angular",
+        "toml"
       },
       ignore_install = {},
       auto_install = false,
