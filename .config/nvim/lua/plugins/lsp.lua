@@ -36,9 +36,14 @@ return {
       require("lspconfig.ui.windows").default_options.border = "rounded"
 
       -- Set border for shift+k
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "rounded",
-      })
+      -- also ignore "no information found" when multiple lsps attached and trying hover
+      vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+        if not (result and result.contents and result.contents.value ~= "") then
+          return -- Suppress "no information available" notifications
+        end
+        -- merge config table if it exists
+        return vim.lsp.handlers.hover(_, result, ctx, vim.tbl_extend("force", config or {}, { border = "rounded"}))
+      end
       -- Set border for signature help <leader>lh
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
