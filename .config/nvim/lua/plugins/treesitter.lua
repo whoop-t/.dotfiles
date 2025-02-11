@@ -21,7 +21,8 @@ return {
         "graphql",
         "proto",
         "angular",
-        "toml"
+        "toml",
+        "tsx"
       },
       ignore_install = {},
       auto_install = false,
