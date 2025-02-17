@@ -77,7 +77,7 @@ else
 fi
 
 # vi mode
-# MUST come after ZSH export
+# MUST come after ZSH sourcing else will cause issues with vi mode bindings
 bindkey -v
 # fix small delay when entering vi mode
 # https://www.reddit.com/r/vim/comments/60jl7h/zsh_vimode_no_delay_entering_normal_mode/
