@@ -38,9 +38,10 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Mac ONLY
 - Preferences -> Apperance: Dark, Accent Color: Purple
+- System Settings -> Desktop & Dock, Set "Automatically hide and show dock" to "True"
 - System Settings -> Keyboard, Set Key Repeat to "Fast" and Delay until repeat to "Short"
 - System Settings -> Control Center, Set Automatically hide and show menu bar to "Always"
-- System Settings -> Control Center -> Soundm Set to "Always show in menu bar"
+- System Settings -> Control Center -> Sound Set to "Always show in menu bar"
 - [Raycast](https://www.raycast.com/)
     - Disabled Spotlight search in keyboard shortcuts
     - Import config from `.dotfiles/mac/Raycast.rayconfig`
