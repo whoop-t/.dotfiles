@@ -14,7 +14,7 @@
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
 - Install [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 - Install [Tmux](https://github.com/tmux/tmux/wiki)
-- Install [fnm (Node version manager)](https://github.com/Schniz/fnm/releases)
+- Install [fnm (Node version manager)](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)
 - Install [Nodejs/Npm (use fnm)](https://nodejs.org/en/download)
 - Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
 - Install [ripgrep](https://github.com/BurntSushi/ripgrep)
