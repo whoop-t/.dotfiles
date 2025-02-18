@@ -37,7 +37,7 @@ Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles`
 In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Mac ONLY
-- Preferences -> Apperance: Dark, Accent Color: Purple
+- System Settings -> Apperance: Dark, Accent Color: Purple
 - System Settings -> Desktop & Dock, Set "Automatically hide and show dock" to "True"
 - System Settings -> Keyboard, Set Key Repeat to "Fast" and Delay until repeat to "Short"
 - System Settings -> Control Center, Set Automatically hide and show menu bar to "Always"
