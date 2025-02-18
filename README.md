@@ -44,6 +44,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - System Settings -> Control Center -> Sound Set to "Always show in menu bar"
 - [Raycast](https://www.raycast.com/)
     - Disabled Spotlight search in keyboard shortcuts
+        - System Settings -> Keyboard -> Keyboard Shorcuts -> Spotlight, Uncheck "Show spotlight search"
     - Import config from `.dotfiles/mac/Raycast.rayconfig`
 - [Aerospace](https://github.com/nikitabobko/AeroSpace)
 - [LinearMouse (mouse issues fix on mac)](https://linearmouse.app/)
