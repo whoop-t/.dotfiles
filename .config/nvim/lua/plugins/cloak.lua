@@ -35,7 +35,7 @@ return {
       "<leader>ce",
       function()
         require("cloak").enable()
-        Snacks.notifier.notify('Cloak Enabled', "info", { title = "Cloak" })
+        Snacks.notifier.notify("`cloak` enabled", "info", { title = "Cloak" })
       end,
       desc = "Cloak Enable"
     },
@@ -43,7 +43,7 @@ return {
       "<leader>cd",
       function()
         require("cloak").disable()
-        Snacks.notifier.notify('Cloak Disabled', "info", { title = "Cloak" })
+        Snacks.notifier.notify("`cloak` disabled", "info", { title = "Cloak" })
       end,
       desc = "Cloak Disable"
     },
