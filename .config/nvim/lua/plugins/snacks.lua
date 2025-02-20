@@ -8,7 +8,10 @@ return {
     bigfile = { enabled = true },
     debug = { enabled = true },
     dim = {
+      -- only enable when we toggle it on
+      enabled = false,
       animate = {
+        -- dont animate
         enabled = false,
       },
     },
@@ -19,6 +22,7 @@ return {
       },
       scope = {
         -- Current scope indent highlight with color toggle
+        -- dont animate currently
         enabled = false
       }
     },
