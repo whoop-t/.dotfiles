@@ -6,6 +6,17 @@ return {
   opts = {
     notifier = { enabled = true },
     bigfile = { enabled = true },
+    indent = {
+      enabled = true,
+      animate = {
+        enabled = false
+      },
+      scope = {
+        -- Current scope indent highlight with color toggle
+        enabled = false
+      }
+    },
+    -- image only works for .png without magick installed
     image = { enabled = true },
     lazygit = {
       configure = true,
@@ -21,9 +32,9 @@ return {
     }
   },
   keys = {
-    -- Lazygit
+    -- lazygit
     { "<leader>gg", function() Snacks.lazygit() end,       desc = "Lazygit" },
-    -- Notifier
+    -- notifier
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
   }
 }
