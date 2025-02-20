@@ -29,14 +29,23 @@ return {
         },
       },
     }
-
-    vim.keymap.set("n", "<leader>ce", function()
-      require("cloak").enable()
-      require "notify" "Cloak enabled"
-    end)
-    vim.keymap.set("n", "<leader>cd", function()
-      require("cloak").disable()
-      require "notify" "Cloak disabled"
-    end)
   end,
+  keys = {
+    {
+      "<leader>ce",
+      function()
+        require("cloak").enable()
+        Snacks.notifier.notify('Cloak Enabled', "info", { title = "Cloak" })
+      end,
+      desc = "Cloak Enable"
+    },
+    {
+      "<leader>cd",
+      function()
+        require("cloak").disable()
+        Snacks.notifier.notify('Cloak Disabled', "info", { title = "Cloak" })
+      end,
+      desc = "Cloak Disable"
+    },
+  }
 }
