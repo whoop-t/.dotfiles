@@ -50,7 +50,9 @@ return {
     { "<leader>gg", function() Snacks.lazygit() end,                                                                             desc = "Lazygit" },
     -- notifier
     { "<leader>un", function() Snacks.notifier.hide() end,                                                                       desc = "Dismiss All Notifications" },
+    --
     -- pickers
+    --
     -- file: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#files
     { "<leader>ff", function() Snacks.picker.files({ hidden = true, ignored = true, exclude = { "node_modules" } }) end,         desc = "Find Files" },
     { "<leader>fw", function() Snacks.picker.grep({ hidden = true, ignored = true, exclude = { "node_modules" } }) end,          desc = "Grep" },
