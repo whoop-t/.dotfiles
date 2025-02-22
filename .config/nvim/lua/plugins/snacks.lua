@@ -4,6 +4,7 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    picker = { enabled = true },
     notifier = { enabled = true },
     bigfile = { enabled = true },
     debug = { enabled = true },
@@ -32,7 +33,10 @@ return {
       configure = true,
 
     },
-    -- picker = { enabled = true },
+
+    --
+    -- Snack plugin styles
+    --
     styles = {
       lazygit = {
         width = 0.99,
