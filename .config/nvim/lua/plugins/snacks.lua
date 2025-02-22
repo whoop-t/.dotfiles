@@ -1,5 +1,6 @@
 return {
   "folke/snacks.nvim",
+  -- dir = '~/dev/lua/snacks.nvim',
   priority = 1000,
   lazy = false,
   ---@type snacks.Config
@@ -53,7 +54,7 @@ return {
     { "<leader>un", function() Snacks.notifier.hide() end,                                                                       desc = "Dismiss All Notifications" },
     -- gitbrowse
     -- CURRENTLY must use gitblame and hover commit hash, then enter command
-    { "<leader>gc", function() Snacks.gitbrowse.open({ what = 'commit' }) end,                                                          desc = "Open commit in browser" },
+    { "<leader>gc", function() Snacks.gitbrowse.open({ what = 'commit' }) end,                                                   desc = "Open commit in browser",   mode = { "n", "v" } },
     --
     -- pickers
     --
