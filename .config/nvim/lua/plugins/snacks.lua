@@ -8,6 +8,7 @@ return {
     notifier = { enabled = true },
     bigfile = { enabled = true },
     debug = { enabled = true },
+    gitbrowse = { enabled = true },
     dim = {
       -- only enable when we toggle it on
       enabled = false,
@@ -50,6 +51,9 @@ return {
     { "<leader>gg", function() Snacks.lazygit() end,                                                                             desc = "Lazygit" },
     -- notifier
     { "<leader>un", function() Snacks.notifier.hide() end,                                                                       desc = "Dismiss All Notifications" },
+    -- gitbrowse
+    -- CURRENTLY must use gitblame and hover commit hash, then enter command
+    { "<leader>gc", function() Snacks.gitbrowse.open({ what = 'commit' }) end,                                                          desc = "Open commit in browser" },
     --
     -- pickers
     --
@@ -58,7 +62,7 @@ return {
     { "<leader>fw", function() Snacks.picker.grep({ hidden = true, ignored = true, exclude = { "node_modules" } }) end,          desc = "Grep" },
     { "<leader>fr", function() Snacks.picker.recent() end,                                                                       desc = "Recent" },
     { "<leader>ft", function() Snacks.picker.todo_comments({ hidden = true, ignored = true, exclude = { "node_modules" } }) end, desc = "Todo" },
-    { "<leader>fn",  function() Snacks.picker.notifications() end,                                                                desc = "Notification History" },
+    { "<leader>fn", function() Snacks.picker.notifications() end,                                                                desc = "Notification History" },
     -- git
     { "<leader>gb", function() Snacks.picker.git_branches() end,                                                                 desc = "Git Branches" },
     { "<leader>gL", function() Snacks.picker.git_log() end,                                                                      desc = "Git Log" },

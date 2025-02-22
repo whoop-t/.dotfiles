@@ -62,15 +62,4 @@ return {
       }
     end,
   },
-  {
-    "f-person/git-blame.nvim",
-    event = "VeryLazy",
-    init = function() vim.g.gitblame_enabled = 0 end,
-    keys = {
-      { "<leader>gc", mode = { "n" }, "<CMD>GitBlameOpenCommitURL<CR>", desc = "Open git commit url" },
-      -- NOTE: using the binding in snacks.nvim
-      -- 
-      -- { "<leader>gf", mode = { "n" }, "<CMD>GitBlameOpenFileURL<CR>", desc = "Open git file url" },
-    },
-  },
 }
