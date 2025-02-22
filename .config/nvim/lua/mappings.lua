@@ -1,4 +1,5 @@
--- NOTE this should only be for general mappings, try to define plugin specific mapping in the lazy setup under "keys"
+-- NOTE: this should only be for general mappings, try to define plugin specific mapping in the lazy setup under "keys"
+-- NOTE: A LOT of mappings are in snacks.nvim
 -- Leader key mapping
 vim.g.mapleader = " "
 -- better j and k
@@ -27,11 +28,4 @@ vim.keymap.set(
   "<leader>cf",
   '<cmd>let @+ = fnamemodify(expand("%:p"), ":.")<cr>',
   { desc = "Copy current file path" }
-)
--- spell suggest
-vim.keymap.set(
-  "n",
-  "<leader>ss",
-  'z=',
-  { desc = "Spell suggest" }
 )

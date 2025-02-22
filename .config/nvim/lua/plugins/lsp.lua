@@ -42,7 +42,7 @@ return {
           return -- Suppress "no information available" notifications
         end
         -- merge config table if it exists
-        return vim.lsp.handlers.hover(_, result, ctx, vim.tbl_extend("force", config or {}, { border = "rounded"}))
+        return vim.lsp.handlers.hover(_, result, ctx, vim.tbl_extend("force", config or {}, { border = "rounded" }))
       end
       -- Set border for signature help <leader>lh
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
@@ -91,10 +91,10 @@ return {
         callback = function(event)
           local opts = { buffer = event.buf }
 
-          -- this is mapped in telescope to use telescope picker
+          -- this is mapped in snack.picker
           -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
           vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+          -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
           vim.keymap.set("n", "<leader>lR", vim.lsp.buf.rename, opts)
           vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, opts)
           vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, opts)
