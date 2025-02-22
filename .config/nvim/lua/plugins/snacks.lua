@@ -1,6 +1,5 @@
 return {
   "folke/snacks.nvim",
-  -- dir = '~/dev/lua/snacks.nvim',
   priority = 1000,
   lazy = false,
   ---@type snacks.Config
