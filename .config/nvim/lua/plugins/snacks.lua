@@ -58,7 +58,7 @@ return {
     { "<leader>fw", function() Snacks.picker.grep({ hidden = true, ignored = true, exclude = { "node_modules" } }) end,          desc = "Grep" },
     { "<leader>fr", function() Snacks.picker.recent() end,                                                                       desc = "Recent" },
     { "<leader>ft", function() Snacks.picker.todo_comments({ hidden = true, ignored = true, exclude = { "node_modules" } }) end, desc = "Todo" },
-    { "<leader>n",  function() Snacks.picker.notifications() end,                                                                desc = "Notification History" },
+    { "<leader>fn",  function() Snacks.picker.notifications() end,                                                                desc = "Notification History" },
     -- git
     { "<leader>gb", function() Snacks.picker.git_branches() end,                                                                 desc = "Git Branches" },
     { "<leader>gL", function() Snacks.picker.git_log() end,                                                                      desc = "Git Log" },
