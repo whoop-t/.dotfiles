@@ -14,6 +14,7 @@ vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, si
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 -- save and quit mappings
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
+vim.keymap.set("n", "<leader>W", "<cmd>wa<cr>", { desc = "Save All" })
 vim.keymap.set("n", "<leader>q", "<cmd>confirm q<cr>", { desc = "Quit" })
 -- blackhole delete
 vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
