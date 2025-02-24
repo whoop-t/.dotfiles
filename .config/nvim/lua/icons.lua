@@ -1,6 +1,6 @@
 local M = {}
 
-M.git_icons = {
+M.git = {
   Git = "󰊢 ",
   GitAdd = " ",
   GitBranch = "",

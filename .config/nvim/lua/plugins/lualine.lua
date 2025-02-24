@@ -6,7 +6,7 @@ return {
     opts = function()
       local icons = require("icons")
       local diagnostics = icons.diagnostics
-      local git_icons = icons.git_icons
+      local git_icons = icons.git
 
       return {
         options = {

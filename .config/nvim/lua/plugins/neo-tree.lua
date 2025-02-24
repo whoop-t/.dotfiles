@@ -9,7 +9,7 @@ return {
   cmd = "Neotree",
   opts = function()
     local icons = require("icons")
-    local git_icons = icons.git_icons
+    local git_icons = icons.git
     local diagnostics = icons.diagnostics
     -- Set modified highlight color
     vim.api.nvim_set_hl(0, "NeoTreeModified", { fg = "#c0caf5" })

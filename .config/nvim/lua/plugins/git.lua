@@ -2,7 +2,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      local git_icons = require("icons").git_icons
+      local git_icons = require("icons").git
       require("gitsigns").setup {
         on_attach = function(bufnr)
           local gitsigns = require "gitsigns"
