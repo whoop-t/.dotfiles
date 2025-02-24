@@ -17,12 +17,12 @@ M.git_icons = {
 
 -- Icons for lsp errors
 M.diagnostics = {
-  Error = " ",
-  Warn = " ",
-  Hint = "󰌵",
-  Info = " ",
+  Error = " ",
+  Warn = " ",
+  Hint = " ",
+  Info = " ",
   Modified = "●",
-  Readonly = "",
+  Readonly = " ",
 }
 
 -- Define all the diagnostic icons
