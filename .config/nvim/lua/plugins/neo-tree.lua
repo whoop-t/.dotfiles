@@ -8,7 +8,9 @@ return {
   },
   cmd = "Neotree",
   opts = function()
-    local diagnostics = require "diagnostics"
+    local icons = require("icons")
+    local git_icons = icons.git_icons
+    local diagnostics = icons.diagnostics
     -- Set modified highlight color
     vim.api.nvim_set_hl(0, "NeoTreeModified", { fg = "#c0caf5" })
     -- get autocommand to open neotree on load working
@@ -36,14 +38,14 @@ return {
       default_component_configs = {
         diagnostics = {
           symbols = {
-            hint = diagnostics.signs.Hint,
-            info = diagnostics.signs.Info,
-            warn = diagnostics.signs.Warn,
-            error = diagnostics.signs.Error,
+            hint = diagnostics.Hint,
+            info = diagnostics.Info,
+            warn = diagnostics.Warn,
+            error = diagnostics.Error,
           },
         },
         modified = {
-          symbol = diagnostics.signs.Modified,
+          symbol = diagnostics.Modified,
           highlight = "NeoTreeModified",
         },
         indent = {
@@ -66,16 +68,16 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-            deleted = "", -- this can only be used in the git_status source
-            renamed = "➜", -- this can only be used in the git_status source
+            added = git_icons.GitAdd,
+            modified = git_icons.GitChange,
+            deleted = git_icons.GitDelete,
+            renamed = git_icons.GitRenamed,
             -- Status type
-            untracked = "★",
-            ignored = "◌",
-            unstaged = "✗",
-            staged = "✓",
-            conflict = "",
+            untracked = git_icons.GitUntracked,
+            ignored = git_icons.GitIgnored,
+            unstaged = git_icons.GitUnstaged,
+            staged = git_icons.GitStaged,
+            conflict = git_icons.GitConflict,
           },
         },
       },

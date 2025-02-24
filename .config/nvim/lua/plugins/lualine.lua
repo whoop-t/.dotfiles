@@ -4,7 +4,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
 
     opts = function()
-      local diagnostics = require "diagnostics"
+      local diagnostics = require("icons").diagnostics
 
       return {
         options = {
@@ -46,10 +46,10 @@ return {
             { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
             {
               "filename",
-              path = 1, -- Show relative path
+              path = 1,                          -- Show relative path
               symbols = {
-                modified = diagnostics.signs.Modified, -- Indicator for modified file
-                readonly = diagnostics.signs.Readonly, -- Indicator for readonly file
+                modified = diagnostics.Modified, -- Indicator for modified file
+                readonly = diagnostics.Readonly, -- Indicator for readonly file
                 unnamed = "[No Name]",
               },
               padding = { right = 0, left = 0 },
@@ -58,7 +58,15 @@ return {
                 return vim.fn.fnamemodify(str, ":~:.")
               end,
             },
-            { "diagnostics" },
+            {
+              "diagnostics",
+              symbols = {
+                warn = diagnostics.Warn,
+                error = diagnostics.Error,
+                info = diagnostics.Info,
+                hint = diagnostics.Hint,
+              },
+            },
           },
           lualine_c = {},
           lualine_x = {},
@@ -71,7 +79,7 @@ return {
                 local formatters = require("conform").list_formatters()
 
                 if
-                  (not buf_clients or vim.tbl_isempty(buf_clients)) and (not formatters or vim.tbl_isempty(formatters))
+                    (not buf_clients or vim.tbl_isempty(buf_clients)) and (not formatters or vim.tbl_isempty(formatters))
                 then
                   return ""
                 end
@@ -117,4 +125,3 @@ return {
     end,
   },
 }
-
