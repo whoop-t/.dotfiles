@@ -17,6 +17,7 @@ autocmd("BufEnter", {
     end
   end,
 })
+
 autocmd("TermClose", {
   pattern = "*lazygit*",
   desc = "Refresh Neo-Tree when closing lazygit",
@@ -31,12 +32,14 @@ autocmd("TermClose", {
     end
   end,
 })
+
 -- Make sure any changes are reflected
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   desc = "Check if buffers changed on editor focus",
   group = augroup("checktime", { clear = true }),
   command = "checktime",
 })
+
 autocmd("BufWinEnter", {
   desc = "Make q close help, man, quickfix, dap floats",
   group = augroup("q_close_windows", { clear = true }),
