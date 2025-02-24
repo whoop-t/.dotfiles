@@ -4,7 +4,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
 
     opts = function()
-      local diagnostics = require("icons").diagnostics
+      local icons = require("icons")
+      local diagnostics = icons.diagnostics
+      local git_icons = icons.git_icons
 
       return {
         options = {
@@ -41,6 +43,7 @@ return {
           lualine_b = {
             {
               "branch",
+              icon = git_icons.GitBranch,
               color = { fg = "#bb9af7", gui = "bold" },
             },
             { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },

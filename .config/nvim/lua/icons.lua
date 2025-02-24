@@ -1,12 +1,12 @@
 local M = {}
 
 M.git_icons = {
-  Git = "󰊢",
-  GitAdd = "",
+  Git = "󰊢 ",
+  GitAdd = " ",
   GitBranch = "",
-  GitChange = "",
-  GitConflict = "",
-  GitDelete = "",
+  GitChange = " ",
+  GitConflict = " ",
+  GitDelete = " ",
   GitIgnored = "◌",
   GitRenamed = "➜",
   GitSign = "▎",
