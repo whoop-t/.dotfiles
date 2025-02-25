@@ -58,10 +58,10 @@ return {
     -- pickers
     --
     -- file: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#files
-    { "<leader>ff", function() Snacks.picker.files({ hidden = true, ignored = true, exclude = { "node_modules" } }) end,         desc = "Find Files" },
-    { "<leader>fw", function() Snacks.picker.grep({ hidden = true, ignored = true, exclude = { "node_modules" } }) end,          desc = "Grep" },
+    { "<leader>ff", function() Snacks.picker.files({ hidden = true, ignored = true, exclude = { "node_modules", "dist" } }) end,         desc = "Find Files" },
+    { "<leader>fw", function() Snacks.picker.grep({ hidden = true, ignored = true, exclude = { "node_modules", "dist" } }) end,          desc = "Grep" },
     { "<leader>fr", function() Snacks.picker.recent() end,                                                                       desc = "Recent" },
-    { "<leader>ft", function() Snacks.picker.todo_comments({ hidden = true, ignored = true, exclude = { "node_modules" } }) end, desc = "Todo" },
+    { "<leader>ft", function() Snacks.picker.todo_comments({ hidden = true, ignored = true, exclude = { "node_modules", "dist" } }) end, desc = "Todo" },
     { "<leader>fn", function() Snacks.picker.notifications() end,                                                                desc = "Notification History" },
     -- git
     { "<leader>gb", function() Snacks.picker.git_branches() end,                                                                 desc = "Git Branches" },
