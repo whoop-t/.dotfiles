@@ -7,10 +7,10 @@ Use `git config --local to create creds just for a workspace/repo
 
 Here's what my setup looks like. First, I generated two sets of keys. In ~/.ssh I have
 
-id_ed25519_mine
-id_ed25519_mine.pub
-id_ed25519_work
-id_ed25519_work.pub
+personal_github_ed25519
+personal_github_ed25519.pub
+work_github_ed25519
+work_github_ed25519.pub
 
 I put the public keys in their respective places in each github account. In
 ~/.ssh/config I have two entries, both for github but using different names
