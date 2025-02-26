@@ -8,14 +8,18 @@ Use `git config --local`(must be in repo) to create account just for a repo
 Here's what my setup looks like. First, I generated two sets of keys. In ~/.ssh I have
 
 personal_github_ed25519
+
 personal_github_ed25519.pub
+
 work_github_ed25519
+
 work_github_ed25519.pub
 
 I put the public keys in their respective places in each github account. In
 ~/.ssh/config I have two entries, both for github but using different names
 locally with the different key files
 
+```
 Host github.com
   HostName github.com
   IdentityFile ~/.ssh/id_ed25519_mine
@@ -23,6 +27,7 @@ Host github.com
 Host github-work
   HostName github.com
   IdentityFile ~/.ssh/id_ed25519_work
+```
 
 The line Host <host> is the important one because when you do ssh things and
 refer to a host with whatever you have as <host>, it will use that entry to
