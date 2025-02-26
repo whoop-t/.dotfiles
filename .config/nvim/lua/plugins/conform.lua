@@ -38,7 +38,7 @@ local function formatter_for_js()
 
   -- Biome check
   for _, config in ipairs(biome_configs) do
-    if vim.tbl_contains(root_files, config) then return { "biome" } end
+    if vim.tbl_contains(root_files, config) then return { "biome", "biome-check" } end
   end
 
   -- ESLint check
