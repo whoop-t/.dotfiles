@@ -1,7 +1,7 @@
 # Misc notes that could be helpful
 
 ## GIT
-Use `git config --local to create creds just for a workspace/repo
+Use `git config --local`(must be in repo) to create account just for a repo
 
 ### Two github users on same comp
 
