@@ -4,6 +4,7 @@
 dirs=(
   "$HOME/.dotfiles"
   "$HOME/dev"
+  "$HOME/work"
   "$HOME/Documents"
   "$HOME/Downloads"
   # Add more directories as needed
