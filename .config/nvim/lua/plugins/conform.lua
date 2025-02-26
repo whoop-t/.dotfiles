@@ -51,7 +51,7 @@ local function formatter_for_js()
   end
 
   -- Fallback formatter
-  return { "prettierd" }
+  return nil
 end
 
 local js_formatter = formatter_for_js()
