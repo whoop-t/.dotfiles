@@ -39,6 +39,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 # Mac ONLY
 - System Settings -> Apperance: Dark, Accent Color: Purple
 - System Settings -> Desktop & Dock, Set "Automatically hide and show dock" to "True"
+- System Settings -> Desktop & Dock, Set "Show suggested and recent apps in dock" to "False"
 - System Settings -> Keyboard, Set Key Repeat to "Fast" and Delay until repeat to "Short"
 - System Settings -> Control Center, Set Automatically hide and show menu bar to "Always"
 - System Settings -> Control Center -> Sound Set to "Always show in menu bar"
