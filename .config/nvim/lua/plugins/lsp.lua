@@ -6,11 +6,12 @@ local ensure_installed = {
   "html",
   "cssls",
   "sqlls",
-  "gopls",
+  -- "gopls",
   "yamlls",
   "pyright",
   "emmet_language_server",
-  "angularls"
+  "angularls",
+  "clangd"
 }
 
 return {

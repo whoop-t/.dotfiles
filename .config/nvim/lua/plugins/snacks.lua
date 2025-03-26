@@ -40,8 +40,6 @@ return {
         enabled = false
       }
     },
-    -- image only works for .png without magick installed
-    image = { enabled = true },
     lazygit = {
       configure = true,
 
