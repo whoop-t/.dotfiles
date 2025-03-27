@@ -7,6 +7,7 @@ dirs=(
   "$HOME/work"
   "$HOME/Documents"
   "$HOME/Downloads"
+  "$HOME/Desktop"
   "$HOME/Pictures"
   # Add more directories as needed
 )
