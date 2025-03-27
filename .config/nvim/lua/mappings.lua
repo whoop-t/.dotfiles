@@ -2,13 +2,14 @@
 -- NOTE: A LOT of mappings are in snacks.nvim
 -- Leader key mapping
 vim.g.mapleader = " "
--- better j and k
+-- better j
 vim.keymap.set(
   { "n", "x" },
   "j",
   "v:count == 0 ? 'gj' : 'j'",
   { expr = true, silent = true, desc = "Move cursor down" }
 )
+-- better k
 vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move cursor up" })
 -- Key to clear highlight search
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
@@ -30,6 +31,8 @@ vim.keymap.set(
   '<cmd>let @+ = fnamemodify(expand("%:p"), ":.")<cr>',
   { desc = "Copy current file path" }
 )
+-- jq a whole buffer
+vim.keymap.set("n", "<leader>jq", "<cmd>%!jq .<CR>")
 -- Show diagnostics with lsp that outputted it
 -- This opens a float with diag info
 vim.keymap.set("n", "<leader>ld", function()
