@@ -1,3 +1,6 @@
+-- SORT ICON ISSUE
+--https://github.com/nvim-neo-tree/neo-tree.nvim/issues/1749
+
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
