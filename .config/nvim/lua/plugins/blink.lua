@@ -13,7 +13,7 @@ return {
           --
           require("luasnip").config.set_config({
             enable_autosnippets = true,
-            store_selection_keys = "<C-s>", -- Control+S works well and doesn’t replace text
+            store_selection_keys = "<C-s>",
           })
           require("luasnip").filetype_extend("html", { "angular" })
 
