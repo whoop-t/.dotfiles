@@ -10,7 +10,17 @@ return {
         config = function()
           -- Add framework snippets
           -- https://github.com/rafamadriz/friendly-snippets?tab=readme-ov-file#add-snippets-from-a-framework-to-a-filetype
+          --
+          require("luasnip").config.set_config({
+            enable_autosnippets = true,
+            store_selection_keys = "<C-s>", -- Control+S works well and doesn’t replace text
+          })
           require("luasnip").filetype_extend("html", { "angular" })
+
+          -- load custom snippets
+          require("luasnip.loaders.from_lua").lazy_load({
+            paths = { vim.fn.stdpath("config") .. "/lua/snippets" }
+          })
 
           require("luasnip.loaders.from_vscode").lazy_load() -- Load friendly-snippets
         end,

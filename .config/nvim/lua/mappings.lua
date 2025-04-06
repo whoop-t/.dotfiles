@@ -50,3 +50,11 @@ vim.keymap.set("n", "<leader>ld", function()
     header = "", -- Remove the title
   })
 end, { desc = "Show diagnostics with source" })
+
+-- Press to trigger know snippets after typing them in in insert mode
+vim.keymap.set({ "i", "s" }, "<C-s>", function()
+  local ls = require("luasnip")
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
