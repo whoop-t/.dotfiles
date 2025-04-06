@@ -57,6 +57,9 @@ return {
     }
   },
   keys = {
+    -- SET UP PICKER FOR SNIPPETS
+    -- https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#snippet-list
+
     -- lazygit
     { "<leader>gg", function() Snacks.lazygit() end,                                                                                     desc = "Lazygit" },
     -- notifier
@@ -70,6 +73,7 @@ return {
     -- pickers
     --
     -- file: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#files
+    { "<leader>fp", function() Snacks.picker() end,                                                                                      desc = "Find Pickers" },
     { "<leader>ff", function() Snacks.picker.files({ hidden = true, ignored = true, exclude = { "node_modules", "dist" } }) end,         desc = "Find Files" },
     { "<leader>fw", function() Snacks.picker.grep({ hidden = true, ignored = true, exclude = { "node_modules", "dist" } }) end,          desc = "Grep" },
     { "<leader>fr", function() Snacks.picker.recent() end,                                                                               desc = "Recent" },
@@ -106,7 +110,6 @@ return {
     { "<leader>lr", function() Snacks.picker.lsp_references() end,                                                                       nowait = true,                     desc = "References" },
     { "gi",         function() Snacks.picker.lsp_implementations() end,                                                                  desc = "Goto Implementation" },
     { "gy",         function() Snacks.picker.lsp_type_definitions() end,                                                                 desc = "Goto T[y]pe Definition" },
-    { "<leader>ss", function() Snacks.picker.lsp_symbols() end,                                                                          desc = "LSP Symbols" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {

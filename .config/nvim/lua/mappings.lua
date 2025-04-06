@@ -60,5 +60,5 @@ vim.keymap.set({ "i", "s" }, "<C-s>", function()
 end, { silent = true })
 
 -- quickfix open and close
-vim.keymap.set("n", "<leader>fo", "<cmd>copen<CR>")
-vim.keymap.set("n", "<leader>fc", "<cmd>cclose<CR>")
+vim.keymap.set("n", "<leader>Qo", "<cmd>copen<CR>")
+vim.keymap.set("n", "<leader>Qc", "<cmd>cclose<CR>")
