@@ -60,8 +60,21 @@ vim.keymap.set({ "i", "s" }, "<C-s>", function()
 end, { silent = true })
 
 -- quickfix open and close
-vim.keymap.set("n", "<leader>Qo", "<cmd>copen<CR>")
-vim.keymap.set("n", "<leader>Qc", "<cmd>cclose<CR>")
+-- 
+vim.keymap.set("n", "<leader>tq", function()
+  local is_open = false
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 then
+      is_open = true
+      break
+    end
+  end
+  if is_open then
+    vim.cmd("cclose")
+  else
+    vim.cmd("copen")
+  end
+end, { desc = "Toggle Quickfix List" })
 
 -- show all snippets
 vim.keymap.set({ "n" }, "<leader>ss", function()
