@@ -15,17 +15,6 @@ return {
     vim.api.nvim_set_hl(0, "NeoTreeModified", { fg = "#c0caf5" })
     -- get autocommand to open neotree on load working
     return {
-      source_selector = {
-        -- having these both false just show normal file path in neo-tree
-        winbar = false, -- toggle to show selector on winbar
-        statusline = false,
-        sources = {
-          -- Comment back in if you want sources later
-          -- { source = "filesystem" },
-          -- { source = "buffers" },
-          -- { source = "git_status" },
-        },
-      },
       filesystem = {
         follow_current_file = { enabled = true },
         hijack_netrw_behavior = "open_current",
@@ -81,9 +70,6 @@ return {
           },
         },
       },
-      system_open = function(state)
-        (vim.ui.open or require("astronvim.utils").system_open)(state.tree:get_node():get_id())
-      end,
       parent_or_close = function(state)
         local node = state.tree:get_node()
         if (node.type == "directory" or node:has_children()) and node:is_expanded() then
