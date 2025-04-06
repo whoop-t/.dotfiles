@@ -9,13 +9,15 @@ return {
         dependencies = { "rafamadriz/friendly-snippets" },
         config = function()
           local ls = require("luasnip")
-          -- Add framework snippets
-          -- https://github.com/rafamadriz/friendly-snippets?tab=readme-ov-file#add-snippets-from-a-framework-to-a-filetype
-          --
+
+          -- allows C-s autoexpand snippets if you just type them in insert then press C-s
           ls.config.set_config({
             enable_autosnippets = true,
             store_selection_keys = "<C-s>",
           })
+
+          -- Add framework snippets
+          -- https://github.com/rafamadriz/friendly-snippets?tab=readme-ov-file#add-snippets-from-a-framework-to-a-filetype
           ls.filetype_extend("html", { "angular" })
 
           -- load custom snippets
