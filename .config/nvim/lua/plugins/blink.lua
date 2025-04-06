@@ -8,14 +8,15 @@ return {
         version = "v2.*",
         dependencies = { "rafamadriz/friendly-snippets" },
         config = function()
+          local ls = require("luasnip")
           -- Add framework snippets
           -- https://github.com/rafamadriz/friendly-snippets?tab=readme-ov-file#add-snippets-from-a-framework-to-a-filetype
           --
-          require("luasnip").config.set_config({
+          ls.config.set_config({
             enable_autosnippets = true,
             store_selection_keys = "<C-s>",
           })
-          require("luasnip").filetype_extend("html", { "angular" })
+          ls.filetype_extend("html", { "angular" })
 
           -- load custom snippets
           require("luasnip.loaders.from_lua").lazy_load({
@@ -23,6 +24,17 @@ return {
           })
 
           require("luasnip.loaders.from_vscode").lazy_load() -- Load friendly-snippets
+
+          -- keymaps for jumping snippet option fill ins
+          vim.keymap.set({ "i" }, "<C-k>", function() ls.expand() end, { silent = true })
+          vim.keymap.set({ "i", "s" }, "<C-l>", function() ls.jump(1) end, { silent = true })
+          vim.keymap.set({ "i", "s" }, "<C-h>", function() ls.jump(-1) end, { silent = true })
+
+          vim.keymap.set({ "i", "s" }, "<C-e>", function()
+            if ls.choice_active() then
+              ls.change_choice(1)
+            end
+          end, { silent = true })
         end,
       },
     },
