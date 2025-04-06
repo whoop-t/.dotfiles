@@ -62,3 +62,11 @@ end, { silent = true })
 -- quickfix open and close
 vim.keymap.set("n", "<leader>Qo", "<cmd>copen<CR>")
 vim.keymap.set("n", "<leader>Qc", "<cmd>cclose<CR>")
+
+-- show all snippets
+vim.keymap.set({ "n" }, "<leader>ss", function()
+  local sl = require("luasnip.extras.snippet_list")
+  sl.open()
+  -- Starts at bottom for some reason, so gg to the top
+  vim.cmd("normal! gg")
+end, { silent = true })
