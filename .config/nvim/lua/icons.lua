@@ -25,10 +25,22 @@ M.diagnostics = {
   Readonly = " ",
 }
 
--- Define all the diagnostic icons
-for type, icon in pairs(M.diagnostics) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+-- set global diag icons
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = M.diagnostics.Error,
+      [vim.diagnostic.severity.WARN]  = M.diagnostics.Warn,
+      [vim.diagnostic.severity.HINT]  = M.diagnostics.Hint,
+      [vim.diagnostic.severity.INFO]  = M.diagnostics.Info,
+    },
+  },
+  linehl = {
+    [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+  },
+  numhl = {
+    [vim.diagnostic.severity.WARN] = "WarningMsg",
+  },
+})
 
 return M
