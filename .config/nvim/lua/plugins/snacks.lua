@@ -104,12 +104,65 @@ return {
     { "<leader>sq", function() Snacks.picker.qflist() end,                                                                               desc = "Quickfix List" },
     { "<leader>su", function() Snacks.picker.undo() end,                                                                                 desc = "Undo History" },
     { "<leader>uC", function() Snacks.picker.colorschemes() end,                                                                         desc = "Colorschemes" },
+    {
+      "<leader>ss",
+      function()
+        -- helpful: https://github.com/folke/snacks.nvim/discussions/498
+        local snippets = require("luasnip").available()
+        local flat_snips = {}
+        -- flatten all the snippets into an unnested table
+        for _, snips in pairs(snippets) do
+          for _, snip in ipairs(snips) do
+            table.insert(
+              flat_snips,
+              {
+                text = snip.name,
+                name = snip.name,
+                trigger = snip.trigger,
+                description = snip.description,
+              }
+            )
+          end
+        end
+        -- sort alphabetically
+        table.sort(flat_snips, function(a, b)
+          return a.text:lower() < b.text:lower()
+        end)
+
+        -- pipe snippets found into picker
+        return Snacks.picker({
+          layout = {
+            preview = false,
+          },
+          items = flat_snips,
+          -- format the line item text
+          format = function(item)
+            local desc = type(item.description) == "table"
+                and table.concat(item.description, " ")
+                or (item.description or "")
+
+            return {
+              { item.name,                   "SnacksPickerLabel" },
+              { " [" .. item.trigger .. "]", "SnacksPickerHint" },
+              { " - " .. desc,               "SnacksPickerComment" },
+            }
+          end,
+          -- copy trigger for snippet on select
+          confirm = function(picker, item)
+            picker:close()
+            vim.fn.setreg("+", item.trigger) -- copies trigger to clipboard
+            vim.notify("Copied trigger: " .. item.trigger)
+          end,
+        })
+      end,
+      desc = "Search snippets"
+    },
     -- LSP
-    { "gd",         function() Snacks.picker.lsp_definitions() end,                                                                      desc = "Goto Definition" },
-    { "gD",         function() Snacks.picker.lsp_declarations() end,                                                                     desc = "Goto Declaration" },
-    { "<leader>lr", function() Snacks.picker.lsp_references() end,                                                                       nowait = true,                     desc = "References" },
-    { "gi",         function() Snacks.picker.lsp_implementations() end,                                                                  desc = "Goto Implementation" },
-    { "gy",         function() Snacks.picker.lsp_type_definitions() end,                                                                 desc = "Goto T[y]pe Definition" },
+    { "gd",         function() Snacks.picker.lsp_definitions() end,      desc = "Goto Definition" },
+    { "gD",         function() Snacks.picker.lsp_declarations() end,     desc = "Goto Declaration" },
+    { "<leader>lr", function() Snacks.picker.lsp_references() end,       nowait = true,                  desc = "References" },
+    { "gi",         function() Snacks.picker.lsp_implementations() end,  desc = "Goto Implementation" },
+    { "gy",         function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {

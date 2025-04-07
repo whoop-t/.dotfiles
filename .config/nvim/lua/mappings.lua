@@ -75,11 +75,3 @@ vim.keymap.set("n", "<leader>tq", function()
     vim.cmd("copen")
   end
 end, { desc = "Toggle Quickfix List" })
-
--- show all snippets
-vim.keymap.set({ "n" }, "<leader>ss", function()
-  local sl = require("luasnip.extras.snippet_list")
-  sl.open()
-  -- Starts at bottom for some reason, so gg to the top
-  vim.cmd("normal! gg")
-end, { silent = true })
