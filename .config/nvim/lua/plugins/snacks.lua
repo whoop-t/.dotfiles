@@ -29,8 +29,12 @@ return {
         enabled = false,
       },
     },
+    -- DISABLED CAUSE IM STUMPED
+    -- this indent throws errors on nvim 11 when I harpoon to file on first load of nvim
+    -- im just using indent-blankline package for now
+    -- I cant replicate issue in minimal config either :(
     indent = {
-      enabled = true,
+      enabled = false,
       animate = {
         enabled = false
       },
