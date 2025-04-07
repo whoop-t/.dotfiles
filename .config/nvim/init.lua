@@ -26,6 +26,9 @@ require("lazy").setup "plugins"
 vim.cmd.colorscheme "tokyonight"
 
 -- line number color custom
+-- also remove lualine backgrounf via StatusLine
 vim.cmd [[
   highlight CursorLineNr guifg=#c0c4d8 gui=bold
+  highlight StatusLine guibg=NONE ctermbg=NONE
+  highlight StatusLineNC guibg=NONE ctermbg=NONE
 ]]
