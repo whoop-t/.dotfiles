@@ -43,6 +43,7 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - System Settings -> Keyboard, Set Key Repeat to "Fast" and Delay until repeat to "Short"
 - System Settings -> Control Center, Set Automatically hide and show menu bar to "Always"
 - System Settings -> Control Center -> Sound Set to "Always show in menu bar"
+- Run `defaults write -g ApplePressAndHoldEnabled -bool false` in terminal to disable holding key bringing up foreign letters, it will now just repeat
 - [Raycast](https://www.raycast.com/)
     - Disabled Spotlight search in keyboard shortcuts
         - System Settings -> Keyboard -> Keyboard Shorcuts -> Spotlight, Uncheck "Show spotlight search"
