@@ -43,4 +43,4 @@ return {
     keys = {
       { "<leader>to", "<cmd>:OmniPreview toggle<CR>", desc = "OmniPreview" },
     }
-  }  
+  }
