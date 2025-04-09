@@ -206,5 +206,8 @@ fi
 # starship prompt
 eval "$(starship init zsh)"
 
+# deno
+. "/Users/tommy.mallis/.deno/env"
+
 # fnm node version manager
 eval "$(fnm env --use-on-cd --shell zsh)"
