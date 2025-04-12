@@ -77,8 +77,8 @@ return {
   },
   opts = {},
   keys = {
-    { "<leader>to", "<cmd>:OmniPreview toggle<CR>", desc = "OmniPreview" },
-    { "<leader>te", "<cmd>:OmniPreview start<CR>",  desc = "OmniPreview" },
-    { "<leader>td", "<cmd>:OmniPreview stop<CR>",   desc = "OmniPreview" },
+    { "<leader>to", "<cmd>OmniPreview toggle<CR>", desc = "OmniPreview" },
+    { "<leader>te", "<cmd>OmniPreview start<CR>",  desc = "OmniPreview" },
+    { "<leader>td", "<cmd>OmniPreview stop<CR>",   desc = "OmniPreview" },
   }
 }
