@@ -4,9 +4,6 @@ local t = ls.text_node
 local i = ls.insert_node
 local rep = require("luasnip.extras").rep
 
--- Set javascript snippets to also work with typescript
-ls.filetype_extend("typescript", { "javascript" })
-
 return {
   s({
     trig = "dcl",
