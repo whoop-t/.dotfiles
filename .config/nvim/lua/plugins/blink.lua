@@ -29,18 +29,24 @@ return {
 
           -- Set javascript snippets to also work with typescript
           ls.filetype_extend("typescript", { "javascript" })
-
-          -- keymaps for jumping snippet option fill ins
-          vim.keymap.set({ "i" }, "<C-k>", function() ls.expand() end, { silent = true })
-          vim.keymap.set({ "i", "s" }, "<C-l>", function() ls.jump(1) end, { silent = true })
-          vim.keymap.set({ "i", "s" }, "<C-h>", function() ls.jump(-1) end, { silent = true })
-
-          vim.keymap.set({ "i", "s" }, "<C-e>", function()
-            if ls.choice_active() then
-              ls.change_choice(1)
-            end
-          end, { silent = true })
         end,
+
+        keys = {
+          -- keymaps for jumping snippet option fill ins
+          { "<C-k>", function() require("luasnip").expand() end, mode = "i",          desc = "Expand snippet" },
+          { "<C-l>", function() require("luasnip").jump(1) end,  mode = { "i", "s" }, desc = "Jump forward in snippet" },
+          { "<C-h>", function() require("luasnip").jump(-1) end, mode = { "i", "s" }, desc = "Jump backward in snippet" },
+          {
+            "<C-e>",
+            function()
+              if require("luasnip").choice_active() then
+                require("luasnip").change_choice(1)
+              end
+            end,
+            mode = { "i", "s" },
+            desc = "Cycle snippet choice",
+          },
+        }
       },
     },
     -- use a release tag to download pre-built binaries
