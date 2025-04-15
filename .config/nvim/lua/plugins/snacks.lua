@@ -70,7 +70,7 @@ return {
     { "<leader>un", function() Snacks.notifier.hide() end,                                                                               desc = "Dismiss All Notifications" },
     -- gitbrowse
     -- CURRENTLY must use gitblame and hover commit hash, then enter command
-    { "<leader>gc", function() Snacks.gitbrowse.open({ what = 'commit' }) end,                                                           desc = "Open commit in browser",   mode = { "n", "v" } },
+    { "<leader>go", function() Snacks.gitbrowse.open({ what = 'commit' }) end,                                                           desc = "Open commit in browser",   mode = { "n", "v" } },
     -- spell(override default with picker for spelling)
     { "z=",         function() Snacks.picker.spelling() end,                                                                             desc = "Open commit in browser",   mode = { "n", "v" } },
     --
