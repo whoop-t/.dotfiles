@@ -53,14 +53,12 @@ end, { desc = "Show diagnostics with source" })
 
 -- Press to trigger known snippets after typing them in in insert mode
 vim.keymap.set({ "i", "s" }, "<C-s>", function()
-  local ls = require("luasnip")
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
+  local ls = require "luasnip"
+  if ls.expand_or_jumpable() then ls.expand_or_jump() end
 end, { silent = true })
 
 -- quickfix open and close
--- 
+--
 vim.keymap.set("n", "<leader>tq", function()
   local is_open = false
   for _, win in ipairs(vim.fn.getwininfo()) do
@@ -70,8 +68,9 @@ vim.keymap.set("n", "<leader>tq", function()
     end
   end
   if is_open then
-    vim.cmd("cclose")
+    vim.cmd "cclose"
   else
-    vim.cmd("copen")
+    vim.cmd "copen"
   end
 end, { desc = "Toggle Quickfix List" })
+

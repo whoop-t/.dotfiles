@@ -11,6 +11,6 @@ return {
   opts = {},
   keys = {
     { "<leader>te", "<cmd>OmniPreview start<CR>", desc = "OmniPreview" },
-    { "<leader>td", "<cmd>OmniPreview stop<CR>",  desc = "OmniPreview" },
-  }
+    { "<leader>td", "<cmd>OmniPreview stop<CR>", desc = "OmniPreview" },
+  },
 }

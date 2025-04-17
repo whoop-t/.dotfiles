@@ -38,4 +38,4 @@ vim.opt.virtualedit = "block" -- Allow going past end of line in visual block mo
 vim.opt.wrap = false -- Disable wrapping of lines longer than the width of window
 vim.opt.writebackup = false -- Disable making a backup before overwriting a file
 vim.opt.scrolloff = 8 -- How many lines to keep on top/bottom of screen when scrolling
-vim.o.winborder = 'rounded' -- Set LSP information border
+vim.o.winborder = "rounded" -- Set LSP information border

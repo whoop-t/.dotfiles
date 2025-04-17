@@ -2,8 +2,8 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   config = function()
-    local configs = require("nvim-treesitter.configs")
-    configs.setup({
+    local configs = require "nvim-treesitter.configs"
+    configs.setup {
       ensure_installed = {
         "lua",
         "javascript",
@@ -22,13 +22,14 @@ return {
         "proto",
         "angular",
         "toml",
-        "tsx"
+        "tsx",
       },
       ignore_install = {},
       auto_install = false,
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },
-    })
+    }
   end,
 }
+

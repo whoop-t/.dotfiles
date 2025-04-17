@@ -26,13 +26,13 @@ M.diagnostics = {
 }
 
 -- set global diag icons
-vim.diagnostic.config({
+vim.diagnostic.config {
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = M.diagnostics.Error,
-      [vim.diagnostic.severity.WARN]  = M.diagnostics.Warn,
-      [vim.diagnostic.severity.HINT]  = M.diagnostics.Hint,
-      [vim.diagnostic.severity.INFO]  = M.diagnostics.Info,
+      [vim.diagnostic.severity.WARN] = M.diagnostics.Warn,
+      [vim.diagnostic.severity.HINT] = M.diagnostics.Hint,
+      [vim.diagnostic.severity.INFO] = M.diagnostics.Info,
     },
   },
   linehl = {
@@ -41,6 +41,6 @@ vim.diagnostic.config({
   numhl = {
     [vim.diagnostic.severity.WARN] = "WarningMsg",
   },
-})
+}
 
 return M

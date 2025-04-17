@@ -11,7 +11,7 @@ local ensure_installed = {
   "pyright",
   "emmet_language_server",
   "angularls",
-  "clangd"
+  "clangd",
 }
 
 return {

@@ -1,4 +1,4 @@
-local ls = require("luasnip")
+local ls = require "luasnip"
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
@@ -11,12 +11,12 @@ return {
     dscr = "debug Console log shortcut",
     autosnippet = true,
   }, {
-    t('console.log("##### '),
+    t 'console.log("##### ',
     rep(1),
-    t(' #####");'),
-    t({ "", "console.log(" }),
+    t ' #####");',
+    t { "", "console.log(" },
     i(1),
-    t(");"),
-    t({ "", 'console.log("#############");' }),
+    t ");",
+    t { "", 'console.log("#############");' },
   }),
 }

@@ -4,7 +4,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
 
     opts = function()
-      local icons = require("icons")
+      local icons = require "icons"
       local diagnostics = icons.diagnostics
       local git_icons = icons.git
 
@@ -49,7 +49,7 @@ return {
             { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
             {
               "filename",
-              path = 1,                          -- Show relative path
+              path = 1, -- Show relative path
               symbols = {
                 modified = diagnostics.Modified, -- Indicator for modified file
                 readonly = diagnostics.Readonly, -- Indicator for readonly file
@@ -82,7 +82,7 @@ return {
                 local formatters = require("conform").list_formatters()
 
                 if
-                    (not buf_clients or vim.tbl_isempty(buf_clients)) and (not formatters or vim.tbl_isempty(formatters))
+                  (not buf_clients or vim.tbl_isempty(buf_clients)) and (not formatters or vim.tbl_isempty(formatters))
                 then
                   return ""
                 end

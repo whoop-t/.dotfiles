@@ -48,7 +48,12 @@ return {
       vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step Into" })
       vim.keymap.set("n", "<leader>do", dap.step_out, { desc = "Step Out" })
       vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-      vim.keymap.set("n", "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { desc = "Set Breakpoint Condition" })
+      vim.keymap.set(
+        "n",
+        "<leader>dB",
+        function() require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ") end,
+        { desc = "Set Breakpoint Condition" }
+      )
       vim.keymap.set("n", "<leader>dt", dap.terminate, { desc = "Terminate" })
       vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
 

@@ -11,7 +11,7 @@ return {
   },
   cmd = "Neotree",
   opts = function()
-    local icons = require("icons")
+    local icons = require "icons"
     local git_icons = icons.git
     local diagnostics = icons.diagnostics
     -- Set modified highlight color
@@ -84,7 +84,7 @@ return {
       window = {
         mappings = {
           ["q"] = "noop",
-          ["<C-f>"] = function() vim.fn.system("tmux neww ~/.config/bin/tmux-sessionizer.sh") end,
+          ["<C-f>"] = function() vim.fn.system "tmux neww ~/.config/bin/tmux-sessionizer.sh" end,
         },
       },
     }
