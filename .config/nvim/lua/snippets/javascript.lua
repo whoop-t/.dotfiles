@@ -7,8 +7,8 @@ local rep = require("luasnip.extras").rep
 return {
   s({
     trig = "dcl",
-    name = "Debug Console Log",
-    dscr = "Debug Console log shortcut",
+    name = "debug Console Log",
+    dscr = "debug Console log shortcut",
     autosnippet = true,
   }, {
     t('console.log("##### '),
