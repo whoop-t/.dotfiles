@@ -1,4 +1,5 @@
 # Prereq
+
 - Install [Floorp (firefox based browser)](https://floorp.app/en)
 - Install [Kitty Terminal](https://sw.kovidgoyal.net/kitty/binary/) (best kitty [icon](https://github.com/DinkDonk/kitty-icon))
 - Install [Stow](https://formulae.brew.sh/formula/stow)
@@ -6,9 +7,11 @@
 - Install [oh-my-zsh](https://ohmyz.sh/#install)
 - Install zsh-autosuggestions and zsh-syntax-highlighting
 
-    Just clone the repos to .oh-my-zsh/custom/plugins
-    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+  Just clone the repos to .oh-my-zsh/custom/plugins
+
+  - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+  - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+
 - Install [Starship](https://starship.rs/)
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
@@ -24,19 +27,23 @@
 - [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
 
 # Misc(not really used in my workflow yet)
+
 - Install [lazydocker](https://github.com/jesseduffield/lazydocker)
 
 # Neovim
+
 My dotfiles contains a custom config that I currently daily drive
 
 My old setup for years was running [Astronvim](https://github.com/AstroNvim/AstroNvim). You can still run the Astro config with NVIM_APPNAME=astro_nvim nvim(see :h nvim_appname for multi config info)
 
 # Cloning .dotfiles
+
 Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles`
 
 In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 
 # Mac ONLY
+
 - System Settings -> Apperance: Dark, Accent Color: Purple
 - System Settings -> Desktop & Dock, Set "Automatically hide and show dock" to "True"
 - System Settings -> Desktop & Dock, Set "Show suggested and recent apps in dock" to "False"
@@ -46,9 +53,9 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - System Settings -> Control Center -> Sound Set to "Always show in menu bar"
 - Run `defaults write -g ApplePressAndHoldEnabled -bool false` in terminal to disable holding key bringing up foreign letters, it will now just repeat
 - [Raycast](https://www.raycast.com/)
-    - Disabled Spotlight search in keyboard shortcuts
-        - System Settings -> Keyboard -> Keyboard Shorcuts -> Spotlight, Uncheck "Show spotlight search"
-    - Import config from `.dotfiles/mac/Raycast.rayconfig`
+  - Disabled Spotlight search in keyboard shortcuts
+    - System Settings -> Keyboard -> Keyboard Shorcuts -> Spotlight, Uncheck "Show spotlight search"
+  - Import config from `.dotfiles/mac/Raycast.rayconfig`
 - [Aerospace](https://github.com/nikitabobko/AeroSpace)
 - [LinearMouse (mouse issues fix on mac)](https://linearmouse.app/)
 - [Clipy](https://github.com/Clipy/Clipy)
@@ -56,29 +63,35 @@ In `~/.dotfiles` run `stow .` to symlink .dotfiles to proper locations
 - [BetterDisplay](https://github.com/waydabber/BetterDisplay) -- 27" 1440p scaled to 78% (1984x1116)
 
 # Linux ONLY
+
 - Using PopOS built in workspaces `hyper + f|d|s|a` like with Aerospace on MacOS above
 - Load config in `/linux`. This contains linux/popos keybindings, etc. See README in `/linux` for more details
 - Disable animations for workspaces (this should alreay be set in popos backup)
+
 ```bash
 gsettings set org.gnome.desktop.interface enable-animations false
 ```
+
 - 27" 1440p scaled to 125% (popos display settings)
 
 # Keyboard
+
 - Main: Corne layout(42 key): [via config](https://github.com/whoop-t/corne_42_key)
 - Secondary(dont use anymore): Moonlander layout(42 key): [oryx](https://configure.zsa.io/moonlander/layouts/0p0pw/latest/0)
 - [monkeytype](https://monkeytype.com/profile/whoop)
 
 # Software I use (work and personal)
+
 - [DBeaver](https://dbeaver.io/) - Open Source DB Tool
-    - vim plugin(http://vrapper.sourceforge.net/update-site/stable), install in help -> install new software
+  - vim plugin(http://vrapper.sourceforge.net/update-site/stable), install in help -> install new software
 - [Docker](https://www.docker.com/)
 - [Postman](https://www.postman.com/)
 - [k9s](https://github.com/derailed/k9s)
 
 # Coding Music (some stuff I like)
+
 - [TRAPPIN IN ＰＡＲＡＤＩＳＥ](https://www.youtube.com/watch?v=1-M6Ceavg6U)
-- [Some Spooky Sh*t](https://www.youtube.com/watch?v=iB62kegfyW8)
+- [Some Spooky Sh\*t](https://www.youtube.com/watch?v=iB62kegfyW8)
 - [Waves - A Chillwave Mix](https://www.youtube.com/watch?v=kwLTw8F8yN8)
 - [Justice Der](https://www.youtube.com/watch?v=mPymRFeTJa4)
 - [Lofi](https://www.youtube.com/watch?v=TwWmfyKInKo)
