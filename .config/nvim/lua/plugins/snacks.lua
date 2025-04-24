@@ -182,7 +182,7 @@ return {
       desc = "Commands",
     },
     {
-      "<leader>lD",
+      "<leader>sd",
       function() Snacks.picker.diagnostics_buffer() end,
       desc = "Buffer Diagnostics",
     },
