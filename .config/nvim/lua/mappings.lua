@@ -31,8 +31,6 @@ vim.keymap.set(
   '<cmd>let @+ = fnamemodify(expand("%:p"), ":.")<cr>',
   { desc = "Copy current file path" }
 )
--- jq a whole buffer
-vim.keymap.set("n", "<leader>jq", "<cmd>%!jq .<CR>")
 -- Show diagnostics with lsp that outputted it
 -- This opens a float with diag info
 vim.keymap.set("n", "<leader>ld", function()
@@ -73,4 +71,3 @@ vim.keymap.set("n", "<leader>tq", function()
     vim.cmd "copen"
   end
 end, { desc = "Toggle Quickfix List" })
-
