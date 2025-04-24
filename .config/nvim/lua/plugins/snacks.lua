@@ -315,6 +315,9 @@ return {
         Snacks.toggle.diagnostics():map "<leader>ud"
         Snacks.toggle.indent():map "<leader>ug"
         Snacks.toggle.dim():map "<leader>uD"
+        Snacks.toggle
+          .option("laststatus", { off = 0, on = vim.o.laststatus > 0 and vim.o.laststatus or 2 })
+          :map "<leader>uS"
       end,
     })
   end,
