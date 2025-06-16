@@ -60,6 +60,12 @@ return {
             capabilities = capabilities,
             filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "javascript" },
           }
+        elseif value == "angularls" then
+          lspconfig[value].setup {
+            capabilities = capabilities,
+            filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx" },
+            root_dir = lspconfig.util.root_pattern("angular.json", "project.json"),
+          }
         else
           lspconfig[value].setup {
             capabilities = capabilities,
