@@ -101,12 +101,14 @@ return {
     },
     {
       "<leader>ff",
-      function() Snacks.picker.files { hidden = true, ignored = true, exclude = { "node_modules", "dist" } } end,
+      function()
+        Snacks.picker.files { hidden = true, ignored = true, exclude = { "node_modules", "dist", ".angular" } }
+      end,
       desc = "Find Files",
     },
     {
       "<leader>fw",
-      function() Snacks.picker.grep { hidden = true, ignored = true, exclude = { "node_modules", "dist" } } end,
+      function() Snacks.picker.grep { hidden = true, ignored = true, exclude = { "node_modules", "dist", ".angular" } } end,
       desc = "Grep",
     },
     {
@@ -116,7 +118,9 @@ return {
     },
     {
       "<leader>ft",
-      function() Snacks.picker.todo_comments { hidden = true, ignored = true, exclude = { "node_modules", "dist" } } end,
+      function()
+        Snacks.picker.todo_comments { hidden = true, ignored = true, exclude = { "node_modules", "dist", ".angular" } }
+      end,
       desc = "Todo",
     },
     -- git
