@@ -1,5 +1,6 @@
 return {
   "zbirenbaum/copilot.lua",
+  enabled = false,
   cmd = "Copilot", -- Load on Copilot command usage
   event = "InsertEnter", -- Load when entering insert mode
   config = function()
