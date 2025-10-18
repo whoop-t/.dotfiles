@@ -1,6 +1,11 @@
 {
+  "includeCoAuthoredBy": false,
   "permissions": {
-    "allow": ["Bash(npm run lint)", "Bash(npm run test:*)", "Read(~/.zshrc)"],
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Read(~/.zshrc)"
+    ],
     "deny": [
       "Bash(curl:*)",
       "Read(**/.env)",
@@ -13,5 +18,7 @@
       "Read(**/node_modules/**)"
     ]
   },
-  "includeCoAuthoredBy": false
+  "feedbackSurveyState": {
+    "lastShownTime": 1754081208431
+  }
 }

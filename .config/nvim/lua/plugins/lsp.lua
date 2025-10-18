@@ -6,7 +6,7 @@ local ensure_installed = {
   "html",
   "cssls",
   "sqlls",
-  -- "gopls",
+  "gopls",
   "yamlls",
   "pyright",
   "emmet_language_server",
@@ -29,8 +29,8 @@ return {
     "neovim/nvim-lspconfig",
     -- Remove if you want to go back to nvim-cmp
     dependencies = { "saghen/blink.cmp" },
+
     config = function()
-      local lspconfig = require "lspconfig"
       -- If you want to go back to nvim-cmp
       --   local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -46,7 +46,7 @@ return {
       -- Setup up all language servers that are installed
       for _, value in ipairs(ensure_installed) do
         if value == "ts_ls" then
-          lspconfig[value].setup {
+          vim.lsp.config(value, {
             capabilities = capabilities,
             on_attach = function(client, _)
               -- Disable formatting capability for tsserver
@@ -54,22 +54,26 @@ return {
               client.server_capabilities.documentFormattingProvider = false
               client.server_capabilities.documentRangeFormattingProvider = false
             end,
-          }
+          })
         elseif value == "emmet_language_server" then
-          lspconfig[value].setup {
+          vim.lsp.config(value, {
             capabilities = capabilities,
             filetypes = { "html", "css", "scss", "javascriptreact", "typescriptreact", "javascript" },
-          }
+          })
         elseif value == "angularls" then
-          lspconfig[value].setup {
+          vim.lsp.config(value, {
             capabilities = capabilities,
             filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx" },
-            root_dir = lspconfig.util.root_pattern("angular.json", "project.json"),
-          }
+            root_dir = function(bufnr, on_dir)
+              if vim.fs.root(bufnr, "angular.json") or vim.fs.root(bufnr, "project.json") then
+                on_dir(vim.fn.getcwd())
+              end
+            end,
+          })
         else
-          lspconfig[value].setup {
+          vim.lsp.config(value, {
             capabilities = capabilities,
-          }
+          })
         end
       end
 
@@ -78,12 +82,15 @@ return {
       -- NOTE: need to install npm install -g vscode-langservers-extracted (eslint globally) for lsp to work
       -- eslint also needs to be installed locally in js/ts project
       -- this is ONLY for eslint projects
-      lspconfig.eslint.setup {
+      vim.lsp.config("eslint", {
         settings = {
           format = false,
         },
-      }
-      lspconfig.biome.setup {}
+      })
+      vim.lsp.config("biome", {})
+
+      -- enable all the lsps
+      vim.lsp.enable(ensure_installed)
 
       -- key bindings
       vim.api.nvim_create_autocmd("LspAttach", {

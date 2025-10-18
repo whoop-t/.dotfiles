@@ -3,6 +3,11 @@ if [ -d "/usr/local/go/bin" ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
 
+# Add goose migration for go
+if [ -d "$(go env GOPATH)/bin" ] && [ -f "$(go env GOPATH)/bin/goose" ]; then
+    export PATH=$PATH:$(go env GOPATH)/bin
+fi
+
 # homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
