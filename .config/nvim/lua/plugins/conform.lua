@@ -54,7 +54,26 @@ local function formatter_for_js()
   return {}
 end
 
+local function formatter_for_css()
+  -- Get all files in the current directory
+  local root_files = vim.fn.readdir(vim.fn.getcwd())
+
+  -- Prettier check
+  for _, config in ipairs(prettier_configs) do
+    if vim.tbl_contains(root_files, config) then return { "prettierd" } end
+  end
+
+  -- Biome check
+  for _, config in ipairs(biome_configs) do
+    if vim.tbl_contains(root_files, config) then return { "biome", "biome-check" } end
+  end
+
+  -- Fallback formatter
+  return { "prettierd" }
+end
+
 local js_formatter = formatter_for_js()
+local css_formatter = formatter_for_css()
 -- This is to test which formatter was selected on nvim open
 -- print(js_formatter[1])
 
@@ -85,7 +104,7 @@ return {
       json = { "prettierd" },
       jsonc = { "prettierd" },
       svelte = { "prettierd" },
-      css = { "prettierd" },
+      css = css_formatter,
       scss = { "prettierd" },
       html = { "prettierd" },
       yaml = { "prettierd" },
@@ -105,4 +124,3 @@ return {
     },
   },
 }
-
