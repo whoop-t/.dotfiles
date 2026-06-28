@@ -163,6 +163,8 @@ alias n='nvim .'
 alias lg='lazygit'
 # Alias for Claude Code
 alias c='claude'
+# Alias for Claude Code, skipping permission prompts
+alias cy='claude --dangerously-skip-permissions'
 # Alias for personal nvim config, dir level
 alias astro='NVIM_APPNAME=astro_nvim nvim .'
 # Alias for personal nvim config
