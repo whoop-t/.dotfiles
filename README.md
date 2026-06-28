@@ -43,6 +43,10 @@
   curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh
   no-mistakes init
   ```
+- Install [treehouse](https://github.com/kunchenguid/treehouse):
+  ```sh
+  curl -fsSL https://kunchenguid.github.io/treehouse/install.sh | sh
+  ```
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
 - [Synthwave Wallpaper](https://www.wallpaperflare.com/synthwave-background-music-sunrise-abstract-sunset-pink-wallpaper-bgxcp/download/4096x2304)
 - [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
