@@ -57,6 +57,11 @@
   ```sh
   curl -fsSL https://kunchenguid.github.io/treehouse/install.sh | sh
   ```
+- Install [firstmate](https://github.com/kunchenguid/firstmate):
+  ```sh
+  git clone https://github.com/kunchenguid/firstmate
+  cd firstmate && claude   # launch your harness here; AGENTS.md takes over
+  ```
 
 # Misc(not really used in my workflow yet)
 
