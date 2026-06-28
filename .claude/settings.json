@@ -19,6 +19,8 @@
     ]
   },
   "alwaysThinkingEnabled": true,
+  "editorMode": "vim",
+  "preferredNotifChannel": "kitty",
   "feedbackSurveyState": {
     "lastShownTime": 1754081208431
   }
