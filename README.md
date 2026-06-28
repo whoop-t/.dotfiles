@@ -8,14 +8,16 @@
 - Install zsh-autosuggestions and zsh-syntax-highlighting
 
   Just clone the repos to .oh-my-zsh/custom/plugins
-
   - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
   - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 - Install [Starship](https://starship.rs/)
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
-- Install [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
+- Install [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md) - if installing from a release tarball, move ALL of `bin`, `lib`, and `share` into `/usr/local` (not just `bin/nvim`), or the binary and runtime fall out of sync:
+  ```sh
+  cp -R ./nvim-macos-x86_64/bin/* /usr/local/bin/ && cp -R ./nvim-macos-x86_64/lib/* /usr/local/lib/ && cp -R ./nvim-macos-x86_64/share/* /usr/local/share/
+  ```
 - Install [Tmux](https://github.com/tmux/tmux/wiki)
 - Install [fnm (Node version manager)](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)
 - Install [Nodejs/Npm (use fnm)](https://nodejs.org/en/download)
