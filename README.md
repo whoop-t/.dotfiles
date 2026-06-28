@@ -1,3 +1,5 @@
+> _Last updated: 2026-06-28_
+
 # Prereq
 
 - Install [Floorp (firefox based browser)](https://floorp.app/en)
