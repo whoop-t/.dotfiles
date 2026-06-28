@@ -14,9 +14,9 @@
 - Install [Starship](https://starship.rs/)
 - Install [Hack Font(NOT patched)](https://sourcefoundry.org/hack/)
 - Install [Nerd Font(Symbols ONLY)](https://www.nerdfonts.com/font-downloads) - Kitty doesnt require patched fonts, only symbols is fine
-- Install [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md) - if installing from a release tarball, move ALL of `bin`, `lib`, and `share` into `/usr/local` (not just `bin/nvim`), or the binary and runtime fall out of sync:
+- Install [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md) via Homebrew (keeps the binary and runtime in sync; update with `brew upgrade neovim`):
   ```sh
-  cp -R ./nvim-macos-x86_64/bin/* /usr/local/bin/ && cp -R ./nvim-macos-x86_64/lib/* /usr/local/lib/ && cp -R ./nvim-macos-x86_64/share/* /usr/local/share/
+  brew install neovim
   ```
 - Install [tree-sitter-cli](https://formulae.brew.sh/formula/tree-sitter-cli) - required by nvim-treesitter (`main` branch) to build parsers; use the `tree-sitter-cli` formula, NOT `tree-sitter` (lib only) or npm:
   ```sh
