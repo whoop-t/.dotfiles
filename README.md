@@ -18,6 +18,10 @@
   ```sh
   cp -R ./nvim-macos-x86_64/bin/* /usr/local/bin/ && cp -R ./nvim-macos-x86_64/lib/* /usr/local/lib/ && cp -R ./nvim-macos-x86_64/share/* /usr/local/share/
   ```
+- Install [tree-sitter-cli](https://formulae.brew.sh/formula/tree-sitter-cli) - required by nvim-treesitter (`main` branch) to build parsers; use the `tree-sitter-cli` formula, NOT `tree-sitter` (lib only) or npm:
+  ```sh
+  brew install tree-sitter-cli
+  ```
 - Install [Tmux](https://github.com/tmux/tmux/wiki)
 - Install [fnm (Node version manager)](https://github.com/Schniz/fnm?tab=readme-ov-file#installation)
 - Install [Nodejs/Npm (use fnm)](https://nodejs.org/en/download)
