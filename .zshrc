@@ -161,6 +161,8 @@ alias ct='kitty @ set-tab-title'
 alias n='nvim .'
 # Alias for lazygit tui
 alias lg='lazygit'
+# Alias for Claude Code
+alias c='claude'
 # Alias for personal nvim config, dir level
 alias astro='NVIM_APPNAME=astro_nvim nvim .'
 # Alias for personal nvim config
