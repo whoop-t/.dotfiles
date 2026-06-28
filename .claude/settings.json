@@ -18,10 +18,11 @@
     ]
   },
   "alwaysThinkingEnabled": true,
+  "tui": "fullscreen",
   "editorMode": "vim",
   "preferredNotifChannel": "kitty",
   "feedbackSurveyState": {
     "lastShownTime": 1754081208431
   },
-  "tui": "fullscreen"
+  "skipDangerousModePermissionPrompt": true
 }
