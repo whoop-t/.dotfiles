@@ -30,6 +30,14 @@
 - Install [fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#using-git)
 - Install [ripgrep](https://github.com/BurntSushi/ripgrep)
 - Install [lazygit](https://github.com/jesseduffield/lazygit)
+- Install [GitHub CLI (gh)](https://cli.github.com/):
+  ```sh
+  brew install gh
+  ```
+- Install [gh-axi](https://www.npmjs.com/package/gh-axi) - agent-friendly GitHub CLI wrapper used by the `gh-axi` Claude skill (installed per node version under fnm):
+  ```sh
+  npm install -g gh-axi
+  ```
 - [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
 - [Synthwave Wallpaper](https://www.wallpaperflare.com/synthwave-background-music-sunrise-abstract-sunset-pink-wallpaper-bgxcp/download/4096x2304)
 - [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
