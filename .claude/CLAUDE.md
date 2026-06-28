@@ -11,3 +11,5 @@ These are common instructions for my agents across all scenarios.
   Preserve normal Markdown structure, but avoid wrapping multiple sentences onto one physical line.
 - When making technical decisions, do not give much weight to development cost.
   Instead, prefer quality, simplicity, robustness, scalability, and long term maintainability.
+- Always create branches with a type prefix: `feat/`, `fix/`, `chore/`, etc. (e.g. `feat/add-login`).
+- Always write PR titles to follow the Conventional Commits format (e.g. `feat: add login`, `fix: handle null user`).
