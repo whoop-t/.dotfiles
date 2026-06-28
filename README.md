@@ -34,6 +34,16 @@
   ```sh
   brew install gh
   ```
+- [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
+- [Synthwave Wallpaper](https://www.wallpaperflare.com/synthwave-background-music-sunrise-abstract-sunset-pink-wallpaper-bgxcp/download/4096x2304)
+- [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
+
+## AI
+
+- Install [Claude Code](https://docs.claude.com/en/docs/claude-code/overview):
+  ```sh
+  curl -fsSL https://claude.ai/install.sh | bash
+  ```
 - Install [gh-axi](https://www.npmjs.com/package/gh-axi) - agent-friendly GitHub CLI wrapper used by the `gh-axi` Claude skill (installed per node version under fnm):
   ```sh
   npm install -g gh-axi
@@ -47,9 +57,6 @@
   ```sh
   curl -fsSL https://kunchenguid.github.io/treehouse/install.sh | sh
   ```
-- [A Silent Voice Backgrounds(for Kitty)](https://imgur.com/a/P46Fn)
-- [Synthwave Wallpaper](https://www.wallpaperflare.com/synthwave-background-music-sunrise-abstract-sunset-pink-wallpaper-bgxcp/download/4096x2304)
-- [Tokyo Night Slack Theme](https://github.com/folke/tokyonight.nvim/blob/main/extras/slack/tokyonight_night.txt)
 
 # Misc(not really used in my workflow yet)
 
