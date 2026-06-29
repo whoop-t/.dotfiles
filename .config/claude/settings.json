@@ -19,10 +19,12 @@
   },
   "alwaysThinkingEnabled": true,
   "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
   "editorMode": "vim",
   "preferredNotifChannel": "kitty",
+  "autoCompactEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754081208431
-  },
-  "skipDangerousModePermissionPrompt": true
+  }
 }
