@@ -13,3 +13,5 @@ These are common instructions for my agents across all scenarios.
   Instead, prefer quality, simplicity, robustness, scalability, and long term maintainability.
 - Always create branches with a type prefix: `feat/`, `fix/`, `chore/`, etc. (e.g. `feat/add-login`).
 - Always write PR titles to follow the Conventional Commits format (e.g. `feat: add login`, `fix: handle null user`).
+- When creating a PR, always follow `.github/PULL_REQUEST_TEMPLATE.md` if it exists.
+  If the template asks for a Jira ticket (or similar) that you do not know, just leave it blank or omit that section rather than guessing.
