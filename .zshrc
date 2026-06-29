@@ -17,6 +17,9 @@ ZSH_DISABLE_COMPFIX="true"
 # k9s config path
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
+# Claude Code config path (settings, credentials, history, plugins)
+export CLAUDE_CONFIG_DIR="$HOME/.config/claude"
+
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 
