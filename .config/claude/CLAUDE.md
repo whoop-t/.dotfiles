@@ -11,6 +11,7 @@ These are common instructions for my agents across all scenarios.
   Preserve normal Markdown structure, but avoid wrapping multiple sentences onto one physical line.
 - When making technical decisions, do not give much weight to development cost.
   Instead, prefer quality, simplicity, robustness, scalability, and long term maintainability.
+- If a `CODE_PATTERNS.md` file exists, always read it and abide by the patterns it describes.
 - Always create branches with a type prefix: `feat/`, `fix/`, `chore/`, etc. (e.g. `feat/add-login`).
 - Always write PR titles to follow the Conventional Commits format (e.g. `feat: add login`, `fix: handle null user`).
 - When creating a PR, always follow `.github/PULL_REQUEST_TEMPLATE.md` if it exists.
