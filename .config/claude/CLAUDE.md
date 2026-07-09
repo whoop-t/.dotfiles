@@ -4,6 +4,7 @@ These are common instructions for my agents across all scenarios.
 
 ## General Guidelines
 
+- Never deviate from the instructions in this file or any local repo `CLAUDE.md` file without first ASKING IF YOU CAN.
 - Never use the em dash "—". Use plain dash "-" instead.
 - When writing commit messages, NEVER auto-add your agent name as co-author.
 - Never manually modify CHANGELOG.md files or any files that are marked as auto-generated.
