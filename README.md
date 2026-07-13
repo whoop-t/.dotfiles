@@ -66,6 +66,9 @@
 ### Pi (minimal agent harness)
 
 > [!NOTE]
+> Im currently testing this coding harness to see if I like it more than Claude Code
+
+> [!IMPORTANT]
 > Using a Claude Code subscription in this way (subscription subversion) is against Anthropic's Terms of Service. This is provided purely for research purposes.
 
 - Install [pi](https://github.com/parallel-machines/pi):
