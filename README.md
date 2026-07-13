@@ -65,6 +65,9 @@
 
 ### Pi (minimal agent harness)
 
+> [!NOTE]
+> Using a Claude Code subscription in this way (subscription subversion) is against Anthropic's Terms of Service. This is provided purely for research purposes.
+
 - Install [pi](https://github.com/parallel-machines/pi):
   ```sh
   curl -fsSL https://pi.dev/install.sh | sh
@@ -84,6 +87,14 @@
 - Install [context-mode](https://www.npmjs.com/package/context-mode):
   ```sh
   pi install npm:context-mode
+  ```
+- Install [pi-plan-mode](https://www.npmjs.com/package/@narumitw/pi-plan-mode):
+  ```sh
+  pi install npm:@narumitw/pi-plan-mode
+  ```
+- Install [cc-safety-net](https://www.npmjs.com/package/cc-safety-net):
+  ```sh
+  pi install npm:cc-safety-net
   ```
 
 # Misc(not really used in my workflow yet)
