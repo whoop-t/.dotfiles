@@ -53,14 +53,6 @@
   curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh
   no-mistakes init
   ```
-- Install [pi](https://github.com/parallel-machines/pi):
-  ```sh
-  curl -fsSL https://pi.dev/install.sh | sh
-  ```
-- Install [pi-anthropic-auth](https://github.com/gotgenes/pi-anthropic-auth) - use your Claude subscription (Anthropic OAuth) as the auth provider for pi:
-  ```sh
-  pi install npm:@gotgenes/pi-anthropic-auth
-  ```
 - Install [treehouse](https://github.com/kunchenguid/treehouse):
   ```sh
   curl -fsSL https://kunchenguid.github.io/treehouse/install.sh | sh
@@ -69,6 +61,29 @@
   ```sh
   git clone https://github.com/kunchenguid/firstmate
   cd firstmate && claude   # launch your harness here; AGENTS.md takes over
+  ```
+
+### Pi (minimal agent harness)
+
+- Install [pi](https://github.com/parallel-machines/pi):
+  ```sh
+  curl -fsSL https://pi.dev/install.sh | sh
+  ```
+- Install [pi-anthropic-auth](https://github.com/gotgenes/pi-anthropic-auth) - use your Claude subscription (Anthropic OAuth) as the auth provider for pi:
+  ```sh
+  pi install npm:@gotgenes/pi-anthropic-auth
+  ```
+- Install [pi-hypa](https://www.npmjs.com/package/@hypabolic/pi-hypa) - wires [Hypa](https://github.com/Hypabolic/Hypa) into pi to compress noisy tool output locally and add context-aware `hypa_*` file/shell tools:
+  ```sh
+  pi install npm:@hypabolic/pi-hypa
+  ```
+- Install [pi-web-access](https://www.npmjs.com/package/pi-web-access):
+  ```sh
+  pi install npm:pi-web-access
+  ```
+- Install [context-mode](https://www.npmjs.com/package/context-mode):
+  ```sh
+  pi install npm:context-mode
   ```
 
 # Misc(not really used in my workflow yet)
