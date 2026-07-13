@@ -3,6 +3,9 @@ if [ -d "/usr/local/go/bin" ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
 
+# add .local/bin to path
+export PATH="$HOME/.local/bin:$PATH"
+
 # Add goose migration for go
 if [ -d "$(go env GOPATH)/bin" ] && [ -f "$(go env GOPATH)/bin/goose" ]; then
     export PATH=$PATH:$(go env GOPATH)/bin
