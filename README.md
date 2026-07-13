@@ -105,8 +105,6 @@
 
 My dotfiles contains a custom config that I currently daily drive
 
-My old setup for years was running [Astronvim](https://github.com/AstroNvim/AstroNvim). You can still run the Astro config with NVIM_APPNAME=astro_nvim nvim(see :h nvim_appname for multi config info)
-
 # Cloning .dotfiles
 
 Clone .dotfiles to `git clone git@github.com:whoop-t/.dotfiles.git ~/.dotfiles`
