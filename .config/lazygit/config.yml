@@ -27,3 +27,5 @@ gui:
       - "#c0caf5"
 git:
   disableForcePushing: true
+os:
+  editPreset: "nvim-remote"
