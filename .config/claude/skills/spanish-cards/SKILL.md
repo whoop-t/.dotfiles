@@ -20,7 +20,7 @@ For each term given:
 - Produce exactly **3 example sentences**, each used in a different everyday context.
 - Each sentence becomes **its own Anki card**, so one term produces 3 cards.
 - **Front:** the Spanish sentence, with audio.
-- **Back:** the English translation only. No audio on the back.
+- **Back:** the English translation, plus a short grammar note describing the target word (see "Grammar note" below). No audio on the back.
 
 ## Generating the sentences (Claude does this directly)
 
@@ -35,6 +35,19 @@ Content is written by Claude in the chat. Do NOT call the Anthropic API or use a
 **Nouns, adjectives, and everything else** - the user just gives the word.
 
 - Write 3 sentences using it in 3 different everyday contexts.
+
+## Grammar note (the `note` field)
+
+Every card includes a `note` that describes the target word - its base form and its grammatical form.
+It renders on the back, under the translation. Bold the target word with `<b>...</b>`, keep it to one short line.
+
+- **Verbs:** `<b>{conjugated form}</b> · {infinitive} ({English meaning}) · {tense}, {person}`
+  - Spell out the tense in plain terms: `present`, `preterite (simple past)`, `imperfect (past habitual/ongoing)`.
+  - Example: `<b>fui</b> · ser (to be) · preterite (simple past), yo`
+- **Nouns, adjectives, other:** `<b>{word as it appears}</b> · {part of speech}{, gender for nouns} · base: {base form}` (drop "base:" if identical to the word).
+  - Example: `<b>la cocina</b> · noun, feminine`
+
+## Generating the sentences guidelines
 
 **Always:**
 
@@ -53,23 +66,30 @@ The script lives at `~/Documents/spanish/add_card.py` and does the mechanical pa
 
    ```json
    [
-     {"spanish": "Voy a la cocina por un vaso de agua.", "english": "I'm going to the kitchen for a glass of water.", "audio": "cocina_1.mp3"},
-     {"spanish": "La cocina de mi abuela siempre huele a pan.", "english": "My grandma's kitchen always smells like bread.", "audio": "cocina_2.mp3"},
-     {"spanish": "Necesito una cocina más grande para esta receta.", "english": "I need a bigger kitchen for this recipe.", "audio": "cocina_3.mp3"}
+     {"spanish": "Voy a la cocina por un vaso de agua.", "english": "I'm going to the kitchen for a glass of water.", "note": "<b>la cocina</b> · noun, feminine", "audio": "cocina_1.mp3"},
+     {"spanish": "La cocina de mi abuela siempre huele a pan.", "english": "My grandma's kitchen always smells like bread.", "note": "<b>la cocina</b> · noun, feminine", "audio": "cocina_2.mp3"},
+     {"spanish": "Necesito una cocina más grande para esta receta.", "english": "I need a bigger kitchen for this recipe.", "note": "<b>la cocina</b> · noun, feminine", "audio": "cocina_3.mp3"}
    ]
    ```
 
-   Fields per card: `spanish` (the sentence), `english` (the translation), and `audio` (the mp3 filename).
+   Fields per card: `spanish` (the sentence), `english` (the translation), `note` (the grammar note - see below), and `audio` (the mp3 filename).
    Name the audio `<term>_1.mp3`, `<term>_2.mp3`, `<term>_3.mp3` using a slug of the term, so backups are recognizable.
 
-2. Run the script (Anki must be open):
+2. Run the script (Anki must be open). **The deck name is a required argument** - it is never hardcoded:
 
    ```
-   python3 ~/Documents/spanish/add_card.py <cards.json>
+   python3 ~/Documents/spanish/add_card.py <cards.json> "<Deck Name>"
    ```
 
-   The script generates Mexican-Spanish audio for each sentence, embeds it, and adds each card to the Anki deck.
-   It reports what was added or skipped.
+   The script generates Mexican-Spanish audio for each sentence, embeds it, and adds each card to the deck.
+   It reports what was added or skipped. If the deck doesn't exist yet, the script creates it.
+
+## Choosing the deck (always ask if unspecified)
+
+The target deck is decided per request and passed to the script - **never assume or hardcode it**.
+
+- If the user names a deck, use exactly that name.
+- If the user does NOT name a deck, **ask which deck before generating**. It helps to list the current decks so they can pick one; get them with the AnkiConnect `deckNames` action (`http://127.0.0.1:8765`).
 
 ## Requirements
 
@@ -79,7 +99,7 @@ The script lives at `~/Documents/spanish/add_card.py` and does the mechanical pa
 
 ## Config (set in ~/Documents/spanish/add_card.py)
 
-- `DECK_NAME` - the target Anki deck.
+- Deck name - **not** a config value; it is a required argument passed each run (see "Choosing the deck" above).
 - `VOICE_NAME` = `es-US-Chirp3-HD-Charon` (natural male, Latin American Spanish). Google has no `es-MX` voices; `es-US` is its Mexican/Latin American Spanish.
 - `LANGUAGE_CODE` = `es-US`.
 
