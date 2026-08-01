@@ -59,11 +59,20 @@ It renders on the back, under the translation. Bold each target with `<b>...</b>
 **Always:**
 
 - Natural, everyday **Mexican Spanish**.
-- Never use **vosotros** or **vos** (voseo) forms. Mexican Spanish uses *tú* and *ustedes*. A request for "all forms" still **excludes** vosotros and vos - use only *yo, tú, él/ella/usted, nosotros, ellos/ellas/ustedes*. Only include vosotros or vos if the user names that form specifically.
+- Never use **vosotros** or **vos** (voseo) forms. Mexican Spanish uses _tú_ and _ustedes_. A request for "all forms" still **excludes** vosotros and vos - use only _yo, tú, él/ella/usted, nosotros, ellos/ellas/ustedes_. Only include vosotros or vos if the user names that form specifically.
 - The context must never be harder than the word itself.
 - Keep each sentence short and learner-appropriate. If the target is already a tricky conjugation, don't introduce another complicated verb form in the same sentence unless it's genuinely needed - keep any other verbs simple (present tense, common forms).
 - Give an accurate, natural English translation for each.
 - If anything is unspecified or unclear, ask rather than assume.
+
+## Show for approval before adding
+
+Show the user each card's text - the Spanish sentence, the English translation, and the grammar note - and get approval before adding anything. If they want changes, revise and show again.
+
+- **Under 10 cards:** show them **one by one**, getting approval on each so the user can review every card.
+- **10 or more cards:** show the first couple one by one for approval, then **ask if the user is good to generate the rest without per-card approval**. If yes, generate the remainder; if no, keep going one by one.
+
+Approval is about reviewing the card **text** - it does not change how the script runs. Once the cards are approved, collect them all into one JSON file and run the script **a single time** on the full set. The script takes a JSON list and adds every card in one run; it is never run per card.
 
 ## Adding the cards (the script)
 
@@ -73,9 +82,24 @@ The script lives at `~/Documents/spanish/add_card.py` and does the mechanical pa
 
    ```json
    [
-     {"spanish": "Voy a la cocina por un vaso de agua.", "english": "I'm going to the kitchen for a glass of water.", "note": "<b>la cocina</b> · noun, feminine", "audio": "cocina_1.mp3"},
-     {"spanish": "La cocina de mi abuela siempre huele a pan.", "english": "My grandma's kitchen always smells like bread.", "note": "<b>la cocina</b> · noun, feminine", "audio": "cocina_2.mp3"},
-     {"spanish": "Necesito una cocina más grande para esta receta.", "english": "I need a bigger kitchen for this recipe.", "note": "<b>la cocina</b> · noun, feminine", "audio": "cocina_3.mp3"}
+     {
+       "spanish": "Voy a la cocina por un vaso de agua.",
+       "english": "I'm going to the kitchen for a glass of water.",
+       "note": "<b>la cocina</b> · noun, feminine",
+       "audio": "cocina_1.mp3"
+     },
+     {
+       "spanish": "La cocina de mi abuela siempre huele a pan.",
+       "english": "My grandma's kitchen always smells like bread.",
+       "note": "<b>la cocina</b> · noun, feminine",
+       "audio": "cocina_2.mp3"
+     },
+     {
+       "spanish": "Necesito una cocina más grande para esta receta.",
+       "english": "I need a bigger kitchen for this recipe.",
+       "note": "<b>la cocina</b> · noun, feminine",
+       "audio": "cocina_3.mp3"
+     }
    ]
    ```
 
