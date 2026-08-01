@@ -38,14 +38,21 @@ Content is written by Claude in the chat. Do NOT call the Anthropic API or use a
 
 ## Grammar note (the `note` field)
 
-Every card includes a `note` that describes the target word - its base form and its grammatical form.
-It renders on the back, under the translation. Bold the target word with `<b>...</b>`, keep it to one short line.
+Every card includes a `note` that describes the target word(s) - base form and grammatical form.
+It renders on the back, under the translation. Bold each target with `<b>...</b>`.
 
 - **Verbs:** `<b>{conjugated form}</b> · {infinitive} ({English meaning}) · {tense}, {person}`
   - Spell out the tense in plain terms: `present`, `preterite (simple past)`, `imperfect (past habitual/ongoing)`.
   - Example: `<b>fui</b> · ser (to be) · preterite (simple past), yo`
 - **Nouns, adjectives, other:** `<b>{word as it appears}</b> · {part of speech}{, gender for nouns} · base: {base form}` (drop "base:" if identical to the word).
   - Example: `<b>la cocina</b> · noun, feminine`
+
+**The note is flexible - it can describe more than one element.** When a card teaches a construction or a phrase with several notable pieces, describe each on its own line separated by `<br>`. Keep each line short.
+
+- Construction example (`Desde hace 6 años vivo aquí.`):
+  `<b>desde hace + [tiempo]</b> · "for [time]" - how long something has been going on<br>Used with the <b>present</b> tense (vivo), not the past.`
+- Multi-word example:
+  `<b>propuse</b> · proponer (to propose) · preterite (simple past), yo<br><b>matrimonio</b> · noun, masculine - marriage`
 
 ## Generating the sentences guidelines
 
@@ -54,7 +61,7 @@ It renders on the back, under the translation. Bold the target word with `<b>...
 - Natural, everyday **Mexican Spanish**.
 - Never use **vosotros** or **vos** (voseo) forms. Mexican Spanish uses *tú* and *ustedes*. A request for "all forms" still **excludes** vosotros and vos - use only *yo, tú, él/ella/usted, nosotros, ellos/ellas/ustedes*. Only include vosotros or vos if the user names that form specifically.
 - The context must never be harder than the word itself.
-- Keep each sentence short and learner-appropriate.
+- Keep each sentence short and learner-appropriate. If the target is already a tricky conjugation, don't introduce another complicated verb form in the same sentence unless it's genuinely needed - keep any other verbs simple (present tense, common forms).
 - Give an accurate, natural English translation for each.
 - If anything is unspecified or unclear, ask rather than assume.
 
