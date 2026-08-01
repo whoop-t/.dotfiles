@@ -49,6 +49,11 @@ It renders on the back, under the translation. Bold each target with `<b>...</b>
 
 **The note is flexible - it can describe more than one element.** When a card teaches a construction or a phrase with several notable pieces, describe each on its own line separated by `<br>`. Keep each line short.
 
+**Always describe conjugated verbs, even when they are not the requested study word.** If a sentence contains any conjugated verb alongside the noun/verb/adjective/etc. that was asked for, give that verb its own note line with the full verb breakdown (conjugated form · infinitive (English meaning) · tense, person). Conjugated verbs are important to the learner regardless of whether they were the specified target - do not leave them untranslated. The requested study word still comes first; the extra conjugated verbs follow on their own `<br>` lines.
+
+- Example (study word is the noun `la receta`, but the sentence also conjugates `seguir`):
+  `<b>la receta</b> · noun, feminine - recipe<br><b>sigo</b> · seguir (to follow) · present, yo`
+
 - Construction example (`Desde hace 6 años vivo aquí.`):
   `<b>desde hace + [tiempo]</b> · "for [time]" - how long something has been going on<br>Used with the <b>present</b> tense (vivo), not the past.`
 - Multi-word example:
