@@ -13,6 +13,15 @@ The user just names a term to learn; this skill knows the rest, so they never ha
 
 Use this whenever the user names a word/verb/phrase they want to learn, asks for Spanish cards, or wants sentences added to Anki.
 
+## Check the tracker first (avoid duplicates)
+
+Before generating any cards, check each requested term against the tracker file at `~/Documents/spanish/CARDS_TRACKER.md`.
+It lists every term that already has cards, grouped by deck.
+
+- If a term is already in the tracker, do **not** silently make a duplicate. Tell the user it already has cards (and in which deck), and ask whether to skip it or make cards anyway.
+- Only generate cards for terms that are new (or that the user explicitly wants remade).
+- After cards are successfully added, **update the tracker**: add each new term under the matching deck's section (create the section if the deck is new).
+
 ## Card design (fixed - do not ask about the format)
 
 For each term given:
