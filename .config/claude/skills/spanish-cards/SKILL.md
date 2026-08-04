@@ -13,6 +13,16 @@ The user just names a term to learn; this skill knows the rest, so they never ha
 
 Use this whenever the user names a word/verb/phrase they want to learn, asks for Spanish cards, or wants sentences added to Anki.
 
+## Curate the list first (when given multiple words)
+
+When the user provides a **list** of words/phrases (e.g. pasted lesson or video notes), do not assume they want cards for all of them.
+First, go through the list **with the user to decide which terms they actually want to keep**. This is a separate step from approving card text later.
+
+- Present the extracted terms and ask the user to confirm which ones to make cards for - offer to go through them one by one if that's easier.
+- Drop the ones they don't want; keep only the confirmed terms.
+- Then continue with the tracker check and card generation for the kept terms only.
+- A single word (not a list) doesn't need this curation step - but still run the tracker check below before making its cards.
+
 ## Check the tracker first (avoid duplicates)
 
 Before generating any cards, check each requested term against the tracker file at `~/Documents/spanish/CARDS_TRACKER.md`.
@@ -35,11 +45,21 @@ For each term given:
 
 Content is written by Claude in the chat. Do NOT call the Anthropic API or use an API key.
 
-**Verbs** - the user specifies the verb, tense, and person, e.g. "hablar, present, yo".
+**Verbs** come in two modes:
 
-- All 3 sentences use that **exact same conjugation** (e.g. all use "hablo"). Only the situation changes.
-- Never change the conjugation, tense, or person across the 3. The goal is to drill one form in different contexts.
-- If a verb is given without **both** the tense and the person, ASK before generating. Do not default or guess.
+- **Drill one conjugation** - the user specifies the verb, tense, and person, e.g. "hablar, present, yo".
+  - All 3 sentences use that **exact same conjugation** (e.g. all use "hablo"). Only the situation changes.
+  - Never change the conjugation, tense, or person across the 3. The goal is to drill one form in different contexts.
+- **Infinitive-in-context** (default for mined vocab) - the user just gives the verb in dictionary form, or a whole list of vocab, with no tense/person.
+  - Teach the verb by its infinitive, using this fixed 3-card structure (keeps it simple and predictable):
+    1. **Sentence 1** uses the **literal infinitive form** (e.g. after a verb like _gusta_, _quiero_, _puedo_, or _voy a_).
+    2. **Sentence 2** uses the **simple present** tense.
+    3. **Sentence 3** uses the **simple past** (preterite).
+  - Vary the person/context freely across the three; only the tense structure above is fixed.
+  - The grammar note still labels whichever form actually appears in each sentence.
+  - This is the right default when the goal is learning the word's meaning/usage rather than cementing one specific form.
+
+If it's genuinely ambiguous which mode the user wants (e.g. a single verb given on its own, not as part of a vocab list), ASK. For lists of mined vocab, default to infinitive-in-context.
 
 **Nouns, adjectives, and everything else** - the user just gives the word.
 
@@ -83,8 +103,8 @@ It renders on the back, under the translation. Bold each target with `<b>...</b>
 
 Show the user each card's text - the Spanish sentence, the English translation, and the grammar note - and get approval before adding anything. If they want changes, revise and show again.
 
-- **Under 10 cards:** show them **one by one**, getting approval on each so the user can review every card.
-- **10 or more cards:** show the first couple one by one for approval, then **ask if the user is good to generate the rest without per-card approval**. If yes, generate the remainder; if no, keep going one by one.
+- **Default: always approve one by one.** Show each term's cards and get approval before moving to the next, no matter how many cards there are. Never batch approval on your own initiative.
+- **Only skip per-card approval if the user explicitly says so** (e.g. "just generate them all", "don't make me approve each one"). In that case, **do not print the cards at all** - printing them clogs the terminal and defeats the purpose of skipping. Just write the JSON, run the script (which generates the audio and adds the cards), and report the summary of what was added.
 
 Approval is about reviewing the card **text** - it does not change how the script runs. Once the cards are approved, collect them all into one JSON file and run the script **a single time** on the full set. The script takes a JSON list and adds every card in one run; it is never run per card.
 
