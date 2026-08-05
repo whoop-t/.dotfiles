@@ -97,6 +97,7 @@ It renders on the back, under the translation. Bold each target with `<b>...</b>
 - The context must never be harder than the word itself.
 - Keep each sentence short and learner-appropriate. If the target is already a tricky conjugation, don't introduce another complicated verb form in the same sentence unless it's genuinely needed - keep any other verbs simple (present tense, common forms).
 - Give an accurate, natural English translation for each.
+- **Ambiguous subject pronouns:** When a conjugation could refer to more than one subject (e.g. third-person forms that are equally _he_, _she_, _you (usted)_, or _it_, or nosotros that could be _we (masc./fem.)_), reflect that ambiguity in the English translation rather than silently picking one. Use a slashed gloss such as "He/She plays outside" or "He/She/You (formal) already left" so the learner sees every subject the Spanish form allows. Only commit to a single pronoun when the sentence itself makes the subject explicit (a named subject, an explicit pronoun, or clear context).
 - If anything is unspecified or unclear, ask rather than assume.
 
 ## Show for approval before adding
