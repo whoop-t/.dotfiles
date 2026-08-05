@@ -71,7 +71,14 @@ Every card includes a `note` that describes the target word(s) - base form and g
 It renders on the back, under the translation. Bold each target with `<b>...</b>`.
 
 - **Verbs:** `<b>{conjugated form}</b> · {infinitive} ({English meaning}) · {tense}, {person}`
-  - Spell out the tense in plain terms: `present`, `preterite (simple past)`, `imperfect (past habitual/ongoing)`.
+  - **ALWAYS give the tense its plain-English name in parentheses right after the Spanish grammatical term** - never write the bare Spanish term alone. This applies to every tense, e.g.:
+    - `present (simple present)`
+    - `preterite (simple past)`
+    - `imperfect (past habitual/ongoing)`
+    - `conditional (would ...)`
+    - `future (simple future)`
+    - `informal future (going to ...)`
+    - `present perfect (have/has ...)`
   - Example: `<b>fui</b> · ser (to be) · preterite (simple past), yo`
 - **Nouns, adjectives, other:** `<b>{word as it appears}</b> · {part of speech}{, gender for nouns} · base: {base form}` (drop "base:" if identical to the word).
   - Example: `<b>la cocina</b> · noun, feminine`
