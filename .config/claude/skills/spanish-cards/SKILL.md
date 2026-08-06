@@ -99,6 +99,7 @@ It renders on the back, under the translation. Bold each target with `<b>...</b>
 
 **Always:**
 
+- **Sound like a real person, not a textbook.** Every sentence must be something an actual Mexican speaker would say in everyday life - the kind of phrasing you'd overhear in a kitchen, a store, or a text message. Avoid stiff, literal, or "textbook-correct but nobody-says-this" constructions. If a sentence reads like it was translated word-for-word from English, or like a grammar-drill example, rewrite it until it sounds natural. Favor common vocabulary, contractions, and everyday word order over formal or overly precise phrasing.
 - Natural, everyday **Mexican Spanish**.
 - Never use **vosotros** or **vos** (voseo) forms. Mexican Spanish uses _tú_ and _ustedes_. A request for "all forms" still **excludes** vosotros and vos - use only _yo, tú, él/ella/usted, nosotros, ellos/ellas/ustedes_. Only include vosotros or vos if the user names that form specifically.
 - The context must never be harder than the word itself.
