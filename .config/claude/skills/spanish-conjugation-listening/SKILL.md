@@ -1,12 +1,12 @@
 ---
 name: spanish-conjugation-listening
-description: "Build Spanish verb-conjugation listening cards with Mexican-Spanish audio. Use when the user wants to study/practice verb conjugations across tenses and persons, or add verbs to the 'Spanish Verb Conjugation Listening' deck. Each verb produces 25 cards (5 tenses x 5 persons); front = an example sentence + audio, back = the English translation, its tense + person, and a faint verb gloss."
+description: "Build Spanish verb-conjugation listening cards with Mexican-Spanish audio. Use when the user wants to study/practice verb conjugations across tenses and persons, or add verbs to the 'Spanish Verb Conjugation Listening' deck. Each verb produces 25 cards (5 tenses x 5 persons); front = an example sentence, back = the English translation, its tense + person, a faint verb gloss, and the audio."
 user-invocable: true
 ---
 
 # spanish-conjugation-listening
 
-Build Anki cards for practicing Spanish verb conjugations by **listening/comprehension**: the front shows an example sentence with its audio; the back reveals the English translation, its tense + person, and a faint verb gloss.
+Build Anki cards for practicing Spanish verb conjugations: the front shows an example sentence; the back reveals the English translation, its tense + person, a faint verb gloss, and the audio (so you can read the sentence and identify the form, then hear it on the back).
 This is a **separate deck and card type** from the `spanish-mined` skill (which makes sentence/vocab cards). If the user wants to learn a word's meaning in context, use `spanish-mined` instead. If a bare verb is ambiguous between the two, ask.
 
 ## When to use
@@ -24,18 +24,18 @@ The user just names a verb (or a few); this skill knows the rest.
 
 ## Card design (fixed)
 
-Direction is **listening/comprehension**: the front is a real sentence + audio; the back reveals what form it is and what it means. (The learner reads/hears the sentence, then identifies the tense, person, and meaning.)
+The learner reads the sentence on the front, identifies the tense, person, and meaning, then flips to check the answer and hear the audio.
 
-- **Front:** the example sentence (plain text), with the **focused conjugated form in bold + italic** so it's clear which word the card is about, then the audio. The script does this automatically (it finds `{form}` in `{sentence}` and wraps it), so you just supply the plain sentence.
-
-  ```
-  ... <b><i>{form}</i></b> ...<br>[sound:{file}]
-  ```
-
-- **Back:** the English translation (plain), then the tense (with English label) + person (slightly small), then a faint verb gloss. There is **no** bold conjugated-form line and **no** separate faint translation line - the translation _is_ the top line.
+- **Front:** the example sentence (plain text, no audio), with the **focused conjugated form in bold + italic** so it's clear which word the card is about. The script does this automatically (it finds `{form}` in `{sentence}` and wraps it), so you just supply the plain sentence.
 
   ```
-  {translation}<br><span style="font-size:0.9em">{tense label}, {person}</span><br><span style="color:#777;font-size:0.8em">{gloss}</span>
+  ... <b><i>{form}</i></b> ...
+  ```
+
+- **Back:** the English translation (plain), then the tense (with English label) + person (slightly small), then a faint verb gloss, then the audio. There is **no** bold conjugated-form line and **no** separate faint translation line - the translation _is_ the top line.
+
+  ```
+  {translation}<br><span style="font-size:0.9em">{tense label}, {person}</span><br><span style="color:#777;font-size:0.8em">{gloss}</span><br>[sound:{file}]
   ```
 
   - For `informal future`, the sentence uses the _voy a {infinitive}_ phrase (e.g. `voy a hablar`); the translation reflects it (e.g. "going to ...").
@@ -54,7 +54,7 @@ The conjugation is the hard part - everything around it must be simple, so the t
 
 ## Grammar note
 
-There is no separate grammar-note field on these cards - the back already shows the English translation, the tense + person, and the faint verb gloss (`{infinitive} · {English meaning}`). That's all that's needed. (The conjugated form is not repeated on the back; the learner reads/hears it in the front sentence.)
+There is no separate grammar-note field on these cards - the back already shows the English translation, the tense + person, and the faint verb gloss (`{infinitive} · {English meaning}`). That's all that's needed. (The conjugated form is not repeated as a separate line on the back; the learner reads it in the front sentence and hears it in the back audio.)
 
 ## Show for approval before adding
 

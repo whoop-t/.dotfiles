@@ -1,6 +1,6 @@
 ---
 name: spanish-mined
-description: "Create Mexican-Spanish Anki flashcards for a vocabulary word or phrase to learn in context (the 'Spanish Mined from Lessons/Videos' deck). Use whenever the user names a Spanish or English word/phrase they want to study, asks for Spanish cards, or wants example sentences added to Anki. Generates 3 example sentences for the term and adds each as its own card with audio. (For drilling verb conjugations, use spanish-conjugation-listening instead.)"
+description: "Create Mexican-Spanish Anki flashcards for a vocabulary word or phrase to learn in context (the 'Spanish Mined from Lessons/Videos' deck). Use whenever the user names a Spanish or English word/phrase they want to study, asks for Spanish cards, or wants example sentences added to Anki. Generates as many example sentences as needed to show the term in all its meanings and adds each as its own card with audio. (For drilling verb conjugations, use spanish-conjugation-listening instead.)"
 user-invocable: true
 ---
 
@@ -37,19 +37,19 @@ It lists every term that already has cards, grouped by deck.
 
 For each term given:
 
-- Produce exactly **3 example sentences**, each used in a different everyday context.
-- Each sentence becomes **its own Anki card**, so one term produces 3 cards.
-- **Front:** the Spanish sentence, with audio. The target word/phrase is shown **bold + italic** within the sentence so it's clear which word the card teaches (done automatically via the `focus` field - see "Adding the cards").
-- **Back:** the English translation, plus a short grammar note describing the target word (see "Grammar note" below). No audio on the back.
+- Produce **as many example sentences as needed to show the word in all its meanings**, unless the user asks for a specific number. One sentence per distinct meaning: a single-meaning word gets 1 sentence; a word with several distinct meanings or uses gets one sentence covering each.
+- Each sentence becomes **its own Anki card**, so one term produces as many cards as there are sentences (one per meaning).
+- **Front:** the Spanish sentence (no audio). The target word/phrase is shown **bold + italic** within the sentence so it's clear which word the card teaches (done automatically via the `focus` field - see "Adding the cards").
+- **Back:** the English translation, a short grammar note describing the target word (see "Grammar note" below), and the audio. No audio on the front.
 
 ## Generating the sentences (Claude does this directly)
 
 Content is written by Claude in the chat. Do NOT call any API to generate the sentence text - Claude writes it directly. (The `add_card.py` script separately calls ElevenLabs for the audio.)
 
-This deck is for **vocabulary and phrases** mined from lessons/videos - nouns, adjectives, adverbs, expressions, connectors, and multi-word phrases. The user gives a term; write **3 example sentences** using it in 3 different everyday contexts.
+This deck is for **vocabulary and phrases** mined from lessons/videos - nouns, adjectives, adverbs, expressions, connectors, and multi-word phrases. The user gives a term; write **one example sentence per distinct meaning** (as many as needed to cover them all), unless the user asks for a specific number.
 
-- **Words** (nouns, adjectives, etc.) - use the term naturally in 3 different situations.
-- **Phrases / constructions** (e.g. _vale la pena_, _tener chance de_, _ya no_, _desde hace + [tiempo]_) - show the phrase working naturally in 3 different situations; keep the rest of each sentence simple.
+- **Words** (nouns, adjectives, etc.) - use the term naturally, one sentence per meaning, in a different everyday context each.
+- **Phrases / constructions** (e.g. _vale la pena_, _tener chance de_, _ya no_, _desde hace + [tiempo]_) - show the phrase working naturally, one sentence per meaning/use; keep the rest of each sentence simple.
 
 **If the term is a verb, ASK before making cards here.** Verbs generally belong in the separate **`spanish-conjugation-listening`** skill/deck, not this one. When the user names a verb (or a mined list contains verbs), point that out and ask whether they want it in the conjugation-listening deck instead. Only make a mined vocab card for a verb if the user explicitly says they want it here (e.g. to learn its meaning in context rather than drill its forms).
 
@@ -109,7 +109,7 @@ Approval is about reviewing the card **text** - it does not change how the scrip
 
 The script lives at `~/Documents/spanish/add_card.py` and does the mechanical part: ElevenLabs audio + AnkiConnect.
 
-1. Write the 3 cards to a JSON file (e.g. in the scratchpad or /tmp) as a list of objects:
+1. Write the cards to a JSON file (e.g. in the scratchpad or /tmp) as a list of objects (one object per sentence/meaning):
 
    ```json
    [
@@ -138,7 +138,7 @@ The script lives at `~/Documents/spanish/add_card.py` and does the mechanical pa
    ```
 
    Fields per card: `spanish` (the sentence), `english` (the translation), `note` (the grammar note - see below), `focus` (the target word/phrase **exactly as it appears in that sentence** - the script bold+italics it on the front so it's clear which word the card teaches; the audio is generated from the plain sentence, so tags never reach the TTS), and `audio` (the mp3 filename).
-   The `focus` is the surface form in the sentence, which may differ from the dictionary form in `note` (e.g. note `la cocina` but focus `cocina`; a plural/agreeing adjective; or the conjugated part of an expression like `tengo chance de`). Name the audio `<term>_1.mp3`, `<term>_2.mp3`, `<term>_3.mp3` using a slug of the term, so backups are recognizable.
+   The `focus` is the surface form in the sentence, which may differ from the dictionary form in `note` (e.g. note `la cocina` but focus `cocina`; a plural/agreeing adjective; or the conjugated part of an expression like `tengo chance de`). Name the audio `<term>_1.mp3`, `<term>_2.mp3`, `<term>_3.mp3`, ... (a running index for however many sentences there are) using a slug of the term, so backups are recognizable.
 
 2. Run the script (Anki must be open). **The deck name is a required argument** - it is never hardcoded:
 
