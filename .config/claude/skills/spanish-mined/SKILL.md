@@ -1,6 +1,6 @@
 ---
 name: spanish-mined
-description: "Create Mexican-Spanish Anki flashcards for a vocabulary word or phrase to learn in context (the 'Spanish Mined from Lessons/Videos' deck). Use whenever the user names a Spanish or English word/phrase they want to study, asks for Spanish cards, or wants example sentences added to Anki. Generates as many example sentences as needed to show the term in all its meanings and adds each as its own card with audio. (For drilling verb conjugations, use spanish-conjugation-listening instead.)"
+description: "Create Mexican-Spanish Anki flashcards for a vocabulary word or phrase to learn in context (the 'Spanish Mined from Lessons/Videos' deck). Use whenever the user names a Spanish or English word/phrase they want to study, asks for Spanish cards, or wants example sentences added to Anki. Verbs are welcome and are treated like any other word (meaning in context, not conjugation drilling). Generates as many example sentences as needed to show the term in its main meanings and adds each as its own card with audio."
 user-invocable: true
 ---
 
@@ -8,11 +8,11 @@ user-invocable: true
 
 Turn a Spanish vocabulary word or phrase into Anki flashcards that teach it in context, with Mexican-Spanish audio.
 The user just names a term to learn; this skill knows the rest, so they never have to re-explain the format.
-(Verb-conjugation practice lives in the separate `spanish-conjugation-listening` skill - see the verb note below.)
+Verbs are welcome here too - they are learned for their meaning in context, just like any other word (see "Verbs" below).
 
 ## When to use
 
-Use this whenever the user names a vocabulary word or phrase they want to learn, asks for Spanish cards, or wants sentences added to Anki. (If they name a verb to drill, see the verb note below - that usually belongs in `spanish-conjugation-listening`.)
+Use this whenever the user names a vocabulary word or phrase they want to learn, asks for Spanish cards, or wants sentences added to Anki. This includes verbs - they are treated like any other word (see "Verbs" below).
 
 ## Curate the list first (when given multiple words)
 
@@ -37,7 +37,7 @@ It lists every term that already has cards, grouped by deck.
 
 For each term given:
 
-- Produce **as many example sentences as needed to show the word in all its meanings**, unless the user asks for a specific number. One sentence per distinct meaning: a single-meaning word gets 1 sentence; a word with several distinct meanings or uses gets one sentence covering each.
+- Produce **as many example sentences as needed to show the word in its main meanings**, unless the user asks for a specific number. One sentence per distinct **core** meaning: a single-meaning word gets 1 sentence; a word with several genuinely different everyday meanings gets one sentence covering each. **Cover the main dictionary senses, but skip narrow regional/colloquial or idiomatic uses** unless the user asks for them.
 - Each sentence becomes **its own Anki card**, so one term produces as many cards as there are sentences (one per meaning).
 - **Front:** the Spanish sentence (no audio). The target word/phrase is shown **bold + italic** within the sentence so it's clear which word the card teaches (done automatically via the `focus` field - see "Adding the cards").
 - **Back:** the English translation, a short grammar note describing the target word (see "Grammar note" below), and the audio. No audio on the front.
@@ -46,12 +46,18 @@ For each term given:
 
 Content is written by Claude in the chat. Do NOT call any API to generate the sentence text - Claude writes it directly. (The `add_card.py` script separately calls ElevenLabs for the audio.)
 
-This deck is for **vocabulary and phrases** mined from lessons/videos - nouns, adjectives, adverbs, expressions, connectors, and multi-word phrases. The user gives a term; write **one example sentence per distinct meaning** (as many as needed to cover them all), unless the user asks for a specific number.
+This deck is for **vocabulary and phrases** mined from lessons/videos - nouns, adjectives, adverbs, expressions, connectors, and multi-word phrases. The user gives a term; write **one example sentence per main meaning** (as many as needed to cover the core senses), unless the user asks for a specific number. Skip narrow regional/colloquial or idiomatic senses unless the user asks for them.
 
 - **Words** (nouns, adjectives, etc.) - use the term naturally, one sentence per meaning, in a different everyday context each.
 - **Phrases / constructions** (e.g. _vale la pena_, _tener chance de_, _ya no_, _desde hace + [tiempo]_) - show the phrase working naturally, one sentence per meaning/use; keep the rest of each sentence simple.
 
-**If the term is a verb, ASK before making cards here.** Verbs generally belong in the separate **`spanish-conjugation-listening`** skill/deck, not this one. When the user names a verb (or a mined list contains verbs), point that out and ask whether they want it in the conjugation-listening deck instead. Only make a mined vocab card for a verb if the user explicitly says they want it here (e.g. to learn its meaning in context rather than drill its forms).
+### Verbs
+
+**Verbs are treated exactly like any other word: learn the meaning in context, do not drill conjugations.** Write **one sentence per main meaning** - cover the core everyday senses (e.g. _quedar_ = to stay/remain, to suit/fit, to agree, to be located), but **skip narrow regional/colloquial or idiomatic uses** unless the user asks for them.
+
+- Use the **infinitive** or a **simple present** or **simple past (preterite)** form - whichever reads most naturally in the sentence. Do NOT generate multiple conjugations of the same verb across cards; the goal is meaning, not form practice.
+- Keep any other verbs in the sentence simple (common present-tense forms) so the sentence never gets harder than the target.
+- The grammar `note` still labels the form that appears (see "Grammar note" below) - that labelling is for reference, not a signal to vary the conjugation.
 
 ## Grammar note (the `note` field)
 
