@@ -1,17 +1,18 @@
 ---
-name: spanish-cards
-description: "Create Mexican-Spanish Anki flashcards for a word, verb, or phrase to learn in context. Use whenever the user names a Spanish or English term they want to study, asks for Spanish cards, or wants example sentences added to Anki. Generates 3 example sentences for the term and adds each as its own card with audio."
+name: spanish-mined
+description: "Create Mexican-Spanish Anki flashcards for a vocabulary word or phrase to learn in context (the 'Spanish Mined from Lessons/Videos' deck). Use whenever the user names a Spanish or English word/phrase they want to study, asks for Spanish cards, or wants example sentences added to Anki. Generates 3 example sentences for the term and adds each as its own card with audio. (For drilling verb conjugations, use spanish-conjugation-listening instead.)"
 user-invocable: true
 ---
 
-# spanish-cards
+# spanish-mined
 
-Turn a single Spanish word, verb, or phrase into Anki flashcards that teach it in context, with Mexican-Spanish audio.
+Turn a Spanish vocabulary word or phrase into Anki flashcards that teach it in context, with Mexican-Spanish audio.
 The user just names a term to learn; this skill knows the rest, so they never have to re-explain the format.
+(Verb-conjugation practice lives in the separate `spanish-conjugation-listening` skill - see the verb note below.)
 
 ## When to use
 
-Use this whenever the user names a word/verb/phrase they want to learn, asks for Spanish cards, or wants sentences added to Anki.
+Use this whenever the user names a vocabulary word or phrase they want to learn, asks for Spanish cards, or wants sentences added to Anki. (If they name a verb to drill, see the verb note below - that usually belongs in `spanish-conjugation-listening`.)
 
 ## Curate the list first (when given multiple words)
 
@@ -38,32 +39,19 @@ For each term given:
 
 - Produce exactly **3 example sentences**, each used in a different everyday context.
 - Each sentence becomes **its own Anki card**, so one term produces 3 cards.
-- **Front:** the Spanish sentence, with audio.
+- **Front:** the Spanish sentence, with audio. The target word/phrase is shown **bold + italic** within the sentence so it's clear which word the card teaches (done automatically via the `focus` field - see "Adding the cards").
 - **Back:** the English translation, plus a short grammar note describing the target word (see "Grammar note" below). No audio on the back.
 
 ## Generating the sentences (Claude does this directly)
 
-Content is written by Claude in the chat. Do NOT call the Anthropic API or use an API key.
+Content is written by Claude in the chat. Do NOT call any API to generate the sentence text - Claude writes it directly. (The `add_card.py` script separately calls ElevenLabs for the audio.)
 
-**Verbs** come in two modes:
+This deck is for **vocabulary and phrases** mined from lessons/videos - nouns, adjectives, adverbs, expressions, connectors, and multi-word phrases. The user gives a term; write **3 example sentences** using it in 3 different everyday contexts.
 
-- **Drill one conjugation** - the user specifies the verb, tense, and person, e.g. "hablar, present, yo".
-  - All 3 sentences use that **exact same conjugation** (e.g. all use "hablo"). Only the situation changes.
-  - Never change the conjugation, tense, or person across the 3. The goal is to drill one form in different contexts.
-- **Infinitive-in-context** (default for mined vocab) - the user just gives the verb in dictionary form, or a whole list of vocab, with no tense/person.
-  - Teach the verb by its infinitive, using this fixed 3-card structure (keeps it simple and predictable):
-    1. **Sentence 1** uses the **literal infinitive form** (e.g. after a verb like _gusta_, _quiero_, _puedo_, or _voy a_).
-    2. **Sentence 2** uses the **simple present** tense.
-    3. **Sentence 3** uses the **simple past** (preterite).
-  - Vary the person/context freely across the three; only the tense structure above is fixed.
-  - The grammar note still labels whichever form actually appears in each sentence.
-  - This is the right default when the goal is learning the word's meaning/usage rather than cementing one specific form.
+- **Words** (nouns, adjectives, etc.) - use the term naturally in 3 different situations.
+- **Phrases / constructions** (e.g. _vale la pena_, _tener chance de_, _ya no_, _desde hace + [tiempo]_) - show the phrase working naturally in 3 different situations; keep the rest of each sentence simple.
 
-If it's genuinely ambiguous which mode the user wants (e.g. a single verb given on its own, not as part of a vocab list), ASK. For lists of mined vocab, default to infinitive-in-context.
-
-**Nouns, adjectives, and everything else** - the user just gives the word.
-
-- Write 3 sentences using it in 3 different everyday contexts.
+**If the term is a verb, ASK before making cards here.** Verbs generally belong in the separate **`spanish-conjugation-listening`** skill/deck, not this one. When the user names a verb (or a mined list contains verbs), point that out and ask whether they want it in the conjugation-listening deck instead. Only make a mined vocab card for a verb if the user explicitly says they want it here (e.g. to learn its meaning in context rather than drill its forms).
 
 ## Grammar note (the `note` field)
 
@@ -119,7 +107,7 @@ Approval is about reviewing the card **text** - it does not change how the scrip
 
 ## Adding the cards (the script)
 
-The script lives at `~/Documents/spanish/add_card.py` and does the mechanical part: Google TTS audio + AnkiConnect.
+The script lives at `~/Documents/spanish/add_card.py` and does the mechanical part: ElevenLabs audio + AnkiConnect.
 
 1. Write the 3 cards to a JSON file (e.g. in the scratchpad or /tmp) as a list of objects:
 
@@ -129,25 +117,28 @@ The script lives at `~/Documents/spanish/add_card.py` and does the mechanical pa
        "spanish": "Voy a la cocina por un vaso de agua.",
        "english": "I'm going to the kitchen for a glass of water.",
        "note": "<b>la cocina</b> · noun, feminine",
+       "focus": "cocina",
        "audio": "cocina_1.mp3"
      },
      {
        "spanish": "La cocina de mi abuela siempre huele a pan.",
        "english": "My grandma's kitchen always smells like bread.",
        "note": "<b>la cocina</b> · noun, feminine",
+       "focus": "La cocina",
        "audio": "cocina_2.mp3"
      },
      {
        "spanish": "Necesito una cocina más grande para esta receta.",
        "english": "I need a bigger kitchen for this recipe.",
        "note": "<b>la cocina</b> · noun, feminine",
+       "focus": "cocina",
        "audio": "cocina_3.mp3"
      }
    ]
    ```
 
-   Fields per card: `spanish` (the sentence), `english` (the translation), `note` (the grammar note - see below), and `audio` (the mp3 filename).
-   Name the audio `<term>_1.mp3`, `<term>_2.mp3`, `<term>_3.mp3` using a slug of the term, so backups are recognizable.
+   Fields per card: `spanish` (the sentence), `english` (the translation), `note` (the grammar note - see below), `focus` (the target word/phrase **exactly as it appears in that sentence** - the script bold+italics it on the front so it's clear which word the card teaches; the audio is generated from the plain sentence, so tags never reach the TTS), and `audio` (the mp3 filename).
+   The `focus` is the surface form in the sentence, which may differ from the dictionary form in `note` (e.g. note `la cocina` but focus `cocina`; a plural/agreeing adjective; or the conjugated part of an expression like `tengo chance de`). Name the audio `<term>_1.mp3`, `<term>_2.mp3`, `<term>_3.mp3` using a slug of the term, so backups are recognizable.
 
 2. Run the script (Anki must be open). **The deck name is a required argument** - it is never hardcoded:
 
@@ -168,14 +159,14 @@ The target deck is decided per request and passed to the script - **never assume
 ## Requirements
 
 - **Anki open** with the **AnkiConnect** add-on installed (code 2055492159), reachable at http://127.0.0.1:8765.
-- `google-cloud-texttospeech` installed for the Python being used.
-- Google service-account key at `~/.spanish-audio-keys-676ab4a6e39a.json` (the script defaults to this).
+- An ElevenLabs API key saved at `~/.elevenlabs-api-key` (or the `ELEVENLABS_API_KEY` env var).
+- Python 3 (the script uses only the standard library for HTTP).
 
 ## Config (set in ~/Documents/spanish/add_card.py)
 
 - Deck name - **not** a config value; it is a required argument passed each run (see "Choosing the deck" above).
-- `VOICE_NAME` = `es-US-Chirp3-HD-Charon` (natural male, Latin American Spanish). Google has no `es-MX` voices; `es-US` is its Mexican/Latin American Spanish.
-- `LANGUAGE_CODE` = `es-US`.
+- Audio provider: **ElevenLabs**. `VOICE_ID` = `p1Q3ihQuPjyyENa1RGtl`, `MODEL_ID` = `eleven_multilingual_v2` (top quality; `eleven_flash_v2_5` is cheaper).
+- API key is read from `~/.elevenlabs-api-key` (or `$ELEVENLABS_API_KEY`); never hardcoded or printed.
 
 ## Notes
 
