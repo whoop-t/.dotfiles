@@ -59,6 +59,14 @@ This deck is for **vocabulary and phrases** mined from lessons/videos - nouns, a
 - Keep any other verbs in the sentence simple (common present-tense forms) so the sentence never gets harder than the target.
 - The grammar `note` still labels the form that appears (see "Grammar note" below) - that labelling is for reference, not a signal to vary the conjugation.
 
+### Gender agreement (adjectives and people-nouns)
+
+When the term **inflects for gender** - an **adjective** (e.g. _chingón/chingona_, _celoso/celosa_) or a **noun that names a person** with gendered forms (e.g. _el niño/la niña_, _profesor/profesora_) - and you are already writing **more than one card** for it, **spread the forms across those cards**: use the masculine form in one sentence and the feminine in another, so the learner sees the agreement (e.g. _La fiesta estuvo bien chingona._ / _Mi hermano es bien chingón._).
+
+- If the term only warrants **one card**, just pick whichever form reads naturally - one form is fine, you do not need both.
+- The `note`'s `base:` still lists the dictionary (masculine) form; the `focus` uses the surface form as it appears in that sentence (see "Grammar note" and "Adding the cards").
+- This does **not** apply to fixed-gender object nouns (_la carta_, _el sistema_) - those have one gender, so there is nothing to vary.
+
 ## Grammar note (the `note` field)
 
 Every card includes a `note` that describes the target word(s) - base form and grammatical form.
