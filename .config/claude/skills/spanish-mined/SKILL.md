@@ -82,6 +82,9 @@ It renders on the back, under the translation. Bold each target with `<b>...</b>
     - `informal future (going to ...)`
     - `present perfect (have/has ...)`
   - Example: `<b>fui</b> · ser (to be) · preterite (simple past), yo`
+  - **The `{person}` is grammatical person/number, NOT gender.** Spanish verbs do not agree in gender, so the gender of the subject noun never changes the person label. A feminine subject noun does NOT make the label "ella". **Labeling convention for this skill:** use a pronoun (`yo`, `tú`, `nosotros`, ...) when the subject is a person. When the subject is a **thing** (a non-person noun like _la empresa_, _la película_), write **`3rd person singular`** or **`3rd person plural`** and name the subject in parentheses, rather than "él"/"ella". (In general Spanish, _él/ella_ can refer to things or animals; this convention just keeps the labels unambiguous for non-person subjects.)
+    - Right: `<b>creció</b> · crecer (to grow) · preterite (simple past), 3rd person singular (la empresa)`
+    - Wrong: `<b>creció</b> · crecer (to grow) · preterite (simple past), ella`
 - **Nouns, adjectives, other:** `<b>{word as it appears}</b> · {part of speech}{, gender for nouns} · base: {base form}` (drop "base:" if identical to the word).
   - Example: `<b>la cocina</b> · noun, feminine`
 
