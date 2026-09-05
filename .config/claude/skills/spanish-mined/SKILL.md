@@ -24,7 +24,7 @@ First, go through the list **with the user to decide which terms they actually w
 - Then continue with the tracker check and card generation for the kept terms only.
 - A single word (not a list) doesn't need this curation step - but still run the tracker check below before making its cards.
 
-**When working through a list, go strictly one term at a time: generate that term's cards, get approval, then ADD them to Anki (run the script) right away - before moving to the next term.** "Approve and generate one by one" means each approved term is added immediately; do NOT stockpile approved terms and batch-add them at the end. After a term is added, update the tracker for it and only then present the next term.
+**When working through a list, go strictly one term at a time: present that term's cards, get approval, then move to the next term - one by one, all the way through the list.** Do NOT run the script or add anything to Anki as you go. Instead, collect each term's approved cards and **wait until the whole list has been worked through, then add every approved card to Anki at the very end** (see "Adding the cards"). Only after the batch has been added do you update the tracker for all the terms that were added.
 
 ## Check the tracker first (avoid duplicates)
 
@@ -55,11 +55,17 @@ This deck is for **vocabulary and phrases** mined from lessons/videos - nouns, a
 
 ### Verbs
 
-**Verbs are treated exactly like any other word: learn the meaning in context, do not drill conjugations.** Write **one sentence per main meaning** - cover the core everyday senses (e.g. _quedar_ = to stay/remain, to suit/fit, to agree, to be located), but **skip narrow regional/colloquial or idiomatic uses** unless the user asks for them.
+**Verbs are treated exactly like any other word: learn the meaning in context, do not drill conjugations.**
+Write **one sentence per main meaning** - cover the core everyday senses (e.g. _quedar_ = to stay/remain, to suit/fit, to agree, to be located), but **skip narrow regional/colloquial or idiomatic uses** unless the user asks for them.
 
-- Use the **infinitive** or a **simple present** or **simple past (preterite)** form - whichever reads most naturally in the sentence. Do NOT generate multiple conjugations of the same verb across cards; the goal is meaning, not form practice.
+**Every verb must have both an infinitive-form card and a conjugated-form card.**
+Across a verb's cards, always include **at least one card that uses the plain infinitive** and **at least one card that uses a conjugated form**, so the learner sees both the dictionary form and the word in action.
+
+- **Single-meaning verb:** still make **two cards** for that one meaning - one sentence using the infinitive and one sentence using a conjugated form (two different sentences).
+- **Multi-meaning verb:** write one sentence per meaning (so 2+ cards), and **spread the forms** across those cards so at least one is infinitive and at least one is conjugated. Having more than two cards is fine.
+- For the conjugated form, use a **simple present** or **simple past (preterite)** - whichever reads most naturally in the sentence. Do NOT pile on extra tenses or generate multiple conjugations of the same verb; one clean conjugated form is enough. The goal is meaning plus seeing base vs. conjugated form, not conjugation drilling.
 - Keep any other verbs in the sentence simple (common present-tense forms) so the sentence never gets harder than the target.
-- The grammar `note` still labels the form that appears (see "Grammar note" below) - that labelling is for reference, not a signal to vary the conjugation.
+- The grammar `note` labels the form that appears on each card (see "Grammar note" below).
 
 ### Gender agreement (adjectives and people-nouns)
 
@@ -125,7 +131,7 @@ Show the user each card's text - the Spanish sentence, the English translation, 
 - **Default: always approve one by one.** Show each term's cards and get approval before moving to the next, no matter how many cards there are. Never batch approval on your own initiative.
 - **Only skip per-card approval if the user explicitly says so** (e.g. "just generate them all", "don't make me approve each one"). In that case, **do not print the cards at all** - printing them clogs the terminal and defeats the purpose of skipping. Just write the JSON, run the script (which generates the audio and adds the cards), and report the summary of what was added.
 
-Approval is about reviewing the card **text** - it does not change how the script runs. Once a **term's** cards are approved, collect that term's cards into one JSON file and run the script on them **right away**. The "single run" rule is per term: the script takes that term's list and adds every card for it in one run - it is never run per individual card, but it IS run per term as you work through a list. Do not wait until every term on a list is approved to start adding; add each term as soon as it is approved (see "Curate the list first"), then move to the next term.
+Approval is about reviewing the card **text** - it does not change how the script runs. As each **term's** cards are approved, collect them (do NOT run the script yet); keep going through the list one term at a time until every term has been approved. **Then, at the very end, write all the approved cards into one JSON file and run the script once on the whole batch.** Do not add terms to Anki as you go - hold them and add them together at the end (see "Curate the list first").
 
 ## Adding the cards (the script)
 
