@@ -105,7 +105,7 @@ return {
         Snacks.picker.files {
           hidden = true,
           ignored = true,
-          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx" },
+          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx", "generated" },
         }
       end,
       desc = "Find Files",
@@ -116,7 +116,7 @@ return {
         Snacks.picker.grep {
           hidden = true,
           ignored = true,
-          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx" },
+          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx", "generated" },
         }
       end,
       desc = "Grep",
@@ -132,7 +132,7 @@ return {
         Snacks.picker.todo_comments {
           hidden = true,
           ignored = true,
-          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx" },
+          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx", "generated" },
         }
       end,
       desc = "Todo",
