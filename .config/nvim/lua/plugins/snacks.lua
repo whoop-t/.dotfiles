@@ -102,13 +102,23 @@ return {
     {
       "<leader>ff",
       function()
-        Snacks.picker.files { hidden = true, ignored = true, exclude = { "node_modules", "dist", ".angular", ".turbo" } }
+        Snacks.picker.files {
+          hidden = true,
+          ignored = true,
+          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx" },
+        }
       end,
       desc = "Find Files",
     },
     {
       "<leader>fw",
-      function() Snacks.picker.grep { hidden = true, ignored = true, exclude = { "node_modules", "dist", ".angular", ".turbo" } } end,
+      function()
+        Snacks.picker.grep {
+          hidden = true,
+          ignored = true,
+          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx" },
+        }
+      end,
       desc = "Grep",
     },
     {
@@ -119,7 +129,11 @@ return {
     {
       "<leader>ft",
       function()
-        Snacks.picker.todo_comments { hidden = true, ignored = true, exclude = { "node_modules", "dist", ".angular", ".turbo" } }
+        Snacks.picker.todo_comments {
+          hidden = true,
+          ignored = true,
+          exclude = { "node_modules", "dist", ".angular", ".turbo", ".nx" },
+        }
       end,
       desc = "Todo",
     },
@@ -274,12 +288,12 @@ return {
           -- format the line item text
           format = function(item)
             local desc = type(item.description) == "table" and table.concat(item.description, " ")
-                or (item.description or "")
+              or (item.description or "")
 
             return {
-              { item.name,                   "SnacksPickerLabel" },
+              { item.name, "SnacksPickerLabel" },
               { " [" .. item.trigger .. "]", "SnacksPickerHint" },
-              { " - " .. desc,               "SnacksPickerComment" },
+              { " - " .. desc, "SnacksPickerComment" },
             }
           end,
           -- copy trigger for snippet on select
@@ -293,7 +307,7 @@ return {
       desc = "Search snippets",
     },
     -- LSP
-    { "gd", function() Snacks.picker.lsp_definitions() end,  desc = "Goto Definition" },
+    { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
     {
       "<leader>lr",
@@ -301,7 +315,7 @@ return {
       nowait = true,
       desc = "References",
     },
-    { "gi", function() Snacks.picker.lsp_implementations() end,  desc = "Goto Implementation" },
+    { "gi", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
     { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
   },
   init = function()
@@ -320,9 +334,10 @@ return {
         Snacks.toggle.indent():map "<leader>ug"
         Snacks.toggle.dim():map "<leader>uD"
         Snacks.toggle
-            .option("laststatus", { off = 0, on = vim.o.laststatus > 0 and vim.o.laststatus or 2 })
-            :map "<leader>uS"
+          .option("laststatus", { off = 0, on = vim.o.laststatus > 0 and vim.o.laststatus or 2 })
+          :map "<leader>uS"
       end,
     })
   end,
 }
+
