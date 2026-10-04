@@ -18,6 +18,7 @@
     ]
   },
   "alwaysThinkingEnabled": true,
+  "promptSuggestionEnabled": false,
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
