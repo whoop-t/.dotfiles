@@ -18,9 +18,37 @@ Use **carro** for "car", never _coche_.
 Use this whenever the user wants to practice, test, quiz, or drill their Spanish - translating sentences in either direction.
 This is **not** about making Anki cards (that is the `spanish-mined` skill); nothing here is ever added to Anki.
 
-## Step 1 - Set up the test (ask these up front)
+## Step 1 - Set up the test
 
-Before writing any sentences, collect four choices from the user.
+**Always ask this first, before anything else:** _"Is this a custom study, or a standard test?"_
+
+- If the user **already made it clear** which one they want (e.g. they opened with a custom request, or asked for "a normal A2 reading test"), don't re-ask - go straight to the matching path below.
+- Otherwise, ask the custom-vs-standard question and wait for their answer.
+
+### If YES (custom study)
+
+Ask the user to **describe the study they want** - what to focus on, and in what format if they have a preference. For example:
+
+- "Quiz me on preterite vs. imperfect, 8 questions."
+- "Fill-in-the-blank with the subjunctive."
+- "Just drill these words: _acordarse, extrañar, aguantar_."
+- "Give me a mix - some reading, some producing - all about cooking."
+- "Conjugate these verbs for me in different tenses."
+- "Short dialogue I translate line by line."
+
+Honor their description directly. Infer whatever they didn't state (direction, level, length, theme, question format) from the request itself, and only ask a quick follow-up if something essential is genuinely ambiguous. If they named a number of questions, use it; otherwise default to **10**.
+
+A custom study can change the **format** of a question - it doesn't have to be a single sentence to translate. Fill-in-the-blank, conjugation prompts, short dialogues, pick-the-right-word, and similar are all fair game when the user asks for them. Whatever the format:
+
+- Still run it as a **test**: one question at a time, no feedback until the end (Step 2's rules).
+- Still **grade leniently** (Step 3) and **review every question** at the end (Step 4), adapting the model-answer/advice wording to the format.
+- Keep everything **natural Mexican Spanish**: no vosotros/vos, _carro_ not _coche_.
+
+Everything else in this skill (grading philosophy, review structure, "In my deck" sourcing, no Anki, no scripts) still applies. The custom request only changes **what** the questions are and **how** they're framed, not how you run or grade the test.
+
+### If NO (standard test)
+
+Collect four choices from the user.
 Ask them together in one message; if the user already stated some, only ask for what's missing.
 
 1. **Direction** (what kind of test):
