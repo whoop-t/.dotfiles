@@ -19,6 +19,7 @@
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
+  "syncClaudeAiSkills": false,
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
