@@ -1,12 +1,13 @@
 ---
 name: spanish-mined
-description: "Create Mexican-Spanish Anki flashcards for a vocabulary word or phrase to learn in context (the 'Spanish Mined from Lessons/Videos' deck). Use whenever the user names a Spanish or English word/phrase they want to study, asks for Spanish cards, or wants example sentences added to Anki. Verbs are welcome and are treated like any other word (meaning in context, not conjugation drilling). Generates as many example sentences as needed to show the term in its main meanings and adds each as its own card with audio."
+description: "Create Mexican-Spanish Anki flashcards for a vocabulary word or phrase to learn in context (the 'Spanish Mined from Lessons/Videos' deck). Use whenever the user names a Spanish or English word/phrase they want to study, asks for Spanish cards, or wants example sentences added to Anki. Verbs are welcome and are treated like any other word (meaning in context, not conjugation drilling). Generates as many example sentences as needed to show the term in its main meanings and adds each as its own card with audio. Every term also gets one word-only card in the 'Spanish Word Recall' deck (front: the word, back: meaning + one example sentence, no audio)."
 user-invocable: true
 ---
 
 # spanish-mined
 
 Turn a Spanish vocabulary word or phrase into Anki flashcards that teach it in context, with Mexican-Spanish audio.
+Every term is added to **two decks**: the sentence cards go to the mined deck, and one word-only **recall card** goes to the "Spanish Word Recall" deck (see "Recall card" below).
 The user just names a term to learn; this skill knows the rest, so they never have to re-explain the format.
 Verbs are welcome here too - they are learned for their meaning in context, just like any other word (see "Verbs" below).
 
@@ -24,7 +25,7 @@ First, go through the list **with the user to decide which terms they actually w
 - Then continue with the tracker check and card generation for the kept terms only.
 - A single word (not a list) doesn't need this curation step - but still run the tracker check below before making its cards.
 
-**When working through a list, go strictly one term at a time: present that term's cards, get approval, then move to the next term - one by one, all the way through the list.** Do NOT run the script or add anything to Anki as you go. Instead, collect each term's approved cards and **wait until the whole list has been worked through, then add every approved card to Anki at the very end** (see "Adding the cards"). Only after the batch has been added do you update the tracker for all the terms that were added.
+**When working through a list, go strictly one term at a time: present that term's cards, get approval, then move to the next term - one by one, all the way through the list.** Do NOT run the script or add anything to Anki as you go. Instead, collect each term's approved cards (sentence cards and its recall card) and **wait until the whole list has been worked through, then add every approved card to both decks at the very end** (see "Adding the cards"). Only after the batch has been added do you update the tracker for all the terms that were added.
 
 ## Check the tracker first (avoid duplicates)
 
@@ -33,7 +34,8 @@ It lists every term that already has cards, grouped by deck.
 
 - If a term is already in the tracker, do **not** silently make a duplicate. Tell the user it already has cards (and in which deck), and ask whether to skip it or make cards anyway.
 - Only generate cards for terms that are new (or that the user explicitly wants remade).
-- After cards are successfully added, **update the tracker**: add each new term under the matching deck's section (create the section if the deck is new).
+- After cards are successfully added, **update the tracker**: add each new term under the matching deck's section (create the section if the deck is new). The recall card is not tracked separately: every mined term has one.
+- **Tracker entries use the same dictionary form as the recall card front**: nouns always carry their definite article (`el cojín`, `la pena`, never bare `pena`), verbs are the bare infinitive, phrases keep their placeholders.
 
 ## Card design (fixed - do not ask about the format)
 
@@ -74,6 +76,25 @@ When the term **inflects for gender** - an **adjective** (e.g. _chingón/chingon
 - If the term only warrants **one card**, just pick whichever form reads naturally - one form is fine, you do not need both.
 - The `note`'s `base:` still lists the dictionary (masculine) form; the `focus` uses the surface form as it appears in that sentence (see "Grammar note" and "Adding the cards").
 - This does **not** apply to fixed-gender object nouns (_la carta_, _el sistema_) - those have one gender, so there is nothing to vary.
+
+## Recall card (one per term - always)
+
+The sentence cards teach the word in context, but context can carry the answer.
+So **every term also gets exactly one recall card** in the separate **"Spanish Word Recall"** deck, which checks the word is understood on its own.
+
+- **Front:** the term by itself, in dictionary form. No sentence, no hint, no audio. The form depends on the word type:
+  - **Verbs:** the bare infinitive, never a conjugated form or a pronoun: `quedar`, `dirigir`.
+  - **Reflexive verbs are separate terms** with their own recall card, since the meaning differs: `dirigir` (to direct) and `dirigirse` (to head toward) are two cards, just as they are two terms in the mined deck. The reflexive keeps its `-se`: `mudarse`, `quejarse`.
+  - **Nouns:** always with the definite article so the gender shows: `el cojín`, `la página`, `la pena`.
+  - **Adjectives and people-nouns:** masculine singular dictionary form: `celoso`, `el profesor`.
+  - **Phrases and constructions:** exactly as tracked, placeholders included: `desde hace + [tiempo]`, `tener chance (de)`, `vale la pena`.
+  - **Adverbs, connectors, other:** as is: `ya no`, `a pesar de`, `pronto`.
+  - Separately tracked variants each get their own recall card: `igual` and `igual de`, `el diario` and `a diario`.
+- **Back:** the English meaning(s) - all core senses, semicolon separated, most common first - then **one** of the term's approved mined sentences (target bold+italic) with its English translation. No grammar note, **no audio.** For verbs write the senses as `to ...`: `to stay, remain; to suit; to agree`.
+- Pick the sentence that shows the most common meaning. Do not write a new sentence for it.
+- Show the recall card together with the term's sentence cards when asking for approval (one short line: front / back meaning / which sentence). It is approved with them.
+- Recall cards are added by `add_recall_card.py`, not `add_card.py` (see "Adding the cards").
+- No separate tracking: the mined deck list in the tracker covers both decks.
 
 ## Grammar note (the `note` field)
 
@@ -138,13 +159,14 @@ Show the user each card's text - the Spanish sentence, the English translation, 
 **Before showing each card, verify the note lists every verb in the sentence** (see "Always give every verb in the sentence its own note line" above). Re-read the Spanish sentence, count the verbs, and confirm the note has a line for each one - this is the most commonly missed step.
 
 - **Default: always approve one by one.** Show each term's cards and get approval before moving to the next, no matter how many cards there are. Never batch approval on your own initiative.
-- **Only skip per-card approval if the user explicitly says so** (e.g. "just generate them all", "don't make me approve each one"). In that case, **do not print the cards at all** - printing them clogs the terminal and defeats the purpose of skipping. Just write the JSON, run the script (which generates the audio and adds the cards), and report the summary of what was added.
+- **Only skip per-card approval if the user explicitly says so** (e.g. "just generate them all", "don't make me approve each one"). In that case, **do not print the cards at all** - printing them clogs the terminal and defeats the purpose of skipping. Just write both JSON files, run `add_card.py` (which generates the audio and adds the sentence cards) and then `add_recall_card.py` (recall cards), and report the summary of what was added.
 
-Approval is about reviewing the card **text** - it does not change how the script runs. As each **term's** cards are approved, collect them (do NOT run the script yet); keep going through the list one term at a time until every term has been approved. **Then, at the very end, write all the approved cards into one JSON file and run the script once on the whole batch.** Do not add terms to Anki as you go - hold them and add them together at the end (see "Curate the list first").
+Approval is about reviewing the card **text** - it does not change how the script runs. As each **term's** cards are approved, collect them (do NOT run the script yet); keep going through the list one term at a time until every term has been approved. **Then, at the very end, write all the approved sentence cards into one JSON file and run `add_card.py` once on the whole batch, and write the recall cards into a second JSON file and run `add_recall_card.py` once.** Do not add terms to Anki as you go - hold them and add them together at the end (see "Curate the list first").
 
 ## Adding the cards (the script)
 
-The script lives at `~/Documents/spanish/add_card.py` and does the mechanical part: ElevenLabs audio + AnkiConnect.
+Two scripts live in `~/Documents/spanish/`: `add_card.py` (sentence cards: ElevenLabs audio + AnkiConnect) and `add_recall_card.py` (recall cards: AnkiConnect only).
+**They always run together, in the same step: never add a term's sentence cards without also adding its recall card, and vice versa.**
 
 1. Write the cards to a JSON file (e.g. in the scratchpad or /tmp) as a list of objects (one object per sentence/meaning):
 
@@ -186,9 +208,32 @@ The script lives at `~/Documents/spanish/add_card.py` and does the mechanical pa
    The script generates Mexican-Spanish audio for each sentence, embeds it, and adds each card to the deck.
    It reports what was added or skipped. If the deck doesn't exist yet, the script creates it.
 
+3. **Recall cards.** Write one object per term to a second JSON file and run the recall script on it (same batch moment as step 2):
+
+   ```json
+   [
+     {
+       "term": "la cocina",
+       "meaning": "kitchen",
+       "example": "Voy a la cocina por un vaso de agua.",
+       "example_english": "I'm going to the kitchen for a glass of water.",
+       "focus": "cocina"
+     }
+   ]
+   ```
+
+   ```
+   python3 ~/Documents/spanish/add_recall_card.py <recall.json> "Spanish Word Recall"
+   ```
+
+   Fields: `term` (dictionary form, shown alone on the front), `meaning` (English senses), `example` (one of the approved mined sentences, plain text), `example_english`, `focus` (surface form to bold in the example).
+   No audio is generated. The deck is always "Spanish Word Recall" unless the user names another.
+   `python3 ~/Documents/spanish/add_recall_card.py lookup "<term>"` prints a term's existing mined sentences (for backfilling older terms).
+
 ## Choosing the deck (always ask if unspecified)
 
-The target deck is decided per request and passed to the script - **never assume or hardcode it**.
+The target deck for the **sentence cards** is decided per request and passed to the script - **never assume or hardcode it**.
+The **recall card** always goes to "Spanish Word Recall" unless the user names another deck for it.
 
 - If the user names a deck, use exactly that name.
 - If the user does NOT name a deck, **ask which deck before generating**. It helps to list the current decks so they can pick one; get them with the AnkiConnect `deckNames` action (`http://127.0.0.1:8765`).
