@@ -165,7 +165,7 @@ Approval is about reviewing the card **text** - it does not change how the scrip
 
 ## Adding the cards (the script)
 
-Two scripts live in `~/Documents/spanish/`: `add_card.py` (sentence cards: ElevenLabs audio + AnkiConnect) and `add_recall_card.py` (recall cards: AnkiConnect only).
+Two scripts live in `~/Documents/spanish/`: `add_card.py` (sentence cards: ElevenLabs audio + AnkiConnect) and `add_recall_card.py` (recall cards: ElevenLabs word audio + AnkiConnect).
 **They always run together, in the same step: never add a term's sentence cards without also adding its recall card, and vice versa.**
 
 1. Write the cards to a JSON file (e.g. in the scratchpad or /tmp) as a list of objects (one object per sentence/meaning):
@@ -244,10 +244,11 @@ The **recall card** always goes to "Spanish Word Recall" unless the user names a
 - An ElevenLabs API key saved at `~/.elevenlabs-api-key` (or the `ELEVENLABS_API_KEY` env var).
 - Python 3 (the script uses only the standard library for HTTP).
 
-## Config (set in ~/Documents/spanish/add_card.py)
+## Config (set in ~/Documents/spanish/spanish_audio.py, shared by all the card scripts)
 
 - Deck name - **not** a config value; it is a required argument passed each run (see "Choosing the deck" above).
 - Audio provider: **ElevenLabs**. `VOICE_ID` = `p1Q3ihQuPjyyENa1RGtl`, `MODEL_ID` = `eleven_multilingual_v2` (top quality; `eleven_flash_v2_5` is cheaper).
+- Speed 1.1 (`VOICE_SETTINGS`), and every clip is padded with ~0.4s of silence before and 0.5s after (`LEAD_SILENCE_MS` / `TAIL_SILENCE_S`) via ffmpeg, for sentence and recall audio alike.
 - API key is read from `~/.elevenlabs-api-key` (or `$ELEVENLABS_API_KEY`); never hardcoded or printed.
 
 ## Notes
