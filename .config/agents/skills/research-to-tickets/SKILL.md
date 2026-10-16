@@ -56,7 +56,7 @@ Ask only for what is missing; if the user already supplied it, do not re-ask.
 - **Scope hints** - which repos, services, or areas are in play, and anything explicitly out of scope.
 - **Jira target** - which project (key) the tickets will go in, and whether they belong under an existing epic.
   If the user does not know the key, list visible projects with the Atlassian MCP and ask them to pick.
-- **Type of work** - new feature, change to existing behavior, bug, tech debt, spike.
+- **Type of work** - new feature, change to existing behavior, bug, tech debt.
   This decides how much production investigation to do.
 
 Restate the request in two or three sentences so the user can correct any misunderstanding, then start researching.
@@ -76,12 +76,42 @@ Always:
   Note anything already in progress so the plan builds on it instead of colliding with it.
 - Check GitHub for recent PRs and open issues in the touched areas, and for any in-flight branches that overlap.
 
-For bugs and production behavior, also:
+#### Bug investigation
 
-- Query New Relic to confirm the symptom: error class and message, affected endpoints or transactions, first seen, frequency, and whether it is trending.
-- Pull a few representative stack traces or log lines and tie them back to specific code locations.
-- Check for related alerts, deploy markers, or recent changes that line up with the first occurrence.
-- Record the NRQL you used so it can go into the ticket for whoever verifies the fix.
+When the request is a bug, the research phase is an investigation.
+The goal is to arrive at a confirmed symptom, a reproduction, a root cause (or the best-supported hypothesis), and the change that introduced it, before writing a plan.
+Use every source below; a bug ticket written from the report alone is not good enough.
+
+New Relic (confirm and measure the symptom):
+
+- Query errors for the service or transaction named in the report: error class and message, affected endpoints or transactions, count, and percentage of requests.
+- Find the first occurrence and the trend since: is it new, growing, periodic, or tied to a specific time of day or a deploy.
+- Pull a few representative stack traces and log lines with request attributes (user, tenant, input shape, version) and tie each back to a specific file and function.
+- Check related alerts, deploy markers, and throughput or latency changes that line up with the first occurrence.
+- Check whether the same error fires in other services or environments, to tell a shared-library or infra cause from a local one.
+- Record every NRQL query you used; they go in the ticket so the fix can be verified with the same queries.
+
+GitHub (find what changed):
+
+- Use `gh-axi` to list PRs merged to the affected area in the window just before the first occurrence, and read the ones that touch the code path from the stack trace.
+- Check deploy or release history to map the first occurrence to a release, then to the PRs in that release.
+- Search open and closed issues and PRs for the error message or symptom; it may already be known, fixed elsewhere, or partially addressed.
+- If the repo is local, use `git log` and `git blame` on the implicated lines to name the suspect commit and author, and note any in-flight PRs that touch the same code.
+
+Jira (check for prior history):
+
+- Search for earlier bugs with the same symptom, error, or component; link them rather than duplicating, and note whether a previous fix regressed.
+- Check for in-progress tickets that already cover the fix or a related refactor.
+
+Codebase (find the cause):
+
+- Trace the code path from the stack trace or reproduction to the failing logic, and explain why it fails for the observed inputs.
+- Try to reproduce locally with a test or a direct invocation when it is practical; a reproduction is the strongest evidence.
+- Look for the same pattern elsewhere in the codebase that would fail the same way.
+- Identify the blast radius: who is affected, what data may be wrong or lost, and whether any cleanup or backfill is needed beyond the code fix.
+
+Finish the investigation with a short causal chain the user can check: symptom, evidence, root cause, introducing change, affected users and data.
+If you could not find the root cause, say what you ruled out and what the best hypothesis is, and ask the user how they want to proceed rather than guessing a fix.
 
 For features and changes, also:
 
@@ -124,7 +154,7 @@ Propose the set of tickets that implements the agreed plan, and iterate until th
 
 Propose, for each ticket:
 
-- **Type** - Epic, Story, Task, Bug, Sub-task, or Spike, using whatever issue types the target project actually has (check with the Atlassian MCP issue type metadata).
+- **Type** - Epic, Story, Task, Bug, or Sub-task, using whatever issue types the target project actually has (check with the Atlassian MCP issue type metadata).
 - **Title** - short, imperative, specific. Example: "Add retry with backoff to payment webhook handler".
 - **Parent** - the epic (new or existing) it belongs under, if any.
 - **Dependencies** - which tickets must land first.
@@ -207,10 +237,63 @@ Formatting notes:
 - Use Markdown headings as shown; the Atlassian MCP accepts Markdown for descriptions.
   If a description renders badly, fall back to plain paragraphs and lists rather than Jira wiki markup.
 - Epics get a shorter version: Summary, Goal, the ordered list of child tickets with one line each, and overall acceptance criteria.
-- Bugs always include a "Reproduction" section under Context with exact steps or the request that triggers it.
+- Bug tickets use the bug variant below; its Context section carries the investigation evidence and its tasks always include verification with the recorded NRQL.
 - Keep the Summary honest and short; put detail in Context and Tasks.
 - Never use the em dash; use a plain dash.
 - No emojis.
+
+## Bug ticket variant
+
+A bug ticket follows the same template with these changes, so the fixer has the investigation in hand and the verifier knows exactly what to check.
+
+```markdown
+## Summary
+
+Two to four sentences: what is broken, who or what it affects, how severe it is, and the root cause in one sentence if known.
+
+## Reproduction
+
+- Exact steps, request, or input that triggers it, and the environment.
+- Expected behavior versus actual behavior.
+- A local reproduction (test name or command) if one was found.
+
+## Evidence
+
+- New Relic: error class and message, affected transactions, first seen, frequency and trend, sample trace or log lines.
+- The NRQL queries used, verbatim, so the fix can be verified with the same queries.
+- Related alerts or deploy markers.
+
+## Root cause
+
+- The failing code path (repo and path, with line references) and why it fails for the observed inputs.
+- The introducing change: PR or commit link and the release it shipped in, if identified.
+- Prior related tickets, if any, and whether this is a regression.
+- If the cause is not confirmed: what was ruled out and the leading hypothesis.
+
+## Tasks
+
+- [ ] Fix the failing logic in <path>.
+- [ ] Add a regression test that fails before the fix and passes after.
+- [ ] Check the same pattern elsewhere (list the places found) and fix or ticket them.
+- [ ] Clean up or backfill any affected data, if applicable.
+- [ ] After deploy, re-run the recorded NRQL and confirm the error rate drops to zero.
+
+## Guidelines
+
+- Patterns to follow, constraints, and what is out of scope (for example, a broader refactor goes in its own ticket).
+
+## Acceptance criteria
+
+- [ ] The reproduction no longer triggers the error.
+- [ ] The regression test passes in CI.
+- [ ] The recorded NRQL shows no new occurrences for an agreed window after deploy.
+
+## Dependencies
+
+- Blocked by / Blocks, as above.
+```
+
+When a bug investigation uncovers more than one problem, make one Bug ticket per distinct cause and group them under an epic only if they share a theme.
 
 ## Rules
 
