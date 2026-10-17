@@ -1,13 +1,14 @@
 ---
 name: just_do_it
-description: "Take a Jira ticket key or URL and do the work: read the ticket and everything it links to, ask only the clarifying questions that matter, create a branch named after the ticket, assign the ticket to the user if it is not already theirs, move the ticket to In Progress, implement the change, then run a bounded QA loop where a separate agent runs tests and reviews the diff until it passes (max three rounds, no heavy multi-agent review). Never commits or pushes; ends by presenting the finished work for the user's own review. Use whenever the user gives a ticket and says to do it, implement it, work on it, or pick it up."
+description: "Take a Jira ticket key or URL and do the work: read the ticket and everything it links to, ask only the clarifying questions that matter, create a branch named after the ticket, assign the ticket to the user if it is not already theirs, move the ticket to In Progress, implement the change, then run a bounded QA loop where a separate agent runs tests and reviews the diff until it passes (max three rounds, no heavy multi-agent review). Stops before committing and presents the finished work for the user's review; once the user gives the go-ahead, commits, pushes, and opens the PR with a short summary. Use whenever the user gives a ticket and says to do it, implement it, work on it, or pick it up."
 user-invocable: true
 ---
 
 # just_do_it
 
 Given a Jira ticket, do the work end to end on a local branch and hand it back for review.
-The user reviews the uncommitted result, then commits, pushes, and opens the PR themselves.
+The user reviews the uncommitted result.
+Once they give the go-ahead, commit, push, and open the PR.
 
 Guiding principles:
 
@@ -16,7 +17,8 @@ Guiding principles:
 - Keep the QA loop sensible and bounded.
   One QA agent, a few rounds, normal effort.
   No ultra review, no fan-out, no workflows.
-- Never commit, never push, never open a PR, never transition the ticket past In Progress.
+- Never commit, push, or open a PR until the user has reviewed the work and explicitly said to ship it.
+- Never transition the ticket past In Progress.
 
 ## When to use
 
@@ -107,8 +109,8 @@ Do the work on the branch.
   If you discover necessary adjacent work, do it only if it is small and required for this ticket; otherwise note it for the final report.
 - Write or update tests alongside the change, in the project's existing test style.
 - Run the relevant tests, lint, and type checks yourself as you go, so the QA agent starts from something that already passes locally.
-- Do not commit.
-  All work stays as uncommitted changes in the working tree.
+- Do not commit yet.
+  All work stays as uncommitted changes in the working tree until the user has reviewed it.
 - Post brief progress updates as you go so the user can follow, but keep them short.
 
 ### Step 5 - QA loop
@@ -143,9 +145,9 @@ After each round:
 - On FAIL, fix the blocking findings, re-run the affected tests yourself, and start the next round with a brief note of what changed since the last round.
 - Fix non-blocking findings only if they are quick and clearly correct; otherwise list them in the final report for the user to decide.
 
-### Step 6 - Present the finished work
+### Step 6 - Present the finished work and wait for the go-ahead
 
-Do not commit or push.
+Do not commit or push yet.
 Present the result so the user can review it in the working tree.
 
 Include:
@@ -156,18 +158,46 @@ Include:
 - **How it was verified** - what tests, lint, and type checks ran and their results, how many QA rounds it took, and anything the QA agent could not check.
 - **Decisions and assumptions** - choices you made that the ticket did not specify.
 - **Open items** - non-blocking QA findings, adjacent work you noticed but left out, and anything the user should look at closely.
-- **Suggested commit message and PR title** - in Conventional Commits format with the ticket key, for the user to use or edit.
+- **Commit message and PR title** - in Conventional Commits format with the ticket key.
   Example: `fix: handle null user on login (PROJ-456)`.
-  If `.github/PULL_REQUEST_TEMPLATE.md` exists, mention that the PR should follow it.
+  These are what you will use in Step 7, so the user can correct them now.
+- **Draft PR summary** - a SHORT description of the work.
+  This is the body you will use in Step 7, so write it as the final text, not as notes.
+  Keep it to a few sentences or a handful of bullets, and never longer than the diff deserves.
+  Say what changed and why, in plain language, and link the ticket.
+  The ticket is the place for background, investigation, and detail; do not repeat it in the PR.
+  Leave out the file-by-file list, the QA narrative, and the decision log; those live in this report and in the ticket.
+  If `.github/PULL_REQUEST_TEMPLATE.md` exists, follow its structure and any rules the repo sets for PRs, but fill each section briefly and omit or leave blank the ones you cannot answer (such as a ticket field you do not know).
 
-Then stop.
-The user reviews, commits, pushes, and opens the PR.
-Only if the user asks afterwards should you help with the commit, the push, or the PR.
+Then stop and wait.
+The user reviews the working tree and may ask for changes.
+Make any requested changes, re-run the affected tests, and present again.
+Do not move on to Step 7 until the user explicitly says to commit, push, ship it, or open the PR.
+
+### Step 7 - Ship, only on the user's go-ahead
+
+Once the user has given the go-ahead:
+
+1. Confirm the working tree contains only the intended changes (`git status`, `git diff --stat`).
+   If anything unexpected is there, ask before staging it.
+2. Commit with the commit message from the report, adjusted for any review feedback.
+   Follow the repo's commit conventions.
+   Do not add yourself as a co-author or add any agent trailer.
+3. Push the branch to the remote and set upstream.
+4. Open the PR against the default branch with the PR title from the report, using the `gh-axi` skill.
+   Use the draft PR summary from the report as the body, adjusted for review feedback.
+   Keep it SHORT: what changed and why, a link to the ticket, nothing more.
+   If `.github/PULL_REQUEST_TEMPLATE.md` exists, follow it, fill each section briefly, and leave blank anything you do not know.
+   Open as a draft PR only if the user asks for one.
+5. Report the PR URL and the final Jira status.
+   Do not transition the ticket; it stays In Progress.
 
 ## Rules
 
-- Never commit, push, create a PR, or tag.
-  The only git write operations in this skill are fetching, creating the branch, and editing files in the working tree.
+- Never commit, push, or open a PR before the user has reviewed the work and explicitly given the go-ahead.
+  Until then the only git write operations are fetching, creating the branch, and editing files in the working tree.
+  Never tag, never force-push, never merge.
+- Only one commit, push, and PR per go-ahead; follow-up changes after the PR is open need their own go-ahead.
 - Never transition the ticket to anything other than In Progress, and never add Jira comments unless the user asks.
 - Never assign the ticket to anyone other than the user, and never reassign a ticket that belongs to someone else without asking.
 - Never run heavy review machinery: no ultra review, no multi-agent fan-out, no workflows, no more than three QA rounds.
