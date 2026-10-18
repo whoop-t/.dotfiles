@@ -199,7 +199,7 @@ Two scripts live in `~/Documents/spanish/`: `add_card.py` (sentence cards: Eleve
    Fields per card: `spanish` (the sentence), `english` (the translation), `note` (the grammar note - see below), `focus` (the target word/phrase **exactly as it appears in that sentence** - the script bold+italics it on the front so it's clear which word the card teaches; the audio is generated from the plain sentence, so tags never reach the TTS), and `audio` (the mp3 filename).
    The `focus` is the surface form in the sentence, which may differ from the dictionary form in `note` (e.g. note `la cocina` but focus `cocina`; a plural/agreeing adjective; or the conjugated part of an expression like `tengo chance de`). Name the audio `<term>_1.mp3`, `<term>_2.mp3`, `<term>_3.mp3`, ... (a running index for however many sentences there are) using a slug of the term, so backups are recognizable.
 
-2. Run the script (Anki must be open). **The deck name is a required argument** - it is never hardcoded:
+2. Run the script (Anki must be open). **The deck name is a required argument** - pass "Spanish Mined from Lessons/Videos" unless the user named another deck:
 
    ```
    python3 ~/Documents/spanish/add_card.py <cards.json> "<Deck Name>"
@@ -230,13 +230,14 @@ Two scripts live in `~/Documents/spanish/`: `add_card.py` (sentence cards: Eleve
    The script generates word-only audio for the front (speakable text is derived from the term: placeholders and English hints dropped, `(de)` read, `el/la X` read as just `X`, `cargado/a` read as both forms). Pass `--no-audio` to skip it. The deck is always "Spanish Word Recall" unless the user names another.
    `python3 ~/Documents/spanish/add_recall_card.py lookup "<term>"` prints a term's existing mined sentences (for backfilling older terms).
 
-## Choosing the deck (always ask if unspecified)
+## Choosing the deck (default: the mined deck)
 
-The target deck for the **sentence cards** is decided per request and passed to the script - **never assume or hardcode it**.
+The **sentence cards** always go to **"Spanish Mined from Lessons/Videos"** unless the user names another deck.
+Do not ask which deck to use.
 The **recall card** always goes to "Spanish Word Recall" unless the user names another deck for it.
 
 - If the user names a deck, use exactly that name.
-- If the user does NOT name a deck, **ask which deck before generating**. It helps to list the current decks so they can pick one; get them with the AnkiConnect `deckNames` action (`http://127.0.0.1:8765`).
+- If the user does NOT name a deck, use "Spanish Mined from Lessons/Videos" without asking.
 
 ## Requirements
 
@@ -246,7 +247,7 @@ The **recall card** always goes to "Spanish Word Recall" unless the user names a
 
 ## Config (set in ~/Documents/spanish/spanish_audio.py, shared by all the card scripts)
 
-- Deck name - **not** a config value; it is a required argument passed each run (see "Choosing the deck" above).
+- Deck name - **not** a config value; it is a required argument passed each run, defaulting to "Spanish Mined from Lessons/Videos" (see "Choosing the deck" above).
 - Audio provider: **ElevenLabs**. `VOICE_ID` = `p1Q3ihQuPjyyENa1RGtl`, `MODEL_ID` = `eleven_multilingual_v2` (top quality; `eleven_flash_v2_5` is cheaper).
 - Speed 1.1 (`VOICE_SETTINGS`), and every clip is padded with ~0.4s of silence before and 0.5s after (`LEAD_SILENCE_MS` / `TAIL_SILENCE_S`) via ffmpeg, for sentence and recall audio alike.
 - API key is read from `~/.elevenlabs-api-key` (or `$ELEVENLABS_API_KEY`); never hardcoded or printed.
