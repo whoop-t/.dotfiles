@@ -96,11 +96,16 @@ Once the plan is clear and any questions are answered:
    If the ticket is assigned to someone else, tell the user who holds it and ask before reassigning; do not take it over silently.
    If the assignment fails, report it and continue with the work.
 5. Transition the Jira ticket to In Progress through the Atlassian MCP.
+   This must happen before any implementation work starts; do not skip it or defer it to later.
    List the available transitions first and pick the one that lands in the In Progress status.
    If the ticket is already In Progress, leave it.
-   If the transition fails, report it and continue with the work.
+   After transitioning, re-fetch the ticket and confirm its status is now In Progress.
+   Tell the user in one line that the ticket is In Progress.
+   If the transition fails or no In Progress transition exists, tell the user right away, then continue with the work and include it in the final report.
 
 ### Step 4 - Implement
+
+Before writing any code, confirm Step 3 is complete: the branch exists, and the ticket is In Progress (or you have already told the user why it could not be moved).
 
 Do the work on the branch.
 
@@ -198,6 +203,7 @@ Once the user has given the go-ahead:
   Until then the only git write operations are fetching, creating the branch, and editing files in the working tree.
   Never tag, never force-push, never merge.
 - Only one commit, push, and PR per go-ahead; follow-up changes after the PR is open need their own go-ahead.
+- Always move the ticket to In Progress before starting implementation.
 - Never transition the ticket to anything other than In Progress, and never add Jira comments unless the user asks.
 - Never assign the ticket to anyone other than the user, and never reassign a ticket that belongs to someone else without asking.
 - Never run heavy review machinery: no ultra review, no multi-agent fan-out, no workflows, no more than three QA rounds.
