@@ -1,6 +1,6 @@
 ---
 name: review-pr
-description: "Review a GitHub pull request the user points at (number or URL). Reads the PR, its linked Jira ticket, the diff, CI status, and existing review threads, then does a solid single-pass review (no ultra, no multi-agent fan-out). Reports issues ranked most important first, lists the files the user should read with their own eyes and why, then decides together with the user which findings, if any, to post as PR comments. Every comment posted is signed '-Claude'. Never approves, requests changes, or merges. Use whenever the user asks to review, look over, check, or give feedback on a PR."
+description: "Review a GitHub pull request the user points at (number or URL). Reads the PR, its linked Jira ticket, the diff, CI status, and existing review threads, then does a solid single-pass review (no ultra, no multi-agent fan-out). Reports issues ranked most important first, lists the files the user should read with their own eyes and why, then decides together with the user which findings, if any, to post as PR comments. Every comment posted is signed '- Claude + tommy'. Never approves, requests changes, or merges. Use whenever the user asks to review, look over, check, or give feedback on a PR."
 user-invocable: true
 ---
 
@@ -18,7 +18,7 @@ Guiding principles:
 - The user's eyes are the final gate.
   Make it easy for them to spend their attention where it counts.
 - Nothing is posted to the PR until the user agrees on the exact set of comments.
-- Every comment posted to GitHub is signed `-Claude` on its own last line so readers know it came from the AI.
+- Every comment posted to GitHub is signed `- Claude + tommy` on its own last line so readers know it was written by the AI and reviewed by tommy.
 
 ## When to use
 
@@ -130,7 +130,7 @@ When the user confirms:
   ```
   <comment text>
 
-  -Claude
+  - Claude + tommy
   ```
 
 - Keep comment tone neutral and specific: what, why, suggested fix.
@@ -150,5 +150,5 @@ The only writes this skill performs on GitHub are the comments the user agreed t
   This skill reads and comments only.
 - Rank honestly.
   If there are no blockers, say so; do not invent severity to look thorough.
-- Sign every posted comment with `-Claude` on its own last line, with no exceptions.
+- Sign every posted comment with `- Claude + tommy` on its own last line, with no exceptions.
 - Abide by the repo's `CLAUDE.md`, `AGENTS.md`, and `CODE_PATTERNS.md` when judging conventions.
